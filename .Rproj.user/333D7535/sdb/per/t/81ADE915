@@ -1,14 +1,25 @@
 {
     "collab_server" : "",
+<<<<<<< HEAD
+    "contents" : "## Loading vector data\n\n# vector data are represented by the sp package with three classes:\n# SpatialPoints / SpatialPolygons / SpatialLines\n\n# input of vector data with rgdal::readOGR()\n\nlibrary(rgdal)\nlibrary(sp)\nlibrary(maps)\nlibrary(mapdata)\nlibrary(plyr)\nlibrary(dplyr)\nlibrary(RgoogleMaps)\nlibrary(osmar)\n\nlibrary(raster)  # raster data\nlibrary(rgdal)  # input/output, projections\nlibrary(rgeos)  # geometry ops\nlibrary(spdep)  # spatial dependence\n\ngermany <- readOGR(\"C:/Users/Nadja/8-Freising/03_BioHolz/03_Datasets/DEU_adm_shp\",\"DEU_adm0\")\n\ncsv_file <- read.csv(\"Data/Marburg_data.csv\",sep=\";\")\n\ncsv_file.df <- as.data.frame(csv_file)\nhead(csv_file.df)\n\nbbox(csv_file.spdf)\n\nwhich(as.numeric(csv_file.df$latitude_new)/1000000<50)\n\ncsv_file.df[-which(as.numeric(csv_file.df$longitude_new)/1000000<8),] -> csv_clean.df\n\ncsv_clean.df$latitude_new <- as.numeric(csv_clean.df$latitude_new)/1000000\ncsv_clean.df$longitude_new <- as.numeric(csv_clean.df$longitude_new)/1000000\n\ncsv_clean.spdf <- SpatialPointsDataFrame(csv_clean.df[,c(\"longitude_new\",\"latitude_new\")], \n                                        data = csv_clean.df[c(5:12)])\nbbox(csv_clean.spdf)\n\nGetMap.bbox(c(8.6,8.9),c(50.7,50.9)) -> marburg_region # Google Maps\n\n#  left, bottom, right, and top coordinates\nbbox_osm <- corner_bbox(8.6893,50.7700,8.8145,50.8437) # OpenStreetMap\nmarburg_region_OSM <- get_osm(bbox_osm, source = osmsource_api()) # --> too large\n\n# manually downloaded a map of Hesse from http://download.geofabrik.de/europe/germany/hessen.html\n# and add to a new folder \"VizAward_Data\" which is on the same level as the current directory\n\nHesse_roads <- readOGR(\"../VizAward_Data/hessen-latest.shp\",\"roads\")\n\narea <- extent(raster(xmn = 8.6893, xmx = 8.8145, ymn = 50.7700, ymx = 50.8437))\nHesse_roads_sel <- crop(Hesse_roads, area)\n\nplot(Hesse_roads_sel)\npoints(csv_clean.spdf, col =\"red\")\n",
+=======
     "contents" : "## Loading vector data\n\n# vector data are represented by the sp package with three classes:\n# SpatialPoints / SpatialPolygons / SpatialLines\n\n# input of vector data with rgdal::readOGR()\n\nlibrary(rgdal)\nlibrary(sp)\nlibrary(maps)\nlibrary(mapdata)\nlibrary(plyr)\nlibrary(dplyr)\nlibrary(RgoogleMaps)\n\ngermany <- readOGR(\"C:/Users/Nadja/8-Freising/03_BioHolz/03_Datasets/DEU_adm_shp\",\"DEU_adm0\")\n\ncsv_file <- read.csv(\"Data/Marburg_data.csv\",sep=\";\")\n\ncsv_file.df <- as.data.frame(csv_file)\nhead(csv_file.df)\n\nbbox(csv_file.spdf)\n\nwhich(as.numeric(csv_file.df$latitude_new)/1000000<50)\n\ncsv_file.df[-which(as.numeric(csv_file.df$longitude_new)/1000000<8),] -> csv_clean.df\n\ncsv_clean.df$latitude_new <- as.numeric(csv_clean.df$latitude_new)/1000000\ncsv_clean.df$longitude_new <- as.numeric(csv_clean.df$longitude_new)/1000000\n\ncsv_clean.spdf <- SpatialPointsDataFrame(csv_clean.df[,c(\"longitude_new\",\"latitude_new\")], \n                                        data = csv_clean.df[c(5:12)])\nbbox(csv_clean.spdf)\n\nGetMap.bbox(c(8.6,8.9),c(50.7,50.9)) -> marburg_region\n\n\nPlotOnStaticMap(marburg_region,lat=LatLon2XY(csv_clean.spdf@coords[,2],csv_clean.spdf@coords[,1],zoom=2)$Coords[,1],lon=LatLon2XY(csv_clean.spdf@coords[,2],csv_clean.spdf@coords[,1],zoom=2)$Coords[,2])\npoints()\n",
+>>>>>>> parent of 85880e9... Download of OpenStreetMap data for Hesse
     "created" : 1469452165792.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
+<<<<<<< HEAD
+    "hash" : "3728781466",
+    "id" : "81ADE915",
+    "lastKnownWriteTime" : 1469460411,
+    "last_content_update" : 1469460411684,
+=======
     "hash" : "70259301",
     "id" : "81ADE915",
     "lastKnownWriteTime" : 1469452125,
     "last_content_update" : 1469452125,
+>>>>>>> parent of 85880e9... Download of OpenStreetMap data for Hesse
     "path" : "C:/Users/Nadja/8-Freising/05_Tagungen_Workshops/GfÖ-Tagung 2016/Vizualization_Award/Data_import.R",
     "project_path" : "Data_import.R",
     "properties" : {
