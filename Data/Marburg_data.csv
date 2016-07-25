@@ -1,426 +1,426 @@
-latitude,longitude,elevation_m_asl,name,street,street_no,zip_code,city,tel,category
-"50,809,274","8,771,387",212,Alte Mensa,Reitgasse,11,35037,Marburg,,other_essentials
-"50,801,125","8,772,572",183,Aqua Mar,Sommerbadstr.,41,35037,Marburg,,other_essentials
-"50,803,792","8,756,557",192,Aral,An der Stadtautobahn,,35037,Marburg,,other_essentials
-"50,799,826","8,789,181",270,Aral,Grossseelheimer Str.,93,35039,Marburg,,other_essentials
-"50,817,687","877,492",185,Aral,Krummbogen,4,35039,Marburg,,other_essentials
-"50,799,249","8,762,294",184,Aral,Schwanallee,56,35037,Marburg,,other_essentials
-"50,840,738","8,769,494",186,Avia Tankstelle,Am Kaufmarkt,1,35041,Marburg,,other_essentials
-"5,080,622","87,688",185,C & T - The Coffee & Tea Company & KaffeerÃ¶sterei,Gutenbergstr.,11a,35037,Marburg,,other_essentials
-"50,808,751","8,773,558",187,Capitol Filmtheater,Biegenstr.,8,35037,Marburg,,other_essentials
-"5,081,471","877,124",190,Carolinenhaus (venue pre-conference workshops),Deutschhausstr.,12,35037,Marburg,,other_essentials
-"5,080,897","877,337",187,Cineplex Marburg,Biegenstr.,1a,35037,Marburg,,other_essentials
-"5,080,991","877,191",203,Copy & Shirt,Pilgrimstein,24a,35037,Marburg,,other_essentials
-"50,808,246","8,772,445",194,Copy Courier,Rudolphsplatz,,35037,Marburg,,other_essentials
-"50,810,264","8,771,683",203,Copyprint,Pilgrimstein,22,35037,Marburg,,other_essentials
-"5,080,791","877,081",191,Damfastore,Untergasse,20,35037,Marburg,,other_essentials
-"50,806,854","8,777,324",185,Dm-drogeriemarkt,Erlenring,9,35037,Marburg,,other_essentials
-"50,786,993","8,767,143",187,Dm-drogeriemarkt,Marburger Str.,100,35043,Marburg,,other_essentials
-"5,082,466","876,887",186,Dm-drogeriemarkt,Neue Kasseler Str.,26,35039,Marburg,,other_essentials
-"5,082,097","877,253",185,Elektro Zigge,Neue Kasseler Str.,7a,35039,Marburg,,other_essentials
-"50,811","877,145",204,elevator,Pilgrimstein ,17,35037,Marburg,,other_essentials
-"5,081,092","877,139",204,elevator,Pilgrimstein ,17,35037,Marburg,,other_essentials
-"5,081,084","877,079",232,elevator,Wettergasse,41,35037,Marburg,,other_essentials
-"508,062","877,881",185,Esso,Bei St. Jost,2,35037,Marburg,,other_essentials
-"5,081,624","875,133",233,Esso,Emil-von-Behring-Str.,45,35041,Marburg,,other_essentials
-"5,082,816","876,874",183,Fischer Tankstelle,Affoellerstr.,57,35039,Marburg,,other_essentials
-"50,809,487","8,772,284",200,Fresh & take,Pilgrimstein,28,35037,Marburg,,other_essentials
-"50,834,598","8,752,611",219,Hallenbad Wehrda,Zur Wann,,35041,Marburg,,other_essentials
-"50,794,965","8,757,614",180,Jet,Gisselberger Str.,51,35037,Marburg,,other_essentials
-"50,830,807","8,772,462",195,Jet,Neue Kasseler Str.,64,35039,Marburg,,other_essentials
-"50,810,387","8,774,552",186,KFZ,Biegenstr.,15,35037,Marburg,,other_essentials
-"5,081,954","877,761",201,Kiosk am Ortenberg,Schuetzenstr.,30a,35037,Marburg,,other_essentials
-"50,806,209","8,764,856",186,Kopier Service,Haspelstr.,3,35037,Marburg,,other_essentials
-"50,808,751","8,773,558",187,Kopierladen Marburg,Biegenstr.,8,35037,Marburg,,other_essentials
-"5,079,233","876,424",185,Lavari,Frauenbergstr.,16,35039,Marburg,,other_essentials
-"50,812,252","8,769,812",211,Marburger Filmkunsttheater GmbH,Steinweg,4,35037,Marburg,,other_essentials
-"50,818,005","8,775,585",187,Nachtsalon,Bahnhofstr.,31a,35037,Marburg,,other_essentials
-"50,806,119","8,769,131",185,New life shop,Gutenbergstr.,6,35037,Marburg,,other_essentials
-"5,080,935","877,205",200,Oberstadtaufzug,Pilgrimstein ,28,35037,Marburg,,other_essentials
-"50,819,633","8,774,134",187,P & B Presse & Buch,Bahnhofstr.,33,35037,Marburg,,other_essentials
-"50,815,351","8,769,159",196,Rossmann,Elisabethstr.,9,35037,Marburg,,other_essentials
-"50,806,978","8,768,698",190,Rossmann,Universitaetsstr.,18,35037,Marburg,,other_essentials
-"50,805,109","876,957",185,SB-Waschcenter,Gutenbergstr.,16,35039,Marburg,,other_essentials
-"50,817,497","8,771,705",187,Schreibwaren Baehr,Bahnhofstr.,17,35037,Marburg,,other_essentials
-"50,802,154","8,766,768",183,Schreibwaren Lotto-Toto,Frankfurter Str.,14a,35037,Marburg,,other_essentials
-"50,794,803","8,756,721",180,Shell,Gisselberger Str.,53,35037,Marburg,,other_essentials
-"5,081,276","876,951",216,Szenario,Steinweg,12,35037,Marburg,,other_essentials
-"50,806,432","8,768,675",190,Tabakwaren Knau,Gutenbergstr.,7,35037,Marburg,,other_essentials
-"50,813,972","876,943",193,Tabakwaren Lesch,Steinweg,37,35037,Marburg,,other_essentials
-"50,809,789","877,076",218,Tee Gschwendner,Wettergasse,11,35037,Marburg,,other_essentials
-"50,812,007","8,770,267",228,Teehaus Marburg,Steinweg,1,35037,Marburg,,other_essentials
-"507,894","876,495",182,Till Dawn,Temmlerstr.,7,35039,Marburg,,other_essentials
-"50,819,633","8,774,134",187,Tobacco & more,Bahnhofstr.,33,35037,Marburg,,other_essentials
-"50,817,773","877,167",187,Toto-Lotto Annahme,Bahnhofstr.,24,35037,Marburg,,other_essentials
-"50,810,387","8,774,552",186,Tourist Information,Biegenstr.,15,35037,Marburg,,other_essentials
-"5,081,698","877,862",186,Waggonhalle,Rudolf-Bultmann-Str.,2a,35039,Marburg,,other_essentials
-"508,109","877,374",186,Zentrales HÃ¶rsaalgebÃ¤ude (venue),Biegenstr.,14,35037,Marburg,,other_essentials
-"5,079,458","876,303",184,Apotheke am Suedbahnhof,Frauenbergstr.,2,35039,Marburg,,pharmacy
-"50,801,278","875,054",199,Apotheke an der Hohen Leuchte,Ockershaeuser Str.,78,35037,Marburg,,pharmacy
-"5,080,915","877,281",200,Apotheke im Lahncenter,Biegenstr.,4,35037,Marburg,,pharmacy
-"5,077,981",Aug-77,204,Apotheke Zum Frauenberg oHG,Marburger Str.,26,35043,Marburg-Cappel,,pharmacy
-"5,081,864","877,424",185,Bahnhof-Apotheke,Bahnhofstr.,29,35037,Marburg,,pharmacy
-"50,792,918","8,785,488",285,Behring-Apotheke,Am Richtsberg,68,35039,Marburg,,pharmacy
-"50,816,304","8,751,998",240,Brunnen-Apotheke,Emil-von-Behring-Str.,46,35041,Marburg-Marbach,,pharmacy
-"50,813,256","8,775,634",185,Deutschhaus-Apotheke,Biegenstr.,44,35037,Marburg,,pharmacy
-"5,081,407","876,927",193,Einhorn-Apotheke,Steinweg,39,35037,Marburg,,pharmacy
-"50,806,854","8,777,324",185,Erlenring-Apotheke,Erlenring,9,35037,Marburg,,pharmacy
-"50,817,096","8,770,966",186,Hirsch-Apotheke,Bahnhofstr.,9,35037,Marburg,,pharmacy
-"5,080,589","876,751",187,Lahn-Apotheke,Wilhelmstr.,5-7+11,35037,Marburg,,pharmacy
-"50,840,738","8,769,494",186,Neue Apotheke,Am Kaufmarkt,1,35041,Marburg-Wehrda,,pharmacy
-"5,080,664","876,345",191,Neue UniversitÃ¤tsapotheke zum Schwan,Universitaetsstr.,41,35037,Marburg,,pharmacy
-"50,809,115","8,771,386",212,Philipps-Apotheke,Reitgasse,10,35037,Marburg,,pharmacy
-"50,804,417","8,758,669",189,Rosen-Apotheke,Schwanallee,1,35037,Marburg,,pharmacy
-"50,807,392","8,769,113",197,Schlossberg-Apotheke,Universitaetsstr.,15,35037,Marburg,,pharmacy
-"5,080,057",Aug-76,185,Sonnen-Apotheke,Frankfurter Str.,38,35037,Marburg,,pharmacy
-"5,083,584","875,495",210,St. Elisabeth-Apotheke,Huteweg,4b,35041,Marburg-Wehrda,,pharmacy
-"5,081,289","8,690,359",225,Weidenborn-Apotheke,Weidenbornstr.,6,35041,Marburg,,pharmacy
-"5,079,486","876,296",185,Ayse's Taxi,Frauenbergstr.,1,35039,Marburg,06421-44477,taxi
-"50,825,994","8,772,052",186,Cengiz,Neue Kasseler Str.,29,35039,Marburg,06421-690 07 00,taxi
-"508,282","877,122",185,CityTaxi,Neue Kasseler Str.,54,35039,Marburg,06421-444 11,taxi
-"5,082,197","877,123",183,Minicar 24 Marburg,Zimmermannstr.,2,35039,Marburg,06421-144 44,taxi
-"50,804,504","8,778,238",183,My Car Taxi,Bei St. Jost,11a,35039,Marburg,06421-999 88 85,taxi
-"5,083,747","877,235",197,Sparcar GbR,Siemensstr.,2,35041,Marburg,06421-999 988,taxi
-"50,773,228","8,780,013",243,Taxi Kazim,Moischter Str.,59,35043,Marburg,06421-9488877,taxi
-"5,082,521",Aug-77,185,Taxi Mitte,Neue Kasseler Str.,27,35039,Marburg,06421-22222,taxi
-"50,825,994","8,772,052",186,Taxi Sorany,Neue Kasseler Str.,29,35039,Marburg,06421-999999,taxi
-"5,082,197","877,123",183,Taxi UniCar UG,Zimmermannstr.,2,35039,Marburg,06421-47777,taxi
-"5,078,916",Aug-78,260,Taxi-Express Saleh,Berliner Str.,9,35039,Marburg,06421-444 44,taxi
-"5,083,353","876,104",199,Taxi-Ruf Brunett,Wehrdaer Str.,119,35041,Marburg,06421-880099,taxi
-"50,818,005","8,775,585",187,TeleCar-Stadtmobil 24 Marburg LTD,Bahnhofstr.,31,35037,Marburg,06421-25 100,taxi
-"5,078,307",Aug-77,200,VIPcar,Goethestr.,20,35041,Marburg,06421-666 99,taxi
-50.82,Aug-77,187,Yellow Car,Affoellerstr.,30,35039,Marburg,06421-304 050,taxi
-"50,839,215","8,755,832",229,Begegnungszentrum Sonneck,Hebronweg,7,35041,Marburg-Wehrda,,accomodation
-"50,804,287","8,772,945",183,Campingplatz Lahnaue,Trojedamm,47,35037,Marburg,,accomodation
-"5,077,533","876,661",192,Carle,Ronhaeuser Str.,8,35043,Marburg,,accomodation
-"5,081,886","877,487",186,Hostel Marburg-One,Bahnhofstr.,33A,35037,Marburg,,accomodation
-"5,079,188","876,379",183,Hotel im Kornspeicher,Molkereistr.,6,35039,Marburg,,accomodation
-"50,815,571","8,768,644",200,Hotel Marburger Hof,Elisabethstr.,12,35037,Marburg,,accomodation
-"50,803,895","8,773,646",183,Jugendherberge,Jahnstr.,1,35037,Marburg,,accomodation
-"5,083,473","876,082",191,Lahngarten,Wehdaer Str.,102,35041,Marburg,,accomodation
-"5,080,865","877,222",194,Pension Harmony,Muehltreppe,1,35037,Marburg,,accomodation
-"50,813,569","8,774,576",184,Pension Haus MÃ¼ller,Deutschhausstr.,29,35037,Marburg,,accomodation
-"5,080,047","874,071",246,Schneider,Gladenbacher Weg,39,35037,Marburg,,accomodation
-"5,080,472","876,915",185,Tusculum,Gutenbergstr.,25,35037,Marburg,,accomodation
-"5,081,873","876,826",187,Vila Vita Rosenpark,Annelise Pohl Allee,Jul-17,35037,Marburg,,accomodation
-"5,081,704","8,770,322",185,Village Stadthotel,Bahnhofstr.,14,35037,Marburg,,accomodation
-"5,080,943","8,772,573",200,Welcome Hotel Marburg,Pilgrimstein,29,35037,Marburg,,accomodation
-"5,080,914","868,925",230,Zum Alten Schneider,Elnhaeuser Str.,13,35041,Marburg,,accomodation
-"5,081,001","877,183",203,Asia Center,Pilgrimstein,23  1/2,35037,Marburg,,food
-"5,081,547","8,769",193,Asia Shop,Elisabethstr.,11,35037,Marburg,,food
-"5,083,001","877,038",185,Aldi,Affoellerstr.,90,35039,Marburg,,supermarket
-"5,078,678","876,885",189,Aldi,Beltershaeuser Str.,5,35039,Marburg,,supermarket
-"50,806,854","8,777,324",185,Aldi,Erlenring,9,35037,Marburg,,supermarket
-"50,842,508","8,765,671",185,Aldi,Industriestr.,9,35041,Marburg,,supermarket
-"5,082,426","877,383",190,Edeka Kempf,Alte Kasseler Str.,27b,35039,Marburg,,supermarket
-"50,793,316","8,785,707",285,Edeka Neukauf,Am Richtsberg,70,35039,Marburg,,supermarket
-"5,079,893",Aug-75,195,Edeka Neukauf,Leopold-Lucas-Str.,77,35037,Marburg,,supermarket
-"5,081,751",Aug-77,185,Edeka Neukauf,Rosenstr.,2,35037,Marburg,,supermarket
-"5,080,066","875,094",197,Edeka Pinschmidt / Getraenkemarkt,Bachweg,2,35037,Marburg,,supermarket
-"50,788,476","8,765,461",185,Harman Yeri Supermarkt,Temmlerstr.,13,35039,Marburg,,supermarket
-"50,788,137","8,765,864",185,Herkules,Temmlerstr.,19,35039,Marburg,,supermarket
-"50,841,956","8,765,621",185,Lidl-Markt,Industriestr.,7,35041,Marburg,,supermarket
-"50,785,914","8,766,674",185,Lidl-Markt,Marburger Str.,90,35043,Marburg,,supermarket
-"50,807,392","8,769,113",197,Lidl-Markt,Universitaetsstr.,15,35037,Marburg,,supermarket
-"5,082,488","877,077",185,Penny Markt,Neue Kasseler Str.,24,35039,Marburg,,supermarket
-"50,804,829","8,758,226",192,REWE,Ockershaeuser Allee,5-Jul,35037,Marburg,,supermarket
-"50,806,504","8,767,192",192,REWE im Ahrens,Universitaetsstr.,14-22,35037,Marburg,,supermarket
-"50,806,854","8,777,324",185,REWE Kranich OHG,Erlenring,9,35037,Marburg,,supermarket
-"50,792,205","8,785,228",286,REWE Markt Kaiser,Am Richtsberg,64,35039,Marburg,,supermarket
-"50,840,738","8,769,494",186,tegut,Am Kaufmarkt,1,35041,Marburg,,supermarket
-"50,814,306","8,766,864",198,tegut,Ketzerbach,25-28,35037,Marburg,,supermarket
-"50,786,993","8,767,143",187,tegut,Marburger Str.,100,35043,Marburg,,supermarket
-"5,080,655","8,769,347",190,tegut,Universitaetsstr.,8,35037,Marburg,,supermarket
-"50,818,944","8,773,485",186,Back Company,Bahnhofstr.,36,35037,Marburg,,bakery
-"5,082,978","876,951",185,BÃ¤cker Mueller GmbH & Co. KG,Affoellerstr.,90,35039,Marburg,,bakery
-"50,793,316","8,785,707",285,BÃ¤cker Mueller GmbH & Co. KG,Am Richtsberg,70,35039,Marburg,,bakery
-"50,816,647","8,769,524",186,BÃ¤cker Mueller GmbH & Co. KG,Bahnhofstr.,8,35037,Marburg,,bakery
-"50,805,109","876,957",185,BÃ¤cker Mueller GmbH & Co. KG,Gutenbergstr.,16,35037,Marburg,,bakery
-"50,841,803","8,766,516",186,BÃ¤cker Mueller GmbH & Co. KG,Industriestr.,5,35041,Marburg,,bakery
-"50,804,982","8,770,246",184,BÃ¤cker Mueller GmbH & Co. KG,Jaegerstr.,,35037,Marburg,,bakery
-"50,814,177","8,767,451",196,BÃ¤cker Mueller GmbH & Co. KG,Ketzerbach,21,35037,Marburg,,bakery
-"5,077,712","8,768,044",195,BÃ¤cker Mueller GmbH & Co. KG,Marburger Str.,4,35043,Marburg-Cappel,,bakery
-"5,081,407","876,927",193,BÃ¤cker Mueller GmbH & Co. KG,Steinweg,39,35037,Marburg,,bakery
-"5,083,545","876,051",190,BÃ¤cker Mueller GmbH & Co. KG,Wehrdaer Str.,143,35041,Marburg,,bakery
-"50,809,763",Aug-77,233,BÃ¤cker Mueller GmbH & Co. KG,Wettergasse,7,35037,Marburg,,bakery
-"5,081,946","877,847",205,BÃ¤cker MÃ¼ller GmbH & Co. KG,DÃ¼rerstr.,1,35039,Marburg,,bakery
-"508,056","877,604",185,BÃ¤ckerei Carle,Weidenhaeuser Str.,79,35037,Marburg,,bakery
-"50,825,905","8,771,367",186,BÃ¤ckerei Knapp,Schlosserstr.,1,35037,Marburg,,bakery
-"50,808,769","8,774,098",186,BÃ¤ckerei Kuenkel,Gerhard-Jahn-Platz,13,35037,Marburg,,bakery
-"50,807,392","8,769,113",197,BÃ¤ckerei Kuenkel,Universitaetsstr.,15,35037,Marburg,,bakery
-"5,078,368","876,786",189,BÃ¤ckerei Steitz,Marburger Str.,72,35043,Marburg,,bakery
-"5,082,426","877,383",190,Backhaus Horst,Alte Kasseler Str.,27b,35039,Marburg,,bakery
-"50,806,711","8,768,565",190,Backhaus Horst,Gutenbergstr.,3,35037,Marburg,,bakery
-"5,079,895",Aug-75,195,Backhaus Horst,Leopold-Lucas-Str.,77,35037,Marburg,,bakery
-"5,081,728",Aug-77,185,Backhaus Horst,Rosenstr.,2,35037,Marburg,,bakery
-"50,816,106","8,749,719",244,Backshop Rudolf Kraft,Brunnenstr.,7,35041,Marburg,,bakery
-"5,081,437","876,928",193,Backshop Rudolf Kraft,Steinweg,45,35037,Marburg,,bakery
-"50,800,036","8,790,474",270,Dickel,Gustav-Freytag-Str.,2,35039,Marburg,,bakery
-"50,808,301","8,769,159",215,MÃ¼hlenbaeckerei Pfeiffer,Barfuesserstr.,43,35037,Marburg,,bakery
-"5,081,303","8,775,921",185,MÃ¼hlenbaeckerei Pfeiffer,Biegenstr.,47,35037,Marburg,,bakery
-"50,815,935","8,752,146",237,MÃ¼hlenbaeckerei Pfeiffer,Emil-von-Behring-Str.,37,35041,Marburg,,bakery
-"50,840,738","8,769,494",186,SchÃ¤fers Backstuben GmbH,Am Kaufmarkt,1,35041,Marburg,,bakery
-"50,792,205","8,785,228",286,SchÃ¤fers Backstuben GmbH,Am Richtsberg,64,35039,Marburg,,bakery
-"5,080,915","877,281",200,SchÃ¤fers Backstuben GmbH,Biegenstr.,4,35037,Marburg,,bakery
-"50,806,854","8,777,324",185,SchÃ¤fers Backstuben GmbH,Erlenring,9,35037,Marburg,,bakery
-"5,077,912","876,732",189,SchÃ¤fers Backstuben GmbH,Marburger Str.,20,35043,Marburg,,bakery
-"50,786,993","8,767,143",187,SchÃ¤fers Backstuben GmbH,Marburger Str.,100,35043,Marburg,,bakery
-"50,804,829","8,758,226",192,SchÃ¤fers Backstuben GmbH,Ockershaeuser Allee,5,35037,Marburg,,bakery
-"5,080,118","875,973",185,SchÃ¤fers Backstuben GmbH,Schwanallee,31a,35037,Marburg,,bakery
-"5,080,655","8,769,347",190,SchÃ¤fers Backstuben GmbH,Universitaetsstr.,8,35037,Marburg,,bakery
-"5,080,116","877,793",206,SchÃ¤fers Backstuben GmbH,Weintrautstr.,41,35039,Marburg,,bakery
-"50,817,111","8,770,416",185,SchwÃ¤lmer Brotladen,Bahnhofstr.,16,35037,Marburg,,bakery
-"50,795,145","876,898",200,SchwÃ¤lmer Brotladen,Cappeler Str.,54,35039,Marburg,,bakery
-"50,817,571","8,771,727",187,SchwÃ¤lmer Brotladen,Im Hauptbahnhof,,35037,Marburg,,bakery
-"5,083,977","8,767,676",184,SchwÃ¤lmer Brotladen,Im Schwarzenborn,2,35041,Marburg,,bakery
-"50,788,137","8,765,864",185,SchwÃ¤lmer Brotladen,Temmlerstr.,19,35039,Marburg,,bakery
-"5,080,676","876,755",192,SchwÃ¤lmer Brotladen,Universitaetsstr.,14,35037,Marburg,,bakery
-"50,806,504","8,767,192",192,SchwÃ¤lmer Brotladen,Universitaetsstr.,14-22,35037,Marburg,,bakery
-"5,080,358","8,755,361",191,Allee CafÃ©,Ockershaeuser Allee,17,35037,Marburg,,cafe
-"50,819,192","8,773,793",186,Basic Coffee,Bahnhofstr.,38,35037,Marburg,,cafe
-"5,080,705","877,335",184,Bootsverleih + Ufercafâ€š Gischler,Auf dem Wehr,1a,35037,Marburg,,cafe
-"50,806,723","877,189",185,CafÃ© am Gruen,Am Gruen,28,35037,Marburg,,cafe
-"50,809,109","8,770,831",220,CafÃ© am Markt,Markt,9,35037,Marburg,,cafe
-"5,080,174","875,893",184,CafÃ© Aroma,Schwanallee,29a,35037,Marburg,,cafe
-"50,805,738","876,798",186,CafÃ© Campiello,Wilhelmstr.,6,35037,Marburg,,cafe
-"5,080,851","876,941",215,CafÃ© Cappuccino,Barfuesserstr.,46,35037,Marburg,,cafe
-"50,806,137","8,768,747",186,CafÃ© Gutenberg,Gutenbergstr.,11,35037,Marburg,,cafe
-"5,080,893","8,772,329",200,CafÃ© Mocca,Pilgrimstein,31,35037,Marburg,,cafe
-"5,082,466","877,153",184,CafÃ© Neumarkt,Neue Kasseler Str.,24a,35039,Marburg,,cafe
-"5,078,309","877,176",205,CafÃ© Piccolo,Im Lichtholz,33,35039,Marburg,,cafe
-"5,081,888","877,015",183,CafÃ© Rosenpark,Annelise Pohl Allee,Jul-17,35037,Marburg,,cafe
-"5,079,833","880,282",322,CafÃ© Sonnenblick,Amoeneburger Str.,1-Jun,35043,Marburg,,cafe
-"50,808,726","8,771,881",204,CafÃ© Vetter,Reitgasse,4,35037,Marburg,,cafe
-"50,810,426","8,770,939",217,Contigo Kaffeeroesterei,Wettergasse,29,35037,Marburg,,cafe
-"507,763","876,848",199,EiscafÃ© Cais,Am Kirchberg,1,35043,Marburg-Cappel,,cafe
-"50,840,738","8,769,494",186,EiscafÃ© Camerin,Am Kaufmarkt,1,35041,Marburg,,cafe
-"5,081,954","877,761",201,EiscafÃ© Capri,Schuetzenstr.,30a,35039,Marburg,,cafe
-"5,080,915","877,281",200,EiscafÃ© Catagro,Biegenstr.,4,35037,Marburg,,cafe
-"50,807,392","8,769,113",197,EiscafÃ© I Trulli,Universitaetsstr.,15,35037,Marburg,,cafe
-"50,811,063","8,770,378",234,EiscafÃ© Venezia,Neustadt,5,35037,Marburg,,cafe
-"5,077,652","876,841",199,Eisdiele Adria,Cappeler Markt,1,35043,Marburg,,cafe
-"5,081,302","876,938",200,KaffeerÃ¶sterei Bohne,Steinweg,19,35037,Marburg,,cafe
-"50,815,442","879,725",389,Kaiser-Wilhelm-Turm / Spiegelslustturm,Hermann-Bauer-Weg,2,35043,Marburg,,cafe
-"5,081,421","876,783",196,KetzercafÃ©,Ketzerbach,13a,35037,Marburg,,cafe
-"50,810,676","877,066",217,Konditorei Klingelhoefer,Wettergasse,38,35037,Marburg,,cafe
-"5,080,671","877,477",186,KunstcafÃ© Gloria,Weidenhaeuser Str.,35,35037,Marburg,,cafe
-"5,080,811","876,737",218,La Manufacture d'Anouk,Barfuesserstr.,9a,35037,Marburg,,cafe
-"50,809,157","8,762,582",277,Schlosspark CafÃ©,Gisonenweg,,35037,Marburg,,cafe
-"50,817,111","8,770,416",185,SchwÃ¤lmer CafÃ©,Bahnhofstr.,16,35037,Marburg,,cafe
-"50,804,287","8,772,945",183,TerrassencafÃ© Lahnaue,Trojedamm,47,35037,Marburg,,cafe
-"5,080,756","877,519",184,Weidenhaeuser Kaffeeroesterei,Erlenring,4,35037,Marburg,,cafe
-"5,080,893","8,772,329",200,Bereket DÃ¶ner,Pilgrimstein,31,35037,Marburg,,imbiss
-"5,082,957","876,842",184,Burger King,Affoellerstr.,63,35039,Marburg,,imbiss
-"50,810,264","8,771,683",203,Burgerlokal,Pilgrimstein,22,35037,Marburg,,imbiss
-"5,080,943","8,772,573",200,Ceder,Pilgrimstein,29,35037,Marburg,,imbiss
-"50,809,767","8,772,275",195,Chilli King,Pilgrimstein,25,35037,Marburg,,imbiss
-"50,806,119","8,769,131",185,Corner DÃ¶ner- und Pizzahaus,Gutenbergstr.,6,35037,Marburg,,imbiss
-"50,819,633","8,774,134",187,Ditsch,Bahnhofstr.,33,35037,Marburg,,imbiss
-"5,080,964","8,772,018",203,Fantasticum,Pilgrimstein,26,35037,Marburg,,imbiss
-"50,802,563","875,939",183,Genc Snackbar,Schwanallee,26,35037,Marburg,,imbiss
-"5,081,695","877,016",185,Halal DÃ¶ner,Bahnhofstr.,12b,35037,Marburg,,imbiss
-"507,965","876,052",181,Hallo Pizza,Gisselberger Str.,27,35037,Marburg,,imbiss
-"5,081,476","876,898",196,Istanbul DÃ¶ner,Elisabethstr.,1,35037,Marburg,,imbiss
-"5,080,975","877,383",186,Lecker-Eck Imbiss,Biegenstr.,8a,35037,Marburg,,imbiss
-"50,809,767","8,772,275",195,Mac Food,Pilgrimstein,25,35037,Marburg,,imbiss
-"5,083,233","876,839",185,McDonald's,Affoellerstr.,102,35039,Marburg,,imbiss
-"50,808,499","8,768,825",215,Mevlana,Barfuesserstr.,37,35037,Marburg,,imbiss
-"5,080,864","877,242",194,Mr. King,Pilgrimstein,33,35037,Marburg,,imbiss
-"5,081,498","876,891",196,Multi Kulti,Elisabethstr.,5,35037,Marburg,,imbiss
-"50,807,392","8,769,113",197,Nordsee GmbH,Universitaetsstr.,15,35037,Marburg,,imbiss
-"5,080,765","877,464",184,Palmyra Bistro,Erlenring,2,35037,Marburg,,imbiss
-"5,082,831","876,887",184,Peter's Imbiss,Affoellerstr.,57,35039,Marburg,,imbiss
-"50,815,251","8,768,828",196,Pizza Como Lario,Elisabethstr.,10,35037,Marburg,,imbiss
-"508,174","877,109",186,Pizza da Pepe,Bahnhofstr.,18a,35037,Marburg,,imbiss
-"5,080,702","877,179",185,Pizza Manhattan,Am Gruen,1a,35037,Marburg,,imbiss
-50.79,Aug-76,178,Pizza Pikante,Frauenbergstr.,1a,35039,Marburg,,imbiss
-"5,080,557","875,956",200,Pizza Tony,Barfuessertor,21,35037,Marburg,,imbiss
-"508,013","875,962",186,Pizzeria Paisano,Schwanallee,31a,35037,Marburg,,imbiss
-"5,081,774","877,137",187,Rhodos Grill,Bahnhofstr.,22,35037,Marburg,,imbiss
-"5,080,943","8,772,573",200,Salaedchen Marburg 1,Pilgrimstein,29,35037,Marburg,,imbiss
-"508,023","875,957",183,Salaedchen Marburg 2,Schwanallee,30,35037,Marburg,,imbiss
-"50,804,266","8,759,256",188,Schmankerl Stub n,Schwanallee,8,35037,Marburg,,imbiss
-"50,794,164","881,454",317,Schwaelmer Brotladen,Lahnberge Kiosk Uniklinikum,,35043,Marburg,,imbiss
-"50,807,238","8,771,601",188,Sefa DÃ¶ner,Am Gruen,1,35037,Marburg,,imbiss
-"5,080,915","877,281",200,Sofra DÃ¶ner,Biegenstr.,4,35037,Marburg,,imbiss
-"50,818,944","8,773,485",186,Star DÃ¶ner und Pizzahaus,Bahnhofstr.,36,35037,Marburg,,imbiss
-"5,083,193","876,907",184,Subway,Affoellerstr.,98,35039,Marburg,,imbiss
-"5,080,773","8,771,401",188,Subway,Lahntor,5,35037,Marburg,,imbiss
-"50,806,504","8,767,192",192,Subway,Universitaetsstr.,14-22,35037,Marburg,,imbiss
-"50,807,392","8,769,113",197,Tai Gourmet,Universitaetsstr.,15,35037,Marburg,,imbiss
-"50,808,769","8,774,098",186,Tom & Sally's,Gerhard-Jahn-Platz,15,35037,Marburg,,imbiss
-50.79,Aug-77,200,Wok Inn,Marburger Str.,86,35043,Marburg,,imbiss
-"50,803,234","8,776,111",179,Aldi's Biergarten,Am Trojedamm / Sommerbadstr.,,35037,Marburg,,bar_pub_bistro
-"5,080,142","877,297",181,Aqua Oase,Sommerbadstr.,41,35037,Marburg,,bar_pub_bistro
-"508,204","876,991",183,Baari Bar,Affoellerwiesen,3a,35039,Marburg,,bar_pub_bistro
-"50,815,351","8,769,159",196,Barrio Santo,Elisabethstr.,9,35037,Marburg,,bar_pub_bistro
-"5,080,102","876,527",184,Bebop,Frankfurter Str.,32,35037,Marburg,,bar_pub_bistro
-"50,808,264","8,770,744",209,Bierwerk,Hirschberg,12,35037,Marburg,,bar_pub_bistro
-"50,791,841","8,739,135",309,Bistro A Capella,Hannah-Arendt-Str.,2,35037,Marburg,,bar_pub_bistro
-"50,808,479","8,771,057",209,Bistro Caveau,Hirschberg,8,35037,Marburg,,bar_pub_bistro
-"5,081,884","877,326",186,Bistro Treffpunkt,Bahnhofstr.,32,35037,Marburg,,bar_pub_bistro
-"5,080,517","877,674",183,Blues 'n Darts,Weidenhaeuser Str.,97,35037,Marburg,,bar_pub_bistro
-"50,817,999","8,766,509",193,Bremsspur,Wehrdaer Weg,24,35037,Marburg,,bar_pub_bistro
-"5,081,276","876,951",216,Cavete,Steinweg,12,35037,Marburg,,bar_pub_bistro
-"508,084","877,357",183,Cocktailbar Villa Biedermeier,Gerhard-Jahn-Platz,3,35037,Marburg,,bar_pub_bistro
-"5,081,311","877,535",185,Diamond Lounge,Biegenstr.,42,35037,Marburg,,bar_pub_bistro
-"5,080,812","877,086",209,Enjoybar,Hirschberg,15,35037,Marburg,,bar_pub_bistro
-"5,080,774","8,771,261",188,Havanna 8,Lahntor,2,35037,Marburg,,bar_pub_bistro
-"5,080,947","8,770,116",227,Hinkelstein,Markt,18,35037,Marburg,,bar_pub_bistro
-"50,802,563","875,939",183,Holzwurm,Schwanallee,26,35037,Marburg,,bar_pub_bistro
-"5,079,486","876,296",185,kickbar,Frauenbergstr.,1a,35039,Marburg,,bar_pub_bistro
-"50,802","875,887",184,Knubbel,Schwanallee,27-31,35037,Marburg,,bar_pub_bistro
-"5,080,696","877,437",185,Krokodil,Weidenhaeuser Str.,25,35037,Marburg,,bar_pub_bistro
-"5,080,845","876,922",215,La Siesta,Barfuesserstr.,44,35037,Marburg,,bar_pub_bistro
-"5,081,864","877,424",185,live! Genuss Bar,Bahnhofstr.,29,35037,Marburg,,bar_pub_bistro
-"5,081,709","876,726",193,Molly Malones,Wehrdaer Weg,16a,35037,Marburg,,bar_pub_bistro
-"50,808,873","8,771,892",212,Morgen,Reitgasse,5,35037,Marburg,,bar_pub_bistro
-"5,079,714","876,126",183,Musikkneipe Clou,Gisselberger Str.,23,35037,Marburg,,bar_pub_bistro
-"50,802,154","8,766,768",183,Nero,Frankfurter Str.,14a,35037,Marburg,,bar_pub_bistro
-"5,080,963","876,976",233,Pegasus,Schlosstreppe,2,35037,Marburg,,bar_pub_bistro
-"50,803,279","8,754,833",191,Sam's Pub,Ockershaeuser Allee,25,35037,Marburg,,bar_pub_bistro
-"5,081,102","877,022",234,Schlucke,Renthof,1,35037,Marburg,,bar_pub_bistro
-"50,807,238","8,771,601",188,Shotz Marburg,Am Gruen,1,35037,Marburg,,bar_pub_bistro
-"50,812,035","8,775,374",186,Sinbad Shisha Bar,Biegenstr.,31,35037,Marburg,,bar_pub_bistro
-"50,811,741","8,770,221",228,Spock Absinth Bar,Neustadt,24,35037,Marburg,,bar_pub_bistro
-"50,804,266","8,759,256",188,Sportsbar Aldi Mitte,Schwanallee,8,35037,Marburg,,bar_pub_bistro
-"5,080,253","876,832",182,Suedseite im TTZ,Software-Center,3,35037,Marburg,,bar_pub_bistro
-"5,080,659","876,227",194,Touchdown,Universitaetsstr.,47,35037,Marburg,,bar_pub_bistro
-"508,204","876,991",183,Trauma,Affoellerwiesen,3a,35039,Marburg,,bar_pub_bistro
-"50,812,013","8,770,244",228,Tunnel,Steinweg,2,35037,Marburg,,bar_pub_bistro
-"5,080,775","877,021",194,U14,Untergasse,14,35037,Marburg,,bar_pub_bistro
-"50,808,873","8,771,892",212,5 Jahreszeiten,Reitgasse,5,35037,Marburg,,restaurant
-"50,806,504","8,767,192",192,Ahrens Restaurant,Universitaetsstr.,14-22,35037,Marburg,,restaurant
-"507,886",Aug-77,195,Asia Bistro,Friedrich-Ebert-Str.,23,35039,Marburg,,restaurant
-"5,080,943","8,772,573",200,Asio Snack,Pilgrimstein,29,35037,Marburg,,restaurant
-"50,812,007","8,770,267",228,Auflauf,Steinweg,1,35037,Marburg,,restaurant
-50.81,Aug-77,233,Barny's Schnitzelscheune,Pilgrimstein,34,35037,Marburg,,restaurant
-"50,809,569","876,681",249,Bueckingsgarten,Landgraf-Philipp-Str.,6,35037,Marburg,,restaurant
-"5,080,785","877,449",183,Bulljong,Lingelgasse,10,35037,Marburg,,restaurant
-"507,958","875,556",180,Casa del Tennis,Willy-Mock-Str.,10,35037,Marburg,,restaurant
-"5,080,055","877,479",183,Chevy Marburg,Cappeler Str.,3,35039,Marburg,,restaurant
-"50,809,023","8,771,108",220,China-Restaurant,Reitgasse,6,35037,Marburg,,restaurant
-"50,843,797","8,766,305",185,Chinarestaurant Glueck,Industriestr.,12,35041,Marburg,,restaurant
-"5,081,318","8,776,345",186,Colosseo,Deutschhausstr.,35,35037,Marburg,,restaurant
-"5,081,463","876,828",202,Curry Haus,Ketzerbach,9,35037,Marburg,,restaurant
-"50,809,392","8,770,579",220,Da Nella,Markt,17,35037,Marburg,,restaurant
-"50,805,293","8,759,176",190,Das kleine Restaurant,Barfuessertor,25,35037,Marburg,,restaurant
-"50,812,155","8,770,194",211,Delirium,Steinweg,3,35037,Marburg,,restaurant
-"50,815,571","8,768,644",200,Domingo's,Elisabethstr.,12,35037,Marburg,,restaurant
-"50,807,238","8,771,601",188,Dromedar,Am Gruen,1,35037,Marburg,,restaurant
-"50,808,142","8,768,514",215,Felix,Barfuesserstr.,28,35037,Marburg,,restaurant
-"5,081,393","876,899",193,Gartenlaube,Steinweg,38,35037,Marburg,,restaurant
-"50,842,808","8,757,391",202,Gaststaette zum Anglerheim,Gossfeldener Str.,42,35041,Marburg,,restaurant
-"5,080,251","879,254",275,Hansenhaus links,Sonnenblickallee,15,35039,Marburg,,restaurant
-"5,080,765","877,464",184,Hikari Gold,Erlenring,2,35037,Marburg,,restaurant
-"5,081,411","876,907",193,I trulli,Steinweg,41,35037,Marburg,,restaurant
-"5,081,562","876,907",193,Indira,Elisabethstr.,13,35037,Marburg,,restaurant
-"5,080,499","8,778,842",186,Irodion,Bei St. Jost,5,35039,Marburg,,restaurant
-"50,829,617","8,772,491",194,Kaiser Palast,Neue Kasseler Str.,62,35039,Marburg,,restaurant
-"50,814,238","8,766,228",201,Kejtis Balkan Bistro,Ketzerbach,39,35037,Marburg,,restaurant
-"50,808,115","8,767,156",218,kostBar,Barfuesserstr.,7,35037,Marburg,,restaurant
-"5,079,796","875,854",182,La Piazzetta,Teichwiesenweg,15,35039,Marburg,,restaurant
-"5,080,774","877,393",183,Lahnterrasse,Lingelgasse,5,35037,Marburg,,restaurant
-"50,814,571","8,768,733",194,Lokomotive Gyros Haus Alex,Ketzerbach,5,35037,Marburg,,restaurant
-"50,820,481","8,772,826",185,Mai-Tai,Neue Kasseler Str.,4,35039,Marburg,,restaurant
-"5,081,819","877,157",184,Marburger Esszimmer,Annelise Pohl Allee,1,35037,Marburg,,restaurant
-"50,808,997","8,770,115",227,Market,Markt,11,35037,Marburg,,restaurant
-"5,080,891",Aug-77,227,MAXX,Barfuesserstr.,55,35037,Marburg,,restaurant
-"5,080,118","876,477",184,O Vinho,Frankfurter Str.,31,35037,Marburg,,restaurant
-"5,080,915","877,281",200,Olivino,Biegenstr.,4,35037,Marburg,,restaurant
-"5,081,205",Aug-77,228,Osteria Da Enzo,Steinweg,2  1/2,35037,Marburg,,restaurant
-"50,809,239","8,771,293",212,Paprika,Reitgasse,12,35037,Marburg,,restaurant
-"5,080,236","876,601",184,Pfeffer+Salz,Frankfurter Str.,19,35037,Marburg,,restaurant
-"5,081,427","8,766,517",198,Pizza Il Cavallino,Ketzerbach,32,35037,Marburg,,restaurant
-"5,080,638","876,146",197,Pizzaria Piccolino,Universitaetsstr.,49,35037,Marburg,,restaurant
-"50,835,745","8,753,215",216,Pizzeria Costa Smeralda,Im Paradies,1,35041,Marburg,,restaurant
-"50,808,899","8,770,925",220,Ratsschaenke,Markt,3,35037,Marburg,,restaurant
-"50,814,376","8,767,267",196,Restaurant Athena,Ketzerbach,22,35037,Marburg,,restaurant
-"50,811,492","8,775,063",186,Restaurant Elif,Biegenstr.,19,35037,Marburg,,restaurant
-"508,188","876,819",185,Restaurant Rosenkavalier,Annelise Pohl Allee,Jul-17,35037,Marburg,,restaurant
-"5,080,943","8,772,573",200,Restaurant Tartaruga,Pilgrimstein,29,35037,Marburg,,restaurant
-"5,081,878","876,838",185,Restaurant Zirbelstube,Annelise Pohl Allee,Jul-17,35037,Marburg,,restaurant
-"50,801,354","8,790,962",271,Ristorante-Pizzeria L isoletta,Sonnenblickallee,9,35039,Marburg,,restaurant
-"5,080,575","877,579",185,Schamdan,Weidenhaeuser Str.,72,35037,Marburg,,restaurant
-"50,811,061","8,734,262",334,Sellhof,Oberer Rotenberg,47,35041,Marburg,,restaurant
-"5,080,803","877,434",183,Shaky Shake,Lingelgasse,13,35037,Marburg,,restaurant
-"50,816,202","8,776,159",184,Sushi Sakura,Krummbogen,12,35039,Marburg,,restaurant
-"5,080,864","877,242",194,Sushi-Bar Sakura,Pilgrimstein,33,35037,Marburg,,restaurant
-"50,811,679","8,775,233",186,Tandoori,Biegenstr.,23,35037,Marburg,,restaurant
-"5,080,943","8,772,573",200,Tapas & Co,Pilgrimstein,29,35037,Marburg,,restaurant
-"50,814,177","8,767,451",196,Taverna Korfu,Ketzerbach,21,35037,Marburg,,restaurant
-"5,079,554","876,362",184,Taverna Thessaloniki,Zeppelinstr.,1,35039,Marburg,,restaurant
-"5,081,576","876,882",193,Tokyo Sushi,Elisabethstr.,14,35037,Marburg,,restaurant
-"5,080,773","8,771,361",188,Trattoria Pizzeria Basilicata,Lahntor,4,35037,Marburg,,restaurant
-"5,081,266","878,944",354,Waldgaststaette Spiegelslust,Spiegelslust,1,35039,Marburg,,restaurant
-"50,809,799","8,770,035",233,Weinlaedle,Schlosstreppe,1,35037,Marburg,,restaurant
-"5,081,789","877,195",187,Aroma Bistro & Eisbar,Annelise Pohl Allee,1,35037,Marburg,,bar_pub_bistro
-"5,081,789","877,195",187,Aroma Bistro & Eisbar,Annelise Pohl Allee,1,35037,Marburg,,cafe
-"5,081,812","877,224",184,Aroma Lahn Beach,Annelise Pohl Allee,1,35037,Marburg,,bar_pub_bistro
-"5,081,812","877,224",184,Aroma Lahn Beach,Annelise Pohl Allee,1,35037,Marburg,,cafe
-"50,812,006","8,775,375",186,Biegenstuebchen,Biegenstr.,29,35037,Marburg,,restaurant
-"50,812,006","8,775,375",186,Biegenstuebchen,Biegenstr.,29,35037,Marburg,,bar_pub_bistro
-"5,081,515","876,897",196,BiÃŸtro,Elisabethstr.,6,35037,Marburg,,bar_pub_bistro
-"5,081,515","876,897",196,BiÃŸtro,Elisabethstr.,6,35037,Marburg,,imbiss
-"50,809,891","8,770,738",218,Bistro Early,Wettergasse,14,35037,Marburg,,restaurant
-"50,809,891","8,770,738",218,Bistro Early,Wettergasse,14,35037,Marburg,,bar_pub_bistro
-"50,805,109","876,957",185,Bistro Waschbrett,Gutenbergstr.,16,35037,Marburg,,bar_pub_bistro
-"50,805,109","876,957",185,Bistro Waschbrett,Gutenbergstr.,16,35037,Marburg,,other_essentials
-"50,808,987","8,771,454",212,Brasserie,Reitgasse,8,35037,Marburg,,restaurant
-"50,808,987","8,771,454",212,Brasserie,Reitgasse,8,35037,Marburg,,bar_pub_bistro
-"50,808,208","8,768,803",215,CafÃ© Barfuss,Barfuesserstr.,33,35037,Marburg,,restaurant
-"50,808,208","8,768,803",215,CafÃ© Barfuss,Barfuesserstr.,33,35037,Marburg,,cafe
-"50,827,697","877,291",189,Cala Luna,Alte Kasseler Str.,66,35039,Marburg,,restaurant
-"50,827,697","877,291",189,Cala Luna,Alte Kasseler Str.,66,35039,Marburg,,accomodation
-"50,809,972","8,771,079",218,Die Pause,Wettergasse,16,35037,Marburg,,bar_pub_bistro
-"50,809,972","8,771,079",218,Die Pause,Wettergasse,16,35037,Marburg,,cafe
-"50,809,253","8,770,236",227,Edlunds,Markt,15,35037,Marburg,,restaurant
-"50,809,253","8,770,236",227,Edlunds,Markt,15,35037,Marburg,,cafe
-"50,815,351","8,769,159",196,Elly's,Elisabethstr.,9,35037,Marburg,,imbiss
-"50,815,351","8,769,159",196,Elly's,Elisabethstr.,9,35037,Marburg,,cafe
-"5,080,873","877,411",183,Enchilada,Gerhard-Jahn-Platz,21+21a,35037,Marburg,,restaurant
-"5,080,873","877,411",183,Enchilada,Gerhard-Jahn-Platz,21+21a,35037,Marburg,,bar_pub_bistro
-"5,081,864","877,424",185,Fiona's,Bahnhofstr.,29,35037,Marburg,,restaurant
-"5,081,864","877,424",185,Fiona's,Bahnhofstr.,29,35037,Marburg,,bar_pub_bistro
-"50,812,486","8,775,739",186,Fireflight Spaeti,Biegenstr.,37,35037,Marburg,,food
-"50,812,486","8,775,739",186,Fireflight Spaeti,Biegenstr.,37,35037,Marburg,,other_essentials
-"5,077,297","875,039",175,Gasthof Grebe,Giessener Str.,9-Nov,35043,Marburg,,restaurant
-"5,077,297","875,039",175,Gasthof Grebe,Giessener Str.,9-Nov,35043,Marburg,,accomodation
-"50,813,413","8,776,256",186,GUTKAUF,Deutschhausstr.,40,35037,Marburg,,supermarket
-"50,813,413","8,776,256",186,GUTKAUF,Deutschhausstr.,40,35037,Marburg,,food
-"5,078,972","878,024",267,Hama,Am Richtsberg,1,35039,Marburg,,imbiss
-"5,078,972","878,024",267,Hama,Am Richtsberg,1,35039,Marburg,,food
-"5,080,438","877,163",183,Havana,Am Gruen,58,35037,Marburg,,restaurant
-"5,080,438","877,163",183,Havana,Am Gruen,58,35037,Marburg,,bar_pub_bistro
-"5,080,772","8,769,773",194,Hesse Stuebchen,Untergasse,10,35037,Marburg,,restaurant
-"5,080,772","8,769,773",194,Hesse Stuebchen,Untergasse,10,35037,Marburg,,accomodation
-"50,802,154","8,766,768",183,Hommage,Frankfurter Str.,14a,35037,Marburg,,bar_pub_bistro
-"50,802,154","8,766,768",183,Hommage,Frankfurter Str.,14a,35037,Marburg,,cafe
-"50,809,509","8,770,468",220,Hostaria del Castello,Markt,19,35037,Marburg,,restaurant
-"50,809,509","8,770,468",220,Hostaria del Castello,Markt,19,35037,Marburg,,accomodation
-"5,077,004","874,333",226,Hotel Fasanerie,Zur Fasanerie,15,35043,Marburg,,restaurant
-"5,077,004","874,333",226,Hotel Fasanerie,Zur Fasanerie,15,35043,Marburg,,accomodation
-"5,080,465","876,559",185,Konditorei Klingelhoefer,Haspelstr.,21,35037,Marburg,,cafe
-"5,080,465","876,559",185,Konditorei Klingelhoefer,Haspelstr.,21,35037,Marburg,,bar_pub_bistro
-"50,819,633","8,774,134",187,McDonald's,Bahnhofstr.,33,35037,Marburg,,imbiss
-"50,819,633","8,774,134",187,McDonald's,Bahnhofstr.,33,35037,Marburg,,cafe
-"5,080,903","8,773,583",187,Memba,Gerhard-Jahn-Platz,11,35037,Marburg,,restaurant
-"5,080,903","8,773,583",187,Memba,Gerhard-Jahn-Platz,11,35037,Marburg,,bar_pub_bistro
-"5,080,791","876,845",199,Nero Centro,Krebsgasse,2,35037,Marburg,,restaurant
-"5,080,791","876,845",199,Nero Centro,Krebsgasse,2,35037,Marburg,,bar_pub_bistro
-"50,808,675","8,771,074",209,Plan B,Hirschberg,2,35037,Marburg,,restaurant
-"50,808,675","8,771,074",209,Plan B,Hirschberg,2,35037,Marburg,,bar_pub_bistro
-50.81,Aug-76,279,Prima Pasta,UniversitÃ¤tsstr.,28,35037,Marburg,,restaurant
-50.81,Aug-76,279,Prima Pasta,UniversitÃ¤tsstr.,28,35037,Marburg,,cafe
-"5,080,515","877,102",184,Quodlibet,Am Gruen,37,35037,Marburg,,restaurant
-"5,080,515","877,102",184,Quodlibet,Am Gruen,37,35037,Marburg,,bar_pub_bistro
-"5,081,407","876,927",193,Restaurant Damoa,Steinweg,39,35037,Marburg,,restaurant
-"5,081,407","876,927",193,Restaurant Damoa,Steinweg,39,35037,Marburg,,bar_pub_bistro
-"5,081,712","877,843",191,Rotkehlchen,Rudolf-Bultmann-Str.,2a,35039,Marburg,,restaurant
-"5,081,712","877,843",191,Rotkehlchen,Rudolf-Bultmann-Str.,2a,35039,Marburg,,bar_pub_bistro
-"5,081,422","876,904",193,Sudhaus,Steinweg,44,35037,Marburg,,restaurant
-"5,081,422","876,904",193,Sudhaus,Steinweg,44,35037,Marburg,,bar_pub_bistro
-"5,080,494","876,912",185,Vinopolio,Gutenbergstr.,23,35037,Marburg,,bar_pub_bistro
-"5,080,494","876,912",185,Vinopolio,Gutenbergstr.,23,35037,Marburg,,food
-"50,809,296","8,770,626",220,Zur Sonne,Markt,14,35037,Marburg,,restaurant
-"50,809,296","8,770,626",220,Zur Sonne,Markt,14,35037,Marburg,,accomodation
+latitude;longitude;latitude_new;longitude_new;elevation_m_asl;name;street;street_no;zip_code;city;tel;category
+50809274;8771387;50809274;8771387;212;Alte Mensa;Reitgasse;11;35037;Marburg;;other_essentials
+50801125;8772572;50801125;8772572;183;Aqua Mar;Sommerbadstr.;41;35037;Marburg;;other_essentials
+50803792;8756557;50803792;8756557;192;Aral;An der Stadtautobahn;;35037;Marburg;;other_essentials
+50799826;8789181;50799826;8789181;270;Aral;Grossseelheimer Str.;93;35039;Marburg;;other_essentials
+50817687;877492;50817687;8774920;185;Aral;Krummbogen;4;35039;Marburg;;other_essentials
+50799249;8762294;50799249;8762294;184;Aral;Schwanallee;56;35037;Marburg;;other_essentials
+50840738;8769494;50840738;8769494;186;Avia Tankstelle;Am Kaufmarkt;1;35041;Marburg;;other_essentials
+5080622;87688;50806220;8768800;185;C & T - The Coffee & Tea Company & Kaffeerösterei;Gutenbergstr.;11a;35037;Marburg;;other_essentials
+50808751;8773558;50808751;8773558;187;Capitol Filmtheater;Biegenstr.;8;35037;Marburg;;other_essentials
+5081471;877124;50814710;8771240;190;Carolinenhaus (venue pre-conference workshops);Deutschhausstr.;12;35037;Marburg;;other_essentials
+5080897;877337;50808970;8773370;187;Cineplex Marburg;Biegenstr.;1a;35037;Marburg;;other_essentials
+5080991;877191;50809910;8771910;203;Copy & Shirt;Pilgrimstein;24a;35037;Marburg;;other_essentials
+50808246;8772445;50808246;8772445;194;Copy Courier;Rudolphsplatz;;35037;Marburg;;other_essentials
+50810264;8771683;50810264;8771683;203;Copyprint;Pilgrimstein;22;35037;Marburg;;other_essentials
+5080791;877081;50807910;8770810;191;Damfastore;Untergasse;20;35037;Marburg;;other_essentials
+50806854;8777324;50806854;8777324;185;Dm-drogeriemarkt;Erlenring;9;35037;Marburg;;other_essentials
+50786993;8767143;50786993;8767143;187;Dm-drogeriemarkt;Marburger Str.;100;35043;Marburg;;other_essentials
+5082466;876887;50824660;8768870;186;Dm-drogeriemarkt;Neue Kasseler Str.;26;35039;Marburg;;other_essentials
+5082097;877253;50820970;8772530;185;Elektro Zigge;Neue Kasseler Str.;7a;35039;Marburg;;other_essentials
+50811;877145;50811000;8771450;204;elevator;Pilgrimstein ;17;35037;Marburg;;other_essentials
+5081092;877139;50810920;8771390;204;elevator;Pilgrimstein ;17;35037;Marburg;;other_essentials
+5081084;877079;50810840;8770790;232;elevator;Wettergasse;41;35037;Marburg;;other_essentials
+508062;877881;50806200;8778810;185;Esso;Bei St. Jost;2;35037;Marburg;;other_essentials
+5081624;875133;50816240;8751330;233;Esso;Emil-von-Behring-Str.;45;35041;Marburg;;other_essentials
+5082816;876874;50828160;8768740;183;Fischer Tankstelle;Affoellerstr.;57;35039;Marburg;;other_essentials
+50809487;8772284;50809487;8772284;200;Fresh & take;Pilgrimstein;28;35037;Marburg;;other_essentials
+50834598;8752611;50834598;8752611;219;Hallenbad Wehrda;Zur Wann;;35041;Marburg;;other_essentials
+50794965;8757614;50794965;8757614;180;Jet;Gisselberger Str.;51;35037;Marburg;;other_essentials
+50830807;8772462;50830807;8772462;195;Jet;Neue Kasseler Str.;64;35039;Marburg;;other_essentials
+50810387;8774552;50810387;8774552;186;KFZ;Biegenstr.;15;35037;Marburg;;other_essentials
+5081954;877761;50819540;8777610;201;Kiosk am Ortenberg;Schuetzenstr.;30a;35037;Marburg;;other_essentials
+50806209;8764856;50806209;8764856;186;Kopier Service;Haspelstr.;3;35037;Marburg;;other_essentials
+50808751;8773558;50808751;8773558;187;Kopierladen Marburg;Biegenstr.;8;35037;Marburg;;other_essentials
+5079233;876424;50792330;8764240;185;Lavari;Frauenbergstr.;16;35039;Marburg;;other_essentials
+50812252;8769812;50812252;8769812;211;Marburger Filmkunsttheater GmbH;Steinweg;4;35037;Marburg;;other_essentials
+50818005;8775585;50818005;8775585;187;Nachtsalon;Bahnhofstr.;31a;35037;Marburg;;other_essentials
+50806119;8769131;50806119;8769131;185;New life shop;Gutenbergstr.;6;35037;Marburg;;other_essentials
+5080935;877205;50809350;8772050;200;Oberstadtaufzug;Pilgrimstein ;28;35037;Marburg;;other_essentials
+50819633;8774134;50819633;8774134;187;P & B Presse & Buch;Bahnhofstr.;33;35037;Marburg;;other_essentials
+50815351;8769159;50815351;8769159;196;Rossmann;Elisabethstr.;9;35037;Marburg;;other_essentials
+50806978;8768698;50806978;8768698;190;Rossmann;Universitaetsstr.;18;35037;Marburg;;other_essentials
+50805109;876957;50805109;8769570;185;SB-Waschcenter;Gutenbergstr.;16;35039;Marburg;;other_essentials
+50817497;8771705;50817497;8771705;187;Schreibwaren Baehr;Bahnhofstr.;17;35037;Marburg;;other_essentials
+50802154;8766768;50802154;8766768;183;Schreibwaren Lotto-Toto;Frankfurter Str.;14a;35037;Marburg;;other_essentials
+50794803;8756721;50794803;8756721;180;Shell;Gisselberger Str.;53;35037;Marburg;;other_essentials
+5081276;876951;50812760;8769510;216;Szenario;Steinweg;12;35037;Marburg;;other_essentials
+50806432;8768675;50806432;8768675;190;Tabakwaren Knau;Gutenbergstr.;7;35037;Marburg;;other_essentials
+50813972;876943;50813972;8769430;193;Tabakwaren Lesch;Steinweg;37;35037;Marburg;;other_essentials
+50809789;877076;50809789;8770760;218;Tee Gschwendner;Wettergasse;11;35037;Marburg;;other_essentials
+50812007;8770267;50812007;8770267;228;Teehaus Marburg;Steinweg;1;35037;Marburg;;other_essentials
+507894;876495;50789400;8764950;182;Till Dawn;Temmlerstr.;7;35039;Marburg;;other_essentials
+50819633;8774134;50819633;8774134;187;Tobacco & more;Bahnhofstr.;33;35037;Marburg;;other_essentials
+50817773;877167;50817773;8771670;187;Toto-Lotto Annahme;Bahnhofstr.;24;35037;Marburg;;other_essentials
+50810387;8774552;50810387;8774552;186;Tourist Information;Biegenstr.;15;35037;Marburg;;other_essentials
+5081698;877862;50816980;8778620;186;Waggonhalle;Rudolf-Bultmann-Str.;2a;35039;Marburg;;other_essentials
+508109;877374;50810900;8773740;186;Zentrales Hörsaalgebäude (venue);Biegenstr.;14;35037;Marburg;;other_essentials
+5079458;876303;50794580;8763030;184;Apotheke am Suedbahnhof;Frauenbergstr.;2;35039;Marburg;;pharmacy
+50801278;875054;50801278;8750540;199;Apotheke an der Hohen Leuchte;Ockershaeuser Str.;78;35037;Marburg;;pharmacy
+5080915;877281;50809150;8772810;200;Apotheke im Lahncenter;Biegenstr.;4;35037;Marburg;;pharmacy
+5077981;28338;50779810;2833800;204;Apotheke Zum Frauenberg oHG;Marburger Str.;26;35043;Marburg-Cappel;;pharmacy
+5081864;877424;50818640;8774240;185;Bahnhof-Apotheke;Bahnhofstr.;29;35037;Marburg;;pharmacy
+50792918;8785488;50792918;8785488;285;Behring-Apotheke;Am Richtsberg;68;35039;Marburg;;pharmacy
+50816304;8751998;50816304;8751998;240;Brunnen-Apotheke;Emil-von-Behring-Str.;46;35041;Marburg-Marbach;;pharmacy
+50813256;8775634;50813256;8775634;185;Deutschhaus-Apotheke;Biegenstr.;44;35037;Marburg;;pharmacy
+5081407;876927;50814070;8769270;193;Einhorn-Apotheke;Steinweg;39;35037;Marburg;;pharmacy
+50806854;8777324;50806854;8777324;185;Erlenring-Apotheke;Erlenring;9;35037;Marburg;;pharmacy
+50817096;8770966;50817096;8770966;186;Hirsch-Apotheke;Bahnhofstr.;9;35037;Marburg;;pharmacy
+5080589;876751;50805890;8767510;187;Lahn-Apotheke;Wilhelmstr.;5-7+11;35037;Marburg;;pharmacy
+50840738;8769494;50840738;8769494;186;Neue Apotheke;Am Kaufmarkt;1;35041;Marburg-Wehrda;;pharmacy
+5080664;876345;50806640;8763450;191;Neue Universitätsapotheke zum Schwan;Universitaetsstr.;41;35037;Marburg;;pharmacy
+50809115;8771386;50809115;8771386;212;Philipps-Apotheke;Reitgasse;10;35037;Marburg;;pharmacy
+50804417;8758669;50804417;8758669;189;Rosen-Apotheke;Schwanallee;1;35037;Marburg;;pharmacy
+50807392;8769113;50807392;8769113;197;Schlossberg-Apotheke;Universitaetsstr.;15;35037;Marburg;;pharmacy
+5080057;27973;50800570;2797300;185;Sonnen-Apotheke;Frankfurter Str.;38;35037;Marburg;;pharmacy
+5083584;875495;50835840;8754950;210;St. Elisabeth-Apotheke;Huteweg;4b;35041;Marburg-Wehrda;;pharmacy
+5081289;8690359;50812890;8690359;225;Weidenborn-Apotheke;Weidenbornstr.;6;35041;Marburg;;pharmacy
+5079486;876296;50794860;8762960;185;Ayse's Taxi;Frauenbergstr.;1;35039;Marburg;06421-44477;taxi
+50825994;8772052;50825994;8772052;186;Cengiz;Neue Kasseler Str.;29;35039;Marburg;06421-690 07 00;taxi
+508282;877122;50828200;8771220;185;CityTaxi;Neue Kasseler Str.;54;35039;Marburg;06421-444 11;taxi
+5082197;877123;50821970;8771230;183;Minicar 24 Marburg;Zimmermannstr.;2;35039;Marburg;06421-144 44;taxi
+50804504;8778238;50804504;8778238;183;My Car Taxi;Bei St. Jost;11a;35039;Marburg;06421-999 88 85;taxi
+5083747;877235;50837470;8772350;197;Sparcar GbR;Siemensstr.;2;35041;Marburg;06421-999 988;taxi
+50773228;8780013;50773228;8780013;243;Taxi Kazim;Moischter Str.;59;35043;Marburg;06421-9488877;taxi
+5082521;28338;50825210;2833800;185;Taxi Mitte;Neue Kasseler Str.;27;35039;Marburg;06421-22222;taxi
+50825994;8772052;50825994;8772052;186;Taxi Sorany;Neue Kasseler Str.;29;35039;Marburg;06421-999999;taxi
+5082197;877123;50821970;8771230;183;Taxi UniCar UG;Zimmermannstr.;2;35039;Marburg;06421-47777;taxi
+5078916;28703;50789160;2870300;260;Taxi-Express Saleh;Berliner Str.;9;35039;Marburg;06421-444 44;taxi
+5083353;876104;50833530;8761040;199;Taxi-Ruf Brunett;Wehrdaer Str.;119;35041;Marburg;06421-880099;taxi
+50818005;8775585;50818005;8775585;187;TeleCar-Stadtmobil 24 Marburg LTD;Bahnhofstr.;31;35037;Marburg;06421-25 100;taxi
+5078307;28338;50783070;2833800;200;VIPcar;Goethestr.;20;35041;Marburg;06421-666 99;taxi
+50.82;28338;50.82000;2833800;187;Yellow Car;Affoellerstr.;30;35039;Marburg;06421-304 050;taxi
+50839215;8755832;50839215;8755832;229;Begegnungszentrum Sonneck;Hebronweg;7;35041;Marburg-Wehrda;;accomodation
+50804287;8772945;50804287;8772945;183;Campingplatz Lahnaue;Trojedamm;47;35037;Marburg;;accomodation
+5077533;876661;50775330;8766610;192;Carle;Ronhaeuser Str.;8;35043;Marburg;;accomodation
+5081886;877487;50818860;8774870;186;Hostel Marburg-One;Bahnhofstr.;33A;35037;Marburg;;accomodation
+5079188;876379;50791880;8763790;183;Hotel im Kornspeicher;Molkereistr.;6;35039;Marburg;;accomodation
+50815571;8768644;50815571;8768644;200;Hotel Marburger Hof;Elisabethstr.;12;35037;Marburg;;accomodation
+50803895;8773646;50803895;8773646;183;Jugendherberge;Jahnstr.;1;35037;Marburg;;accomodation
+5083473;876082;50834730;8760820;191;Lahngarten;Wehdaer Str.;102;35041;Marburg;;accomodation
+5080865;877222;50808650;8772220;194;Pension Harmony;Muehltreppe;1;35037;Marburg;;accomodation
+50813569;8774576;50813569;8774576;184;Pension Haus Müller;Deutschhausstr.;29;35037;Marburg;;accomodation
+5080047;874071;50800470;8740710;246;Schneider;Gladenbacher Weg;39;35037;Marburg;;accomodation
+5080472;876915;50804720;8769150;185;Tusculum;Gutenbergstr.;25;35037;Marburg;;accomodation
+5081873;876826;50818730;8768260;187;Vila Vita Rosenpark;Annelise Pohl Allee;Jul 17;35037;Marburg;;accomodation
+5081704;8770322;50817040;8770322;185;Village Stadthotel;Bahnhofstr.;14;35037;Marburg;;accomodation
+5080943;8772573;50809430;8772573;200;Welcome Hotel Marburg;Pilgrimstein;29;35037;Marburg;;accomodation
+5080914;868925;50809140;8689250;230;Zum Alten Schneider;Elnhaeuser Str.;13;35041;Marburg;;accomodation
+5081001;877183;50810010;8771830;203;Asia Center;Pilgrimstein;23  1/2;35037;Marburg;;food
+5081547;8769;50815470;8769000;193;Asia Shop;Elisabethstr.;11;35037;Marburg;;food
+5083001;877038;50830010;8770380;185;Aldi;Affoellerstr.;90;35039;Marburg;;supermarket
+5078678;876885;50786780;8768850;189;Aldi;Beltershaeuser Str.;5;35039;Marburg;;supermarket
+50806854;8777324;50806854;8777324;185;Aldi;Erlenring;9;35037;Marburg;;supermarket
+50842508;8765671;50842508;8765671;185;Aldi;Industriestr.;9;35041;Marburg;;supermarket
+5082426;877383;50824260;8773830;190;Edeka Kempf;Alte Kasseler Str.;27b;35039;Marburg;;supermarket
+50793316;8785707;50793316;8785707;285;Edeka Neukauf;Am Richtsberg;70;35039;Marburg;;supermarket
+5079893;27607;50798930;2760700;195;Edeka Neukauf;Leopold-Lucas-Str.;77;35037;Marburg;;supermarket
+5081751;28338;50817510;2833800;185;Edeka Neukauf;Rosenstr.;2;35037;Marburg;;supermarket
+5080066;875094;50800660;8750940;197;Edeka Pinschmidt / Getraenkemarkt;Bachweg;2;35037;Marburg;;supermarket
+50788476;8765461;50788476;8765461;185;Harman Yeri Supermarkt;Temmlerstr.;13;35039;Marburg;;supermarket
+50788137;8765864;50788137;8765864;185;Herkules;Temmlerstr.;19;35039;Marburg;;supermarket
+50841956;8765621;50841956;8765621;185;Lidl-Markt;Industriestr.;7;35041;Marburg;;supermarket
+50785914;8766674;50785914;8766674;185;Lidl-Markt;Marburger Str.;90;35043;Marburg;;supermarket
+50807392;8769113;50807392;8769113;197;Lidl-Markt;Universitaetsstr.;15;35037;Marburg;;supermarket
+5082488;877077;50824880;8770770;185;Penny Markt;Neue Kasseler Str.;24;35039;Marburg;;supermarket
+50804829;8758226;50804829;8758226;192;REWE;Ockershaeuser Allee;05. Jul;35037;Marburg;;supermarket
+50806504;8767192;50806504;8767192;192;REWE im Ahrens;Universitaetsstr.;14-22;35037;Marburg;;supermarket
+50806854;8777324;50806854;8777324;185;REWE Kranich OHG;Erlenring;9;35037;Marburg;;supermarket
+50792205;8785228;50792205;8785228;286;REWE Markt Kaiser;Am Richtsberg;64;35039;Marburg;;supermarket
+50840738;8769494;50840738;8769494;186;tegut;Am Kaufmarkt;1;35041;Marburg;;supermarket
+50814306;8766864;50814306;8766864;198;tegut;Ketzerbach;25-28;35037;Marburg;;supermarket
+50786993;8767143;50786993;8767143;187;tegut;Marburger Str.;100;35043;Marburg;;supermarket
+5080655;8769347;50806550;8769347;190;tegut;Universitaetsstr.;8;35037;Marburg;;supermarket
+50818944;8773485;50818944;8773485;186;Back Company;Bahnhofstr.;36;35037;Marburg;;bakery
+5082978;876951;50829780;8769510;185;Bäcker Mueller GmbH & Co. KG;Affoellerstr.;90;35039;Marburg;;bakery
+50793316;8785707;50793316;8785707;285;Bäcker Mueller GmbH & Co. KG;Am Richtsberg;70;35039;Marburg;;bakery
+50816647;8769524;50816647;8769524;186;Bäcker Mueller GmbH & Co. KG;Bahnhofstr.;8;35037;Marburg;;bakery
+50805109;876957;50805109;8769570;185;Bäcker Mueller GmbH & Co. KG;Gutenbergstr.;16;35037;Marburg;;bakery
+50841803;8766516;50841803;8766516;186;Bäcker Mueller GmbH & Co. KG;Industriestr.;5;35041;Marburg;;bakery
+50804982;8770246;50804982;8770246;184;Bäcker Mueller GmbH & Co. KG;Jaegerstr.;;35037;Marburg;;bakery
+50814177;8767451;50814177;8767451;196;Bäcker Mueller GmbH & Co. KG;Ketzerbach;21;35037;Marburg;;bakery
+5077712;8768044;50777120;8768044;195;Bäcker Mueller GmbH & Co. KG;Marburger Str.;4;35043;Marburg-Cappel;;bakery
+5081407;876927;50814070;8769270;193;Bäcker Mueller GmbH & Co. KG;Steinweg;39;35037;Marburg;;bakery
+5083545;876051;50835450;8760510;190;Bäcker Mueller GmbH & Co. KG;Wehrdaer Str.;143;35041;Marburg;;bakery
+50809763;28338;50809763;2833800;233;Bäcker Mueller GmbH & Co. KG;Wettergasse;7;35037;Marburg;;bakery
+5081946;877847;50819460;8778470;205;Bäcker Müller GmbH & Co. KG;Dürerstr.;1;35039;Marburg;;bakery
+508056;877604;50805600;8776040;185;Bäckerei Carle;Weidenhaeuser Str.;79;35037;Marburg;;bakery
+50825905;8771367;50825905;8771367;186;Bäckerei Knapp;Schlosserstr.;1;35037;Marburg;;bakery
+50808769;8774098;50808769;8774098;186;Bäckerei Kuenkel;Gerhard-Jahn-Platz;13;35037;Marburg;;bakery
+50807392;8769113;50807392;8769113;197;Bäckerei Kuenkel;Universitaetsstr.;15;35037;Marburg;;bakery
+5078368;876786;50783680;8767860;189;Bäckerei Steitz;Marburger Str.;72;35043;Marburg;;bakery
+5082426;877383;50824260;8773830;190;Backhaus Horst;Alte Kasseler Str.;27b;35039;Marburg;;bakery
+50806711;8768565;50806711;8768565;190;Backhaus Horst;Gutenbergstr.;3;35037;Marburg;;bakery
+5079895;27607;50798950;2760700;195;Backhaus Horst;Leopold-Lucas-Str.;77;35037;Marburg;;bakery
+5081728;28338;50817280;2833800;185;Backhaus Horst;Rosenstr.;2;35037;Marburg;;bakery
+50816106;8749719;50816106;8749719;244;Backshop Rudolf Kraft;Brunnenstr.;7;35041;Marburg;;bakery
+5081437;876928;50814370;8769280;193;Backshop Rudolf Kraft;Steinweg;45;35037;Marburg;;bakery
+50800036;8790474;50800036;8790474;270;Dickel;Gustav-Freytag-Str.;2;35039;Marburg;;bakery
+50808301;8769159;50808301;8769159;215;Mühlenbaeckerei Pfeiffer;Barfuesserstr.;43;35037;Marburg;;bakery
+5081303;8775921;50813030;8775921;185;Mühlenbaeckerei Pfeiffer;Biegenstr.;47;35037;Marburg;;bakery
+50815935;8752146;50815935;8752146;237;Mühlenbaeckerei Pfeiffer;Emil-von-Behring-Str.;37;35041;Marburg;;bakery
+50840738;8769494;50840738;8769494;186;Schäfers Backstuben GmbH;Am Kaufmarkt;1;35041;Marburg;;bakery
+50792205;8785228;50792205;8785228;286;Schäfers Backstuben GmbH;Am Richtsberg;64;35039;Marburg;;bakery
+5080915;877281;50809150;8772810;200;Schäfers Backstuben GmbH;Biegenstr.;4;35037;Marburg;;bakery
+50806854;8777324;50806854;8777324;185;Schäfers Backstuben GmbH;Erlenring;9;35037;Marburg;;bakery
+5077912;876732;50779120;8767320;189;Schäfers Backstuben GmbH;Marburger Str.;20;35043;Marburg;;bakery
+50786993;8767143;50786993;8767143;187;Schäfers Backstuben GmbH;Marburger Str.;100;35043;Marburg;;bakery
+50804829;8758226;50804829;8758226;192;Schäfers Backstuben GmbH;Ockershaeuser Allee;5;35037;Marburg;;bakery
+5080118;875973;50801180;8759730;185;Schäfers Backstuben GmbH;Schwanallee;31a;35037;Marburg;;bakery
+5080655;8769347;50806550;8769347;190;Schäfers Backstuben GmbH;Universitaetsstr.;8;35037;Marburg;;bakery
+5080116;877793;50801160;8777930;206;Schäfers Backstuben GmbH;Weintrautstr.;41;35039;Marburg;;bakery
+50817111;8770416;50817111;8770416;185;Schwälmer Brotladen;Bahnhofstr.;16;35037;Marburg;;bakery
+50795145;876898;50795145;8768980;200;Schwälmer Brotladen;Cappeler Str.;54;35039;Marburg;;bakery
+50817571;8771727;50817571;8771727;187;Schwälmer Brotladen;Im Hauptbahnhof;;35037;Marburg;;bakery
+5083977;8767676;50839770;8767676;184;Schwälmer Brotladen;Im Schwarzenborn;2;35041;Marburg;;bakery
+50788137;8765864;50788137;8765864;185;Schwälmer Brotladen;Temmlerstr.;19;35039;Marburg;;bakery
+5080676;876755;50806760;8767550;192;Schwälmer Brotladen;Universitaetsstr.;14;35037;Marburg;;bakery
+50806504;8767192;50806504;8767192;192;Schwälmer Brotladen;Universitaetsstr.;14-22;35037;Marburg;;bakery
+5080358;8755361;50803580;8755361;191;Allee Café;Ockershaeuser Allee;17;35037;Marburg;;cafe
+50819192;8773793;50819192;8773793;186;Basic Coffee;Bahnhofstr.;38;35037;Marburg;;cafe
+5080705;877335;50807050;8773350;184;Bootsverleih + Ufercaf‚ Gischler;Auf dem Wehr;1a;35037;Marburg;;cafe
+50806723;877189;50806723;8771890;185;Café am Gruen;Am Gruen;28;35037;Marburg;;cafe
+50809109;8770831;50809109;8770831;220;Café am Markt;Markt;9;35037;Marburg;;cafe
+5080174;875893;50801740;8758930;184;Café Aroma;Schwanallee;29a;35037;Marburg;;cafe
+50805738;876798;50805738;8767980;186;Café Campiello;Wilhelmstr.;6;35037;Marburg;;cafe
+5080851;876941;50808510;8769410;215;Café Cappuccino;Barfuesserstr.;46;35037;Marburg;;cafe
+50806137;8768747;50806137;8768747;186;Café Gutenberg;Gutenbergstr.;11;35037;Marburg;;cafe
+5080893;8772329;50808930;8772329;200;Café Mocca;Pilgrimstein;31;35037;Marburg;;cafe
+5082466;877153;50824660;8771530;184;Café Neumarkt;Neue Kasseler Str.;24a;35039;Marburg;;cafe
+5078309;877176;50783090;8771760;205;Café Piccolo;Im Lichtholz;33;35039;Marburg;;cafe
+5081888;877015;50818880;8770150;183;Café Rosenpark;Annelise Pohl Allee;Jul 17;35037;Marburg;;cafe
+5079833;880282;50798330;8802820;322;Café Sonnenblick;Amoeneburger Str.;01. Jun;35043;Marburg;;cafe
+50808726;8771881;50808726;8771881;204;Café Vetter;Reitgasse;4;35037;Marburg;;cafe
+50810426;8770939;50810426;8770939;217;Contigo Kaffeeroesterei;Wettergasse;29;35037;Marburg;;cafe
+507763;876848;50776300;8768480;199;Eiscafé Cais;Am Kirchberg;1;35043;Marburg-Cappel;;cafe
+50840738;8769494;50840738;8769494;186;Eiscafé Camerin;Am Kaufmarkt;1;35041;Marburg;;cafe
+5081954;877761;50819540;8777610;201;Eiscafé Capri;Schuetzenstr.;30a;35039;Marburg;;cafe
+5080915;877281;50809150;8772810;200;Eiscafé Catagro;Biegenstr.;4;35037;Marburg;;cafe
+50807392;8769113;50807392;8769113;197;Eiscafé I Trulli;Universitaetsstr.;15;35037;Marburg;;cafe
+50811063;8770378;50811063;8770378;234;Eiscafé Venezia;Neustadt;5;35037;Marburg;;cafe
+5077652;876841;50776520;8768410;199;Eisdiele Adria;Cappeler Markt;1;35043;Marburg;;cafe
+5081302;876938;50813020;8769380;200;Kaffeerösterei Bohne;Steinweg;19;35037;Marburg;;cafe
+50815442;879725;50815442;8797250;389;Kaiser-Wilhelm-Turm / Spiegelslustturm;Hermann-Bauer-Weg;2;35043;Marburg;;cafe
+5081421;876783;50814210;8767830;196;Ketzercafé;Ketzerbach;13a;35037;Marburg;;cafe
+50810676;877066;50810676;8770660;217;Konditorei Klingelhoefer;Wettergasse;38;35037;Marburg;;cafe
+5080671;877477;50806710;8774770;186;Kunstcafé Gloria;Weidenhaeuser Str.;35;35037;Marburg;;cafe
+5080811;876737;50808110;8767370;218;La Manufacture d'Anouk;Barfuesserstr.;9a;35037;Marburg;;cafe
+50809157;8762582;50809157;8762582;277;Schlosspark Café;Gisonenweg;;35037;Marburg;;cafe
+50817111;8770416;50817111;8770416;185;Schwälmer Café;Bahnhofstr.;16;35037;Marburg;;cafe
+50804287;8772945;50804287;8772945;183;Terrassencafé Lahnaue;Trojedamm;47;35037;Marburg;;cafe
+5080756;877519;50807560;8775190;184;Weidenhaeuser Kaffeeroesterei;Erlenring;4;35037;Marburg;;cafe
+5080893;8772329;50808930;8772329;200;Bereket Döner;Pilgrimstein;31;35037;Marburg;;imbiss
+5082957;876842;50829570;8768420;184;Burger King;Affoellerstr.;63;35039;Marburg;;imbiss
+50810264;8771683;50810264;8771683;203;Burgerlokal;Pilgrimstein;22;35037;Marburg;;imbiss
+5080943;8772573;50809430;8772573;200;Ceder;Pilgrimstein;29;35037;Marburg;;imbiss
+50809767;8772275;50809767;8772275;195;Chilli King;Pilgrimstein;25;35037;Marburg;;imbiss
+50806119;8769131;50806119;8769131;185;Corner Döner- und Pizzahaus;Gutenbergstr.;6;35037;Marburg;;imbiss
+50819633;8774134;50819633;8774134;187;Ditsch;Bahnhofstr.;33;35037;Marburg;;imbiss
+5080964;8772018;50809640;8772018;203;Fantasticum;Pilgrimstein;26;35037;Marburg;;imbiss
+50802563;875939;50802563;8759390;183;Genc Snackbar;Schwanallee;26;35037;Marburg;;imbiss
+5081695;877016;50816950;8770160;185;Halal Döner;Bahnhofstr.;12b;35037;Marburg;;imbiss
+507965;876052;50796500;8760520;181;Hallo Pizza;Gisselberger Str.;27;35037;Marburg;;imbiss
+5081476;876898;50814760;8768980;196;Istanbul Döner;Elisabethstr.;1;35037;Marburg;;imbiss
+5080975;877383;50809750;8773830;186;Lecker-Eck Imbiss;Biegenstr.;8a;35037;Marburg;;imbiss
+50809767;8772275;50809767;8772275;195;Mac Food;Pilgrimstein;25;35037;Marburg;;imbiss
+5083233;876839;50832330;8768390;185;McDonald's;Affoellerstr.;102;35039;Marburg;;imbiss
+50808499;8768825;50808499;8768825;215;Mevlana;Barfuesserstr.;37;35037;Marburg;;imbiss
+5080864;877242;50808640;8772420;194;Mr. King;Pilgrimstein;33;35037;Marburg;;imbiss
+5081498;876891;50814980;8768910;196;Multi Kulti;Elisabethstr.;5;35037;Marburg;;imbiss
+50807392;8769113;50807392;8769113;197;Nordsee GmbH;Universitaetsstr.;15;35037;Marburg;;imbiss
+5080765;877464;50807650;8774640;184;Palmyra Bistro;Erlenring;2;35037;Marburg;;imbiss
+5082831;876887;50828310;8768870;184;Peter's Imbiss;Affoellerstr.;57;35039;Marburg;;imbiss
+50815251;8768828;50815251;8768828;196;Pizza Como Lario;Elisabethstr.;10;35037;Marburg;;imbiss
+508174;877109;50817400;8771090;186;Pizza da Pepe;Bahnhofstr.;18a;35037;Marburg;;imbiss
+5080702;877179;50807020;8771790;185;Pizza Manhattan;Am Gruen;1a;35037;Marburg;;imbiss
+50.79;27973;5079000;2797300;178;Pizza Pikante;Frauenbergstr.;1a;35039;Marburg;;imbiss
+5080557;875956;50805570;8759560;200;Pizza Tony;Barfuessertor;21;35037;Marburg;;imbiss
+508013;875962;50801300;8759620;186;Pizzeria Paisano;Schwanallee;31a;35037;Marburg;;imbiss
+5081774;877137;50817740;8771370;187;Rhodos Grill;Bahnhofstr.;22;35037;Marburg;;imbiss
+5080943;8772573;50809430;8772573;200;Salaedchen Marburg 1;Pilgrimstein;29;35037;Marburg;;imbiss
+508023;875957;50802300;8759570;183;Salaedchen Marburg 2;Schwanallee;30;35037;Marburg;;imbiss
+50804266;8759256;50804266;8759256;188;Schmankerl Stub n;Schwanallee;8;35037;Marburg;;imbiss
+50794164;881454;50794164;8814540;317;Schwaelmer Brotladen;Lahnberge Kiosk Uniklinikum;;35043;Marburg;;imbiss
+50807238;8771601;50807238;8771601;188;Sefa Döner;Am Gruen;1;35037;Marburg;;imbiss
+5080915;877281;50809150;8772810;200;Sofra Döner;Biegenstr.;4;35037;Marburg;;imbiss
+50818944;8773485;50818944;8773485;186;Star Döner und Pizzahaus;Bahnhofstr.;36;35037;Marburg;;imbiss
+5083193;876907;50831930;8769070;184;Subway;Affoellerstr.;98;35039;Marburg;;imbiss
+5080773;8771401;50807730;8771401;188;Subway;Lahntor;5;35037;Marburg;;imbiss
+50806504;8767192;50806504;8767192;192;Subway;Universitaetsstr.;14-22;35037;Marburg;;imbiss
+50807392;8769113;50807392;8769113;197;Tai Gourmet;Universitaetsstr.;15;35037;Marburg;;imbiss
+50808769;8774098;50808769;8774098;186;Tom & Sally's;Gerhard-Jahn-Platz;15;35037;Marburg;;imbiss
+50.79;28338;5079000;2833800;200;Wok Inn;Marburger Str.;86;35043;Marburg;;imbiss
+50803234;8776111;50803234;8776111;179;Aldi's Biergarten;Am Trojedamm / Sommerbadstr.;;35037;Marburg;;bar_pub_bistro
+5080142;877297;50801420;8772970;181;Aqua Oase;Sommerbadstr.;41;35037;Marburg;;bar_pub_bistro
+508204;876991;50820400;8769910;183;Baari Bar;Affoellerwiesen;3a;35039;Marburg;;bar_pub_bistro
+50815351;8769159;50815351;8769159;196;Barrio Santo;Elisabethstr.;9;35037;Marburg;;bar_pub_bistro
+5080102;876527;50801020;8765270;184;Bebop;Frankfurter Str.;32;35037;Marburg;;bar_pub_bistro
+50808264;8770744;50808264;8770744;209;Bierwerk;Hirschberg;12;35037;Marburg;;bar_pub_bistro
+50791841;8739135;50791841;8739135;309;Bistro A Capella;Hannah-Arendt-Str.;2;35037;Marburg;;bar_pub_bistro
+50808479;8771057;50808479;8771057;209;Bistro Caveau;Hirschberg;8;35037;Marburg;;bar_pub_bistro
+5081884;877326;50818840;8773260;186;Bistro Treffpunkt;Bahnhofstr.;32;35037;Marburg;;bar_pub_bistro
+5080517;877674;50805170;8776740;183;Blues 'n Darts;Weidenhaeuser Str.;97;35037;Marburg;;bar_pub_bistro
+50817999;8766509;50817999;8766509;193;Bremsspur;Wehrdaer Weg;24;35037;Marburg;;bar_pub_bistro
+5081276;876951;50812760;8769510;216;Cavete;Steinweg;12;35037;Marburg;;bar_pub_bistro
+508084;877357;50808400;8773570;183;Cocktailbar Villa Biedermeier;Gerhard-Jahn-Platz;3;35037;Marburg;;bar_pub_bistro
+5081311;877535;50813110;8775350;185;Diamond Lounge;Biegenstr.;42;35037;Marburg;;bar_pub_bistro
+5080812;877086;50808120;8770860;209;Enjoybar;Hirschberg;15;35037;Marburg;;bar_pub_bistro
+5080774;8771261;50807740;8771261;188;Havanna 8;Lahntor;2;35037;Marburg;;bar_pub_bistro
+5080947;8770116;50809470;8770116;227;Hinkelstein;Markt;18;35037;Marburg;;bar_pub_bistro
+50802563;875939;50802563;8759390;183;Holzwurm;Schwanallee;26;35037;Marburg;;bar_pub_bistro
+5079486;876296;50794860;8762960;185;kickbar;Frauenbergstr.;1a;35039;Marburg;;bar_pub_bistro
+50802;875887;50802000;8758870;184;Knubbel;Schwanallee;27-31;35037;Marburg;;bar_pub_bistro
+5080696;877437;50806960;8774370;185;Krokodil;Weidenhaeuser Str.;25;35037;Marburg;;bar_pub_bistro
+5080845;876922;50808450;8769220;215;La Siesta;Barfuesserstr.;44;35037;Marburg;;bar_pub_bistro
+5081864;877424;50818640;8774240;185;live! Genuss Bar;Bahnhofstr.;29;35037;Marburg;;bar_pub_bistro
+5081709;876726;50817090;8767260;193;Molly Malones;Wehrdaer Weg;16a;35037;Marburg;;bar_pub_bistro
+50808873;8771892;50808873;8771892;212;Morgen;Reitgasse;5;35037;Marburg;;bar_pub_bistro
+5079714;876126;50797140;8761260;183;Musikkneipe Clou;Gisselberger Str.;23;35037;Marburg;;bar_pub_bistro
+50802154;8766768;50802154;8766768;183;Nero;Frankfurter Str.;14a;35037;Marburg;;bar_pub_bistro
+5080963;876976;50809630;8769760;233;Pegasus;Schlosstreppe;2;35037;Marburg;;bar_pub_bistro
+50803279;8754833;50803279;8754833;191;Sam's Pub;Ockershaeuser Allee;25;35037;Marburg;;bar_pub_bistro
+5081102;877022;50811020;8770220;234;Schlucke;Renthof;1;35037;Marburg;;bar_pub_bistro
+50807238;8771601;50807238;8771601;188;Shotz Marburg;Am Gruen;1;35037;Marburg;;bar_pub_bistro
+50812035;8775374;50812035;8775374;186;Sinbad Shisha Bar;Biegenstr.;31;35037;Marburg;;bar_pub_bistro
+50811741;8770221;50811741;8770221;228;Spock Absinth Bar;Neustadt;24;35037;Marburg;;bar_pub_bistro
+50804266;8759256;50804266;8759256;188;Sportsbar Aldi Mitte;Schwanallee;8;35037;Marburg;;bar_pub_bistro
+5080253;876832;50802530;8768320;182;Suedseite im TTZ;Software-Center;3;35037;Marburg;;bar_pub_bistro
+5080659;876227;50806590;8762270;194;Touchdown;Universitaetsstr.;47;35037;Marburg;;bar_pub_bistro
+508204;876991;50820400;8769910;183;Trauma;Affoellerwiesen;3a;35039;Marburg;;bar_pub_bistro
+50812013;8770244;50812013;8770244;228;Tunnel;Steinweg;2;35037;Marburg;;bar_pub_bistro
+5080775;877021;50807750;8770210;194;U14;Untergasse;14;35037;Marburg;;bar_pub_bistro
+50808873;8771892;50808873;8771892;212;5 Jahreszeiten;Reitgasse;5;35037;Marburg;;restaurant
+50806504;8767192;50806504;8767192;192;Ahrens Restaurant;Universitaetsstr.;14-22;35037;Marburg;;restaurant
+507886;28338;50788600;2833800;195;Asia Bistro;Friedrich-Ebert-Str.;23;35039;Marburg;;restaurant
+5080943;8772573;50809430;8772573;200;Asio Snack;Pilgrimstein;29;35037;Marburg;;restaurant
+50812007;8770267;50812007;8770267;228;Auflauf;Steinweg;1;35037;Marburg;;restaurant
+50.81;28338;50.81000;2833800;233;Barny's Schnitzelscheune;Pilgrimstein;34;35037;Marburg;;restaurant
+50809569;876681;50809569;8766810;249;Bueckingsgarten;Landgraf-Philipp-Str.;6;35037;Marburg;;restaurant
+5080785;877449;50807850;8774490;183;Bulljong;Lingelgasse;10;35037;Marburg;;restaurant
+507958;875556;50795800;8755560;180;Casa del Tennis;Willy-Mock-Str.;10;35037;Marburg;;restaurant
+5080055;877479;50800550;8774790;183;Chevy Marburg;Cappeler Str.;3;35039;Marburg;;restaurant
+50809023;8771108;50809023;8771108;220;China-Restaurant;Reitgasse;6;35037;Marburg;;restaurant
+50843797;8766305;50843797;8766305;185;Chinarestaurant Glueck;Industriestr.;12;35041;Marburg;;restaurant
+5081318;8776345;50813180;8776345;186;Colosseo;Deutschhausstr.;35;35037;Marburg;;restaurant
+5081463;876828;50814630;8768280;202;Curry Haus;Ketzerbach;9;35037;Marburg;;restaurant
+50809392;8770579;50809392;8770579;220;Da Nella;Markt;17;35037;Marburg;;restaurant
+50805293;8759176;50805293;8759176;190;Das kleine Restaurant;Barfuessertor;25;35037;Marburg;;restaurant
+50812155;8770194;50812155;8770194;211;Delirium;Steinweg;3;35037;Marburg;;restaurant
+50815571;8768644;50815571;8768644;200;Domingo's;Elisabethstr.;12;35037;Marburg;;restaurant
+50807238;8771601;50807238;8771601;188;Dromedar;Am Gruen;1;35037;Marburg;;restaurant
+50808142;8768514;50808142;8768514;215;Felix;Barfuesserstr.;28;35037;Marburg;;restaurant
+5081393;876899;50813930;8768990;193;Gartenlaube;Steinweg;38;35037;Marburg;;restaurant
+50842808;8757391;50842808;8757391;202;Gaststaette zum Anglerheim;Gossfeldener Str.;42;35041;Marburg;;restaurant
+5080251;879254;50802510;8792540;275;Hansenhaus links;Sonnenblickallee;15;35039;Marburg;;restaurant
+5080765;877464;50807650;8774640;184;Hikari Gold;Erlenring;2;35037;Marburg;;restaurant
+5081411;876907;50814110;8769070;193;I trulli;Steinweg;41;35037;Marburg;;restaurant
+5081562;876907;50815620;8769070;193;Indira;Elisabethstr.;13;35037;Marburg;;restaurant
+5080499;8778842;50804990;8778842;186;Irodion;Bei St. Jost;5;35039;Marburg;;restaurant
+50829617;8772491;50829617;8772491;194;Kaiser Palast;Neue Kasseler Str.;62;35039;Marburg;;restaurant
+50814238;8766228;50814238;8766228;201;Kejtis Balkan Bistro;Ketzerbach;39;35037;Marburg;;restaurant
+50808115;8767156;50808115;8767156;218;kostBar;Barfuesserstr.;7;35037;Marburg;;restaurant
+5079796;875854;50797960;8758540;182;La Piazzetta;Teichwiesenweg;15;35039;Marburg;;restaurant
+5080774;877393;50807740;8773930;183;Lahnterrasse;Lingelgasse;5;35037;Marburg;;restaurant
+50814571;8768733;50814571;8768733;194;Lokomotive Gyros Haus Alex;Ketzerbach;5;35037;Marburg;;restaurant
+50820481;8772826;50820481;8772826;185;Mai-Tai;Neue Kasseler Str.;4;35039;Marburg;;restaurant
+5081819;877157;50818190;8771570;184;Marburger Esszimmer;Annelise Pohl Allee;1;35037;Marburg;;restaurant
+50808997;8770115;50808997;8770115;227;Market;Markt;11;35037;Marburg;;restaurant
+5080891;28338;50808910;2833800;227;MAXX;Barfuesserstr.;55;35037;Marburg;;restaurant
+5080118;876477;50801180;8764770;184;O Vinho;Frankfurter Str.;31;35037;Marburg;;restaurant
+5080915;877281;50809150;8772810;200;Olivino;Biegenstr.;4;35037;Marburg;;restaurant
+5081205;28338;50812050;2833800;228;Osteria Da Enzo;Steinweg;2  1/2;35037;Marburg;;restaurant
+50809239;8771293;50809239;8771293;212;Paprika;Reitgasse;12;35037;Marburg;;restaurant
+5080236;876601;50802360;8766010;184;Pfeffer+Salz;Frankfurter Str.;19;35037;Marburg;;restaurant
+5081427;8766517;50814270;8766517;198;Pizza Il Cavallino;Ketzerbach;32;35037;Marburg;;restaurant
+5080638;876146;50806380;8761460;197;Pizzaria Piccolino;Universitaetsstr.;49;35037;Marburg;;restaurant
+50835745;8753215;50835745;8753215;216;Pizzeria Costa Smeralda;Im Paradies;1;35041;Marburg;;restaurant
+50808899;8770925;50808899;8770925;220;Ratsschaenke;Markt;3;35037;Marburg;;restaurant
+50814376;8767267;50814376;8767267;196;Restaurant Athena;Ketzerbach;22;35037;Marburg;;restaurant
+50811492;8775063;50811492;8775063;186;Restaurant Elif;Biegenstr.;19;35037;Marburg;;restaurant
+508188;876819;50818800;8768190;185;Restaurant Rosenkavalier;Annelise Pohl Allee;Jul 17;35037;Marburg;;restaurant
+5080943;8772573;50809430;8772573;200;Restaurant Tartaruga;Pilgrimstein;29;35037;Marburg;;restaurant
+5081878;876838;50818780;8768380;185;Restaurant Zirbelstube;Annelise Pohl Allee;Jul 17;35037;Marburg;;restaurant
+50801354;8790962;50801354;8790962;271;Ristorante-Pizzeria L isoletta;Sonnenblickallee;9;35039;Marburg;;restaurant
+5080575;877579;50805750;8775790;185;Schamdan;Weidenhaeuser Str.;72;35037;Marburg;;restaurant
+50811061;8734262;50811061;8734262;334;Sellhof;Oberer Rotenberg;47;35041;Marburg;;restaurant
+5080803;877434;50808030;8774340;183;Shaky Shake;Lingelgasse;13;35037;Marburg;;restaurant
+50816202;8776159;50816202;8776159;184;Sushi Sakura;Krummbogen;12;35039;Marburg;;restaurant
+5080864;877242;50808640;8772420;194;Sushi-Bar Sakura;Pilgrimstein;33;35037;Marburg;;restaurant
+50811679;8775233;50811679;8775233;186;Tandoori;Biegenstr.;23;35037;Marburg;;restaurant
+5080943;8772573;50809430;8772573;200;Tapas & Co;Pilgrimstein;29;35037;Marburg;;restaurant
+50814177;8767451;50814177;8767451;196;Taverna Korfu;Ketzerbach;21;35037;Marburg;;restaurant
+5079554;876362;50795540;8763620;184;Taverna Thessaloniki;Zeppelinstr.;1;35039;Marburg;;restaurant
+5081576;876882;50815760;8768820;193;Tokyo Sushi;Elisabethstr.;14;35037;Marburg;;restaurant
+5080773;8771361;50807730;8771361;188;Trattoria Pizzeria Basilicata;Lahntor;4;35037;Marburg;;restaurant
+5081266;878944;50812660;8789440;354;Waldgaststaette Spiegelslust;Spiegelslust;1;35039;Marburg;;restaurant
+50809799;8770035;50809799;8770035;233;Weinlaedle;Schlosstreppe;1;35037;Marburg;;restaurant
+5081789;877195;50817890;8771950;187;Aroma Bistro & Eisbar;Annelise Pohl Allee;1;35037;Marburg;;bar_pub_bistro
+5081789;877195;50817890;8771950;187;Aroma Bistro & Eisbar;Annelise Pohl Allee;1;35037;Marburg;;cafe
+5081812;877224;50818120;8772240;184;Aroma Lahn Beach;Annelise Pohl Allee;1;35037;Marburg;;bar_pub_bistro
+5081812;877224;50818120;8772240;184;Aroma Lahn Beach;Annelise Pohl Allee;1;35037;Marburg;;cafe
+50812006;8775375;50812006;8775375;186;Biegenstuebchen;Biegenstr.;29;35037;Marburg;;restaurant
+50812006;8775375;50812006;8775375;186;Biegenstuebchen;Biegenstr.;29;35037;Marburg;;bar_pub_bistro
+5081515;876897;50815150;8768970;196;Bißtro;Elisabethstr.;6;35037;Marburg;;bar_pub_bistro
+5081515;876897;50815150;8768970;196;Bißtro;Elisabethstr.;6;35037;Marburg;;imbiss
+50809891;8770738;50809891;8770738;218;Bistro Early;Wettergasse;14;35037;Marburg;;restaurant
+50809891;8770738;50809891;8770738;218;Bistro Early;Wettergasse;14;35037;Marburg;;bar_pub_bistro
+50805109;876957;50805109;8769570;185;Bistro Waschbrett;Gutenbergstr.;16;35037;Marburg;;bar_pub_bistro
+50805109;876957;50805109;8769570;185;Bistro Waschbrett;Gutenbergstr.;16;35037;Marburg;;other_essentials
+50808987;8771454;50808987;8771454;212;Brasserie;Reitgasse;8;35037;Marburg;;restaurant
+50808987;8771454;50808987;8771454;212;Brasserie;Reitgasse;8;35037;Marburg;;bar_pub_bistro
+50808208;8768803;50808208;8768803;215;Café Barfuss;Barfuesserstr.;33;35037;Marburg;;restaurant
+50808208;8768803;50808208;8768803;215;Café Barfuss;Barfuesserstr.;33;35037;Marburg;;cafe
+50827697;877291;50827697;8772910;189;Cala Luna;Alte Kasseler Str.;66;35039;Marburg;;restaurant
+50827697;877291;50827697;8772910;189;Cala Luna;Alte Kasseler Str.;66;35039;Marburg;;accomodation
+50809972;8771079;50809972;8771079;218;Die Pause;Wettergasse;16;35037;Marburg;;bar_pub_bistro
+50809972;8771079;50809972;8771079;218;Die Pause;Wettergasse;16;35037;Marburg;;cafe
+50809253;8770236;50809253;8770236;227;Edlunds;Markt;15;35037;Marburg;;restaurant
+50809253;8770236;50809253;8770236;227;Edlunds;Markt;15;35037;Marburg;;cafe
+50815351;8769159;50815351;8769159;196;Elly's;Elisabethstr.;9;35037;Marburg;;imbiss
+50815351;8769159;50815351;8769159;196;Elly's;Elisabethstr.;9;35037;Marburg;;cafe
+5080873;877411;50808730;8774110;183;Enchilada;Gerhard-Jahn-Platz;21+21a;35037;Marburg;;restaurant
+5080873;877411;50808730;8774110;183;Enchilada;Gerhard-Jahn-Platz;21+21a;35037;Marburg;;bar_pub_bistro
+5081864;877424;50818640;8774240;185;Fiona's;Bahnhofstr.;29;35037;Marburg;;restaurant
+5081864;877424;50818640;8774240;185;Fiona's;Bahnhofstr.;29;35037;Marburg;;bar_pub_bistro
+50812486;8775739;50812486;8775739;186;Fireflight Spaeti;Biegenstr.;37;35037;Marburg;;food
+50812486;8775739;50812486;8775739;186;Fireflight Spaeti;Biegenstr.;37;35037;Marburg;;other_essentials
+5077297;875039;50772970;8750390;175;Gasthof Grebe;Giessener Str.;09. Nov;35043;Marburg;;restaurant
+5077297;875039;50772970;8750390;175;Gasthof Grebe;Giessener Str.;09. Nov;35043;Marburg;;accomodation
+50813413;8776256;50813413;8776256;186;GUTKAUF;Deutschhausstr.;40;35037;Marburg;;supermarket
+50813413;8776256;50813413;8776256;186;GUTKAUF;Deutschhausstr.;40;35037;Marburg;;food
+5078972;878024;50789720;8780240;267;Hama;Am Richtsberg;1;35039;Marburg;;imbiss
+5078972;878024;50789720;8780240;267;Hama;Am Richtsberg;1;35039;Marburg;;food
+5080438;877163;50804380;8771630;183;Havana;Am Gruen;58;35037;Marburg;;restaurant
+5080438;877163;50804380;8771630;183;Havana;Am Gruen;58;35037;Marburg;;bar_pub_bistro
+5080772;8769773;50807720;8769773;194;Hesse Stuebchen;Untergasse;10;35037;Marburg;;restaurant
+5080772;8769773;50807720;8769773;194;Hesse Stuebchen;Untergasse;10;35037;Marburg;;accomodation
+50802154;8766768;50802154;8766768;183;Hommage;Frankfurter Str.;14a;35037;Marburg;;bar_pub_bistro
+50802154;8766768;50802154;8766768;183;Hommage;Frankfurter Str.;14a;35037;Marburg;;cafe
+50809509;8770468;50809509;8770468;220;Hostaria del Castello;Markt;19;35037;Marburg;;restaurant
+50809509;8770468;50809509;8770468;220;Hostaria del Castello;Markt;19;35037;Marburg;;accomodation
+5077004;874333;50770040;8743330;226;Hotel Fasanerie;Zur Fasanerie;15;35043;Marburg;;restaurant
+5077004;874333;50770040;8743330;226;Hotel Fasanerie;Zur Fasanerie;15;35043;Marburg;;accomodation
+5080465;876559;50804650;8765590;185;Konditorei Klingelhoefer;Haspelstr.;21;35037;Marburg;;cafe
+5080465;876559;50804650;8765590;185;Konditorei Klingelhoefer;Haspelstr.;21;35037;Marburg;;bar_pub_bistro
+50819633;8774134;50819633;8774134;187;McDonald's;Bahnhofstr.;33;35037;Marburg;;imbiss
+50819633;8774134;50819633;8774134;187;McDonald's;Bahnhofstr.;33;35037;Marburg;;cafe
+5080903;8773583;50809030;8773583;187;Memba;Gerhard-Jahn-Platz;11;35037;Marburg;;restaurant
+5080903;8773583;50809030;8773583;187;Memba;Gerhard-Jahn-Platz;11;35037;Marburg;;bar_pub_bistro
+5080791;876845;50807910;8768450;199;Nero Centro;Krebsgasse;2;35037;Marburg;;restaurant
+5080791;876845;50807910;8768450;199;Nero Centro;Krebsgasse;2;35037;Marburg;;bar_pub_bistro
+50808675;8771074;50808675;8771074;209;Plan B;Hirschberg;2;35037;Marburg;;restaurant
+50808675;8771074;50808675;8771074;209;Plan B;Hirschberg;2;35037;Marburg;;bar_pub_bistro
+50.81;27973;5081000;2797300;279;Prima Pasta;Universitätsstr.;28;35037;Marburg;;restaurant
+50.81;27973;5081000;2797300;279;Prima Pasta;Universitätsstr.;28;35037;Marburg;;cafe
+5080515;877102;50805150;8771020;184;Quodlibet;Am Gruen;37;35037;Marburg;;restaurant
+5080515;877102;50805150;8771020;184;Quodlibet;Am Gruen;37;35037;Marburg;;bar_pub_bistro
+5081407;876927;50814070;8769270;193;Restaurant Damoa;Steinweg;39;35037;Marburg;;restaurant
+5081407;876927;50814070;8769270;193;Restaurant Damoa;Steinweg;39;35037;Marburg;;bar_pub_bistro
+5081712;877843;50817120;8778430;191;Rotkehlchen;Rudolf-Bultmann-Str.;2a;35039;Marburg;;restaurant
+5081712;877843;50817120;8778430;191;Rotkehlchen;Rudolf-Bultmann-Str.;2a;35039;Marburg;;bar_pub_bistro
+5081422;876904;50814220;8769040;193;Sudhaus;Steinweg;44;35037;Marburg;;restaurant
+5081422;876904;50814220;8769040;193;Sudhaus;Steinweg;44;35037;Marburg;;bar_pub_bistro
+5080494;876912;50804940;8769120;185;Vinopolio;Gutenbergstr.;23;35037;Marburg;;bar_pub_bistro
+5080494;876912;50804940;8769120;185;Vinopolio;Gutenbergstr.;23;35037;Marburg;;food
+50809296;8770626;50809296;8770626;220;Zur Sonne;Markt;14;35037;Marburg;;restaurant
+50809296;8770626;50809296;8770626;220;Zur Sonne;Markt;14;35037;Marburg;;accomodation
