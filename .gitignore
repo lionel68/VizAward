@@ -1,0 +1,13 @@
+*.aux
+*.synctex.gz
+*.toc
+*.idx
+*.lof
+*.nlo
+*.out
+*.lot
+*.blg
+*.ldb
+*.mdb
+MyTile.png
+MyTile.png.rda
