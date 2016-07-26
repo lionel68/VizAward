@@ -17,14 +17,10 @@ shinyUI(fluidPage(
   titlePanel("First draft of an interactive map in Shiny"),
   
   # Sidebar with a slider input for number of bins 
-  sidebarLayout(
-    sidebarPanel(
-       sliderInput("nb_pts",
-                   "Number of points:",
-                   min = 1,
-                   max = 50,
-                   value = 30)
-    ),
+  sidebarLayout(sidebarPanel(
+    #example of keeping only specific groups in the data
+    selectInput("group", "Type of stores:", 
+                choices = c("All", "Restaurant", "Bar","Club"))),
     
     # Show a plot of the generated distribution
     mainPanel(
