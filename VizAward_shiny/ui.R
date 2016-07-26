@@ -8,18 +8,19 @@
 #
 
 library(shiny)
+library(leaflet)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("First draft of an interactive map in Shiny"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
+       sliderInput("nb_pts",
+                   "Number of points:",
                    min = 1,
                    max = 50,
                    value = 30)
@@ -27,7 +28,7 @@ shinyUI(fluidPage(
     
     # Show a plot of the generated distribution
     mainPanel(
-       plotOutput("distPlot")
+       leafletOutput("mymap")
     )
   )
 ))
