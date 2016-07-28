@@ -7,6 +7,11 @@
 #    http://shiny.rstudio.com/
 #
 
+
+#Make Layout nicer (TODO)
+#Add more user controls (TODO)
+
+
 library(shiny)
 library(leaflet)
 
