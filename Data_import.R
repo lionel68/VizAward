@@ -1,3 +1,11 @@
+########################################################################################
+#                                    # # #                                             #
+#This file is used to import the raw data on localities and the geographic information #
+#code written by Lionel R. Hertzog and Nadja Simmons
+
+#Updated: 28.07.2016
+########################################################################################
+
 ## Loading vector data
 
 # vector data are represented by the sp package with three classes:
@@ -16,48 +24,40 @@ library(raster)  # raster data
 library(rgdal)  # input/output, projections
 library(rgeos)  # geometry ops
 
-germany <- readOGR("C:/Users/Nadja/8-Freising/03_BioHolz/03_Datasets/DEU_adm_shp","DEU_adm0")
-
+# Import data on localities in Marburg
 csv_file <- read.csv("Data/Marburg_data.csv",sep=";")
-
 csv_file.df <- as.data.frame(csv_file)
 head(csv_file.df)
+summary(csv_file.df) 
 
-bbox(csv_file.spdf)
+# Create a spatial object from the csv data
+csv.spdf <- SpatialPointsDataFrame(csv_file.df[,c("longitude","latitude")], 
+                                        data = csv_file.df)
 
-which(as.numeric(csv_file.df$latitude_new)/1000000<50)
+# What is the extend of the data points?
+bbox(csv.spdf)
+# min      max
+# longitude  8.68925  8.81454
+# latitude  50.77004 50.84380
 
-csv_file.df[-which(as.numeric(csv_file.df$longitude_new)/1000000<8),] -> csv_clean.df
+# Create a raster file which marks the area of interest and is used to crop the other spatial data
+marburg_area = extent(raster(xmn = 8.6893, xmx = 8.8145, ymn = 50.7700, ymx = 50.8437))
 
-csv_clean.df$latitude_new <- as.numeric(csv_clean.df$latitude_new)/1000000
-csv_clean.df$longitude_new <- as.numeric(csv_clean.df$longitude_new)/1000000
+# GetMap.bbox(c(8.6,8.9),c(50.7,50.9)) -> marburg_region # Google Maps
 
-csv_clean.spdf <- SpatialPointsDataFrame(csv_clean.df[,c("longitude_new","latitude_new")], 
-                                        data = csv_clean.df[c(5:12)])
-bbox(csv_clean.spdf)
-
-GetMap.bbox(c(8.6,8.9),c(50.7,50.9)) -> marburg_region # Google Maps
-
-#  left, bottom, right, and top coordinates
-bbox_osm <- corner_bbox(8.6893,50.7700,8.8145,50.8437) # OpenStreetMap
-marburg_region_OSM <- get_osm(bbox_osm, source = osmsource_api()) # --> too large
-
-# manually downloaded a map of Hesse from http://download.geofabrik.de/europe/germany/hessen.html
+# manually download a map of Hesse from http://download.geofabrik.de/europe/germany/hessen.html
 # and add to a new folder "VizAward_Data" which is on the same level as the current directory
 
-Hesse_roads <- readOGR("../VizAward_Data/hessen-latest.shp","roads")
+Hesse_roads <- readOGR("../VizAward_Data/hessen-latest.shp","roads") # this takes some time
 
-marburg_area = extent(raster(xmn = 8.6893, xmx = 8.8145, ymn = 50.7700, ymx = 50.8437))
+# only select roads in the Marburg area
 Hesse_roads_sel = crop(Hesse_roads, marburg_area)
 
-plot(Hesse_roads_sel)
-points(csv_clean.spdf, col = "red")
-
+rm(Hesse_roads) # make space in the environment
 
 # Export of bus route information from OpenStreetMap at http://overpass-turbo.eu/
-
-# Instructions: go to the linked url -> copy-paste the code below into the white box on the left (or via Wizard)
-# -> run the query -> export in GPX format
+# Go to the above url -> copy-paste the code below into the white box on the left (show via Wizard)
+# -> run the query -> export in GPX format into the "VizAward_Data" folder
 
 # <osm-script output="json" timeout="25">
 #   <union>
@@ -72,8 +72,20 @@ points(csv_clean.spdf, col = "red")
 #   <print mode="skeleton" order="quadtile"/>
 #   </osm-script>
 
+# Import the data on bus routes and stops
 busroutes_shp <- readOGR(dsn = "../VizAward_Data/export.gpx", layer = "tracks")
-plot(busroutes_shp)
-
 busstops_shp <- readOGR(dsn = "../VizAward_Data/export.gpx", layer = "waypoints")
-points(busstops_shp,col="red")
+
+# Select only bus routes and bus stops within the area of interest
+busroutes_sel <- crop(busroutes_shp, marburg_area)
+busstops_sel <- crop(busstops_shp, marburg_area)
+
+rm(busroutes_shp) # make space in the environment
+rm(busstops_shp) # make space in the environment
+
+# Create plot to check if all spatial data overlap
+plot(Hesse_roads_sel, lwd = 2, col = "lightgrey")
+plot(busroutes_sel, col = "blue", add = T)
+points(busstops_sel,col="darkblue", cex = 0.5, pch = 16)
+points(csv.spdf, col = "red", cex = 0.5, pch = 16)
+# This looks very good!

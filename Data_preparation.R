@@ -1,0 +1,72 @@
+########################################################################################
+#                                    # # #                                             #
+#This file is used to prepare the final data used in the shiny application             #
+#code written by Lionel R. Hertzog and Nadja Simmons
+
+#Updated: 28.07.2016
+########################################################################################
+
+
+library(plyr)
+library(dplyr)
+library(tidyr)
+
+# Import the templates
+
+busstop_tmp <- read.csv("Data/template_busstop.csv", sep = ",")
+stores_tmp <- read.csv("Data/template_stores.csv", sep = ",")
+
+# look at the templates
+str(busstop_tmp)
+# $ BusStopID  : int  1 2 3 4
+# $ Longitude  : int  11 11 10 10
+# $ Latitude   : int  1 2 1 2
+# $ BusStopName: Factor w/ 4 levels "Hbf","Markplatz",..: 2 1 3 4
+# $ NbBusLine  : int  2 5 1 1
+# $ BusLine    : Factor w/ 4 levels "1-2","1-2-3-4-5",..: 1 2 3 4
+str(stores_tmp)
+# $ StoreID  : int  1 2 3 4
+# $ Longitude: int  11 11 10 10
+# $ Latitude : int  1 2 1 2
+# $ Group    : Factor w/ 4 levels "A","B","C","D": 1 2 3 4
+# $ Labels   : Factor w/ 4 levels "Am Adler","Mensa",..: 2 1 3 4
+# $ BusStopID: int  1 1 1 1
+
+# look at the data we already have
+str(csv_file.df)
+# $ latitude       : num  50.8 50.8 50.8 50.8 50.8 ...
+# $ longitude      : num  8.77 8.77 8.76 8.79 8.77 ...
+# $ elevation_m_asl: int  212 183 192 270 185 184 186 185 187 190 ...
+# $ name           : Factor w/ 334 levels "5 Jahreszeiten",..: 6 11 13 13 13 13 21 58 74 76 ...
+# $ street         : Factor w/ 110 levels "Affoellerstr.",..: 76 88 10 40 58 85 5 42 20 24 ...
+# $ street_no      : Factor w/ 106 levels "","01. Jun","05. Jul",..: 9 65 1 102 63 80 5 11 97 12 ...
+# $ zip_code       : int  35037 35037 35037 35039 35039 35037 35041 35037 35037 35037 ...
+# $ city           : Factor w/ 4 levels "Marburg","Marburg-Cappel",..: 1 1 1 1 1 1 1 1 1 1 ...
+# $ tel            : Factor w/ 16 levels "","06421-144 44",..: 1 1 1 1 1 1 1 1 1 1 ...
+# $ category       : Factor w/ 11 levels "accomodation",..: 7 7 7 7 7 7 7 7 7 7 ...
+
+# Some columns are already as we need them, some are unnecessary
+# Clean up the data using the tbl class used by dplyr and tidyr
+csv_file.tbl <- tbl_df(csv_file.df)
+csv_file.tbl %>% mutate(StoreID = paste("Store",row.names(csv_file.df),sep = "_")) %>%
+  mutate(Longitude = longitude) %>% mutate(Latitude = latitude) %>% mutate(Group = category) %>%
+  mutate(Labels = name) %>%
+  dplyr::select(one_of(c("StoreID","Longitude", "Latitude", "Group","Labels"))) -> stores
+
+# Look at the busstop data
+str(busstops_sel)
+head(busstops_sel@coords)
+dim(busstops_sel@coords)
+# convert into data.frame
+busstops <- as.data.frame(busstops_sel)
+str(busstops)
+
+# Clean up the data using the tbl class used by dplyr and tidyr
+csv_file.tbl <- tbl_df(csv_file.df)
+busstops %>% mutate(BusStopID = paste("Stop",row.names(busstops),sep = "_")) %>%
+  mutate(Longitude = coords.x1) %>% mutate(Latitude = coords.x2 ) %>%
+  mutate(BusStopName = name) %>%
+  dplyr::select(one_of(c("BusStopID","Longitude", "Latitude", "BusStopName"))) -> busstops
+
+# TO DO: Find busstops near the stores and subset dataset to those
+# TO DO: Find buslines at the selected bus stops
