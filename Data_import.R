@@ -52,3 +52,28 @@ Hesse_roads_sel = crop(Hesse_roads, marburg_area)
 
 plot(Hesse_roads_sel)
 points(csv_clean.spdf, col = "red")
+
+
+# Export of bus route information from OpenStreetMap at http://overpass-turbo.eu/
+
+# Instructions: go to the linked url -> copy-paste the code below into the white box on the left (or via Wizard)
+# -> run the query -> export in GPX format
+
+# <osm-script output="json" timeout="25">
+#   <union>
+#   <query type="relation">
+#   <has-kv k="route" v="bus"/>
+#   <bbox-query e="8.895492553710938" n="50.85288349328369" s="50.75568091033749" w="8.636970520019531"/>
+#   </query>
+#   <recurse type="relation-way"/>
+#   <recurse type="way-node"/>
+#   </union>
+#   <print mode="body"/>
+#   <print mode="skeleton" order="quadtile"/>
+#   </osm-script>
+
+busroutes_shp <- readOGR(dsn = "../VizAward_Data/export.gpx", layer = "tracks")
+plot(busroutes_shp)
+
+busstops_shp <- readOGR(dsn = "../VizAward_Data/export.gpx", layer = "waypoints")
+points(busstops_shp,col="red")
