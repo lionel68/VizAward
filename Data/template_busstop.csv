@@ -1,0 +1,5 @@
+BusStopID,Longitude,Latitude,BusStopName,Labels,NbBusLine
+1,11,1,Markplatz,,2
+2,11,2,Hbf,,5
+3,10,1,Ostbad,,1
+4,10,2,Westplatz,,1

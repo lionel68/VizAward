@@ -1,0 +1,5 @@
+StoreID,Longitude,Latitude,Group,Labels,BusStopID
+1,11,1,A,,1
+2,11,2,B,,1
+3,10,1,C,,1
+4,10,2,D,,1

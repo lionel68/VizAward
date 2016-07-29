@@ -1,0 +1,9 @@
+Explanation data templates;
+
+For the stores the informations needed is the StoreID, the coordinates, the type of stores (bar. club ...), the information that will appear in the popup window (label) and the BusStopID of the nearest bus stop.
+
+For the bus stop the information needed is the BusStopeID, the coordinates, the name of the Bus Stop, the number of bus line stopping at this stop and the line numbers (separated by a "-").
+
+For the bus lines I did not make any code to include it in the maps, for now SpatialLines* would be great.
+
+Thanks :)
