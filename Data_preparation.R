@@ -9,7 +9,7 @@
 
 library(plyr)
 library(dplyr)
-library(tidyr)
+library(tidyr) # more data management
 
 # Import the templates
 
@@ -70,3 +70,19 @@ busstops %>% mutate(BusStopID = paste("Stop",row.names(busstops),sep = "_")) %>%
 
 # TO DO: Find busstops near the stores and subset dataset to those
 # TO DO: Find buslines at the selected bus stops
+
+# set the projection of the stores to projection of bus-stops
+proj4string(csv.spdf) <- proj4string(busstops_sel)
+
+# get the nearest neighbour for each store among the bus stops
+snap <- apply(spDists(csv.spdf, busstops_sel), 1, which.min)
+# returns a vector of indices with length = number of stores
+
+# get only those bus-stops which are nearest to any of the stores
+busstops_nearest <- busstops_sel[unique(snap),]
+
+# attach BusStopID of the nearest bus stop to the stores data
+stores <- cbind(stores,as.data.frame(busstops[snap,"BusStopID"]))
+names(stores) <- c("StoreID", "Longitude", "Latitude", "Group","Labels","BusStopID")
+head(stores)
+

@@ -13,16 +13,16 @@
 
 # input of vector data with rgdal::readOGR()
 
-library(rgdal)
-library(sp)
-library(maps)
-library(mapdata)
-library(plyr)
-library(dplyr)
-library(RgoogleMaps)
+library(plyr) # data handling
+library(dplyr) # more data handling, piping (%>%)
+
+library(sp)   # spatial objects
+library(maps) # free maps of the world
+library(mapdata) # world maps
+library(RgoogleMaps) # get google maps
 library(raster)  # raster data
 library(rgdal)  # input/output, projections
-library(rgeos)  # geometry ops
+library(rgeos)  # geometry operations
 
 # Import data on localities in Marburg
 csv_file <- read.csv("Data/Marburg_data.csv",sep=";")
@@ -46,7 +46,8 @@ marburg_area = extent(raster(xmn = 8.6893, xmx = 8.8145, ymn = 50.7700, ymx = 50
 # GetMap.bbox(c(8.6,8.9),c(50.7,50.9)) -> marburg_region # Google Maps
 
 # manually download a map of Hesse from http://download.geofabrik.de/europe/germany/hessen.html
-# and add to a new folder "VizAward_Data" which is on the same level as the current directory
+# hessen-latest-shp.zip -> unzip to:
+# folder "VizAward_Data" which is on the same level as the current directory
 
 Hesse_roads <- readOGR("../VizAward_Data/hessen-latest.shp","roads") # this takes some time
 
