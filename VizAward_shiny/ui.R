@@ -25,7 +25,7 @@ shinyUI(fluidPage(
   sidebarLayout(sidebarPanel(
     #example of keeping only specific groups in the data
     selectInput("group", "Type of stores:", 
-                choices = c("All", "Restaurant", "Bar","Club"))),
+                choices = c("All", "Restaurant", "Bar","Club","Bank","Hospital"))),
     
     # Show a plot of the generated distribution
     mainPanel(
