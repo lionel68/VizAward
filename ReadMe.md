@@ -23,6 +23,8 @@ Below is a list of the first ideas:
 
 * Discuss ideas and set workflow (18.07.2016)
 
+##TO DO:
 
+-> Shiny side: correct bug when selecting only a specfic type of stores, probably conflicts with observe/reactive ...
 
 
