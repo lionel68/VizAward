@@ -132,6 +132,6 @@ leaflet() %>%
   addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw")%>%
   addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)%>%
   addCircles(data=bus,lng=~longitude,lat=~latitude,popup=~labels,color="red",radius=10)%>%
-  addAwesomeMarkers(data=tmp,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label=~Labels)
+  addAwesomeMarkers(data=stores,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label=~Labels)
   
 ,label = ~Labels,labelOptions = list(opacity=5)

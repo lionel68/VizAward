@@ -58,7 +58,10 @@ stores$Group<-as.character(stores$Group)
 stores$Group[stores$Group=="food"]<-"supermarket"
 stores$Labels<-as.character(stores$Labels)
 #remove bad names
-stores<-stores[-validUTF8(stores$Labels),]
+stores<-stores[validUTF8(stores$Labels),]
+stores<-stores[validEnc(stores$Labels),]
+
+
 # Look at the busstop data
 str(busstops_sel)
 head(busstops_sel@coords)
