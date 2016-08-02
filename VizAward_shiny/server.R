@@ -21,6 +21,7 @@ library(shiny)
 library(leaflet) #github version
 library(sp)
 library(plyr)
+library(RCurl) #to load data directly from github
 
 #Define the server
 shinyServer(function(input, output) {
@@ -42,9 +43,9 @@ shinyServer(function(input, output) {
   #end of simulation part
   #will be replaced by data loading in the future
   ##################################################
-  setwd("~/Documents/PhD/Presentation/GfÖ_2016/Visualization/")
+  #setwd("~/Documents/PhD/Presentation/GfÖ_2016/Visualization/")
   #load the actual store data
-  stores<-read.table("Data/store_marburg.csv",head=TRUE,sep=",",stringsAsFactors = FALSE)
+  stores<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/store_marburg.csv",encoding="ISO-8859-1"),head=TRUE,sep=",",stringsAsFactors = FALSE)
   #remove category other essentials
   stores<-subset(stores,Group!="other_essentials")
   #remove duplicated points
@@ -127,9 +128,10 @@ shinyServer(function(input, output) {
 })
 
 #for testing purposes
-#leaflet() %>%
-#  addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw")%>%
-#  addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)%>%
-#  addAwesomeMarkers(data=stores,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label = ~Labels,labelOptions = list(opacity=5))%>%
-#  addCircles(data=bus,lng=~longitude,lat=~latitude,popup=~labels,color="red",radius=10)
-
+leaflet() %>%
+  addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw")%>%
+  addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)%>%
+  addCircles(data=bus,lng=~longitude,lat=~latitude,popup=~labels,color="red",radius=10)%>%
+  addAwesomeMarkers(data=tmp,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label=~Labels)
+  
+,label = ~Labels,labelOptions = list(opacity=5)

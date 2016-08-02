@@ -53,6 +53,12 @@ csv_file.tbl %>% mutate(StoreID = paste("Store",row.names(csv_file.df),sep = "_"
   mutate(Labels = name) %>%
   dplyr::select(one_of(c("StoreID","Longitude", "Latitude", "Group","Labels"))) -> stores
 
+#rename some category
+stores$Group<-as.character(stores$Group)
+stores$Group[stores$Group=="food"]<-"supermarket"
+stores$Labels<-as.character(stores$Labels)
+#remove bad names
+stores<-stores[-validUTF8(stores$Labels),]
 # Look at the busstop data
 str(busstops_sel)
 head(busstops_sel@coords)
