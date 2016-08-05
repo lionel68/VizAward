@@ -9,6 +9,5 @@
 *.blg
 *.ldb
 *.mdb
-*.RData
 MyTile.png
 MyTile.png.rda

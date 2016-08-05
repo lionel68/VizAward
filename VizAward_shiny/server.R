@@ -47,10 +47,6 @@ shinyServer(function(input, output) {
 
   #load the actual store data from GitHub
   stores<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/store_marburg.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
-  #remove category other essentials
-  stores<-subset(stores,Group!="other_essentials")
-  #remove duplicated points
-  stores<-stores[-which(duplicated(stores[,c("Longitude","Latitude")])),]
   
   #for now simulate the bus stop
   bus<-data.frame(BusStopID=1:5,BusStopName=letters[1:5],latitude=c(50.818,50.809,50.814,50.804,50.805),longitude=c(8.773,8.774,8.769,8.759,8.781),labels=c("<b>Hauptbahnof</b><br/>Linie:<br/><b><a href='http://google.com'>1</a></b>","<b>Uni</b><br/>Linie:<br/><b><a href='http://google.com'>1</a></b>","<b>Marienplatz</b><br/>Linie:<br/><b><a href='http://google.com'>1</a></b>","<b>Marktstrasse</b><br/>Linie:<br/><b><a href='http://google.com'>1</a></b>","<b>Weihenstephan</b><br/>Linie:<br/><b><a href='http://google.com'>1</a></b>"))

@@ -61,8 +61,19 @@ stores$Labels<-as.character(stores$Labels)
 stores<-stores[validUTF8(stores$Labels),]
 stores<-stores[validEnc(stores$Labels),]
 
+#remove category other essentials
+stores<-subset(stores,Group!="other_essentials")
+#remove duplicated points
+stores<-stores[-which(duplicated(stores[,c("Longitude","Latitude")])),]
+
+# TO DO:
 csv.spdf[validUTF8(as.character(csv.spdf$name)),] -> stores.sp
 stores.sp[validUTF8(as.character(stores.sp$name)),] -> stores.sp
+#remove category other essentials
+stores.sp<-subset(stores.sp,Group!="other_essentials")
+#remove duplicated points
+stores.sp<-stores.sp[-which(duplicated(stores.sp[,c("Longitude","Latitude")])),]
+
 
 # Look at the busstop data
 str(busstops_sel)
@@ -104,10 +115,34 @@ stores <- cbind(stores,busstops_subset.df[snap,"BusStopID"])
 names(stores) <- c("StoreID", "Longitude", "Latitude", "Group","Labels","BusStopID")
 head(stores)
 
-# TO DO: Find buslines at the selected bus stops
+## Find buslines at the selected bus stops
+
+# 1. rasterize the vector data
+Linie_2 <- c("Hauptbahnhof, A1","BahnhofstraÃŸe, A1","Elisabethkirche, A1", "Volkshochschule", "Erwin-Piscator-Haus",
+             "Rudolphsplatz, A1","GutenbergstraÃŸe, A3","Philippshaus","Wilhelmsplatz, A5","RadestraÃŸe",
+             "Frankfurter StraÃŸe A1", "Konrad-Adenauer-Brücke", "SÃ¼dbahnhof, A7", "SÃ¼dbahnhof, B4","Rollwiesenweg",
+             "StadtbÃ¼ro, A3")
+which(busstops_subset$name%in%Linie_2)
+
+busstops_nearest.sp[busstops_nearest.sp$name%in%Linie_2,] -> Linie_2_stops
+
+busroutes_sel[apply(rgeos::gIntersects(Linie_2_stops,busroutes_sel, byid = T),1,any),] -> Linie_2_route
+class(Linie_2_route)
+
+plot(Hesse_roads_sel, lwd = 2, col = "lightgrey")
+plot(busroutes_sel, col = "blue", add = T)
+plot(Linie_2_route, col = "red", add = T)
+
+raster::extract(busroutes_sel, y = busstops_nearest.sp)
+
+## Export the data
 
 # Export selected bus-stops
-write.table(x = busstops_nearest, file = "Data/busstops_near.csv",sep = ",", dec = ".")
+write.table(x = busstops_nearest, file = "Data/busstops_near.csv",sep = ",", dec = ".",row.names = F)
 
 # Export store data with BusStopID
-write.table(x = stores, file = "Data/stores_busstops.csv",sep = ",", dec = ".")
+write.table(x = stores, file = "Data/stores_busstops.csv",sep = ",", dec = ".",row.names = F)
+
+# Export the spatial objects of the bus lines
+
+save(busroute_2_shp, file = "Data/busroute_2_shp.RData")
