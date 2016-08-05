@@ -61,37 +61,53 @@ stores$Labels<-as.character(stores$Labels)
 stores<-stores[validUTF8(stores$Labels),]
 stores<-stores[validEnc(stores$Labels),]
 
+csv.spdf[validUTF8(as.character(csv.spdf$name)),] -> stores.sp
+stores.sp[validUTF8(as.character(stores.sp$name)),] -> stores.sp
 
 # Look at the busstop data
 str(busstops_sel)
 head(busstops_sel@coords)
 dim(busstops_sel@coords)
+
+# Remove busstops without proper names
+busstops_sel[substr(busstops_sel$name,1,4)!="node",] -> busstops_subset
+dim(busstops_subset@coords)
+
 # convert into data.frame
-busstops <- as.data.frame(busstops_sel)
-str(busstops)
+busstops_subset.df <- as.data.frame(busstops_subset)
+str(busstops_subset.df)
 
 # Clean up the data using the tbl class used by dplyr and tidyr
-csv_file.tbl <- tbl_df(csv_file.df)
-busstops %>% mutate(BusStopID = paste("Stop",row.names(busstops),sep = "_")) %>%
+busstops_subset.df %>% mutate(BusStopID = paste("Stop",row.names(busstops_subset.df),sep = "_")) %>%
   mutate(Longitude = coords.x1) %>% mutate(Latitude = coords.x2 ) %>%
   mutate(BusStopName = name) %>%
-  dplyr::select(one_of(c("BusStopID","Longitude", "Latitude", "BusStopName"))) -> busstops
+  dplyr::select(one_of(c("BusStopID","Longitude", "Latitude", "BusStopName"))) -> busstops_subset.df
 
-# TO DO: Find busstops near the stores and subset dataset to those
-# TO DO: Find buslines at the selected bus stops
+busstops_subset.df$BusStopName <- factor(busstops_subset.df$BusStopName)
+str(busstops_subset.df)
+
+## Find busstops near the stores and subset dataset to those
 
 # set the projection of the stores to projection of bus-stops
-proj4string(csv.spdf) <- proj4string(busstops_sel)
+proj4string(stores.sp) <- proj4string(busstops_subset)
 
 # get the nearest neighbour for each store among the bus stops
-snap <- apply(spDists(csv.spdf, busstops_sel), 1, which.min)
+snap <- apply(spDists(stores.sp, busstops_subset), 1, which.min)
 # returns a vector of indices with length = number of stores
 
 # get only those bus-stops which are nearest to any of the stores
-busstops_nearest <- busstops_sel[unique(snap),]
+busstops_nearest <- busstops_subset.df[unique(snap),]
+busstops_nearest.sp <-busstops_subset[unique(snap),]
 
 # attach BusStopID of the nearest bus stop to the stores data
-stores <- cbind(stores,as.data.frame(busstops[snap,"BusStopID"]))
+stores <- cbind(stores,busstops_subset.df[snap,"BusStopID"])
 names(stores) <- c("StoreID", "Longitude", "Latitude", "Group","Labels","BusStopID")
 head(stores)
 
+# TO DO: Find buslines at the selected bus stops
+
+# Export selected bus-stops
+write.table(x = busstops_nearest, file = "Data/busstops_near.csv",sep = ",", dec = ".")
+
+# Export store data with BusStopID
+write.table(x = stores, file = "Data/stores_busstops.csv",sep = ",", dec = ".")
