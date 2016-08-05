@@ -145,4 +145,13 @@ write.table(x = stores, file = "Data/stores_busstops.csv",sep = ",", dec = ".",r
 
 # Export the spatial objects of the bus lines
 
+save(busroute_1_shp, file = "Data/busroute_1_shp.RData")
 save(busroute_2_shp, file = "Data/busroute_2_shp.RData")
+save(busroute_3_shp, file = "Data/busroute_3_shp.RData")
+save(busroute_4_shp, file = "Data/busroute_4_shp.RData")
+save(busroute_5_shp, file = "Data/busroute_5_shp.RData")
+save(busroute_6_shp, file = "Data/busroute_6_shp.RData")
+save(busroute_7_shp, file = "Data/busroute_7_shp.RData")
+save(busroute_8_shp, file = "Data/busroute_8_shp.RData")
+save(busroute_9_shp, file = "Data/busroute_9_shp.RData")
+save(busroute_10_shp, file = "Data/busroute_10_shp.RData")
