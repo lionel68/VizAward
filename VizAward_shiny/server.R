@@ -46,15 +46,15 @@ shinyServer(function(input, output) {
   ##################################################
 
   #load the actual store data from GitHub
-  stores<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/store_marburg.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
+  stores<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/stores_busstops.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
+  #remove category other essentials
+  stores<-subset(stores,Group!="other_essentials")
+  #remove duplicated points
+  stores<-stores[-which(duplicated(stores[,c("Longitude","Latitude")])),]
   
-  #for now simulate the bus stop
-  bus<-data.frame(BusStopID=1:5,BusStopName=letters[1:5],latitude=c(50.818,50.809,50.814,50.804,50.805),longitude=c(8.773,8.774,8.769,8.759,8.781),labels=c("<b>Hauptbahnof</b><br/>Linie:<br/><b><a href='http://google.com'>1</a></b>","<b>Uni</b><br/>Linie:<br/><b><a href='http://google.com'>1</a></b>","<b>Marienplatz</b><br/>Linie:<br/><b><a href='http://google.com'>1</a></b>","<b>Marktstrasse</b><br/>Linie:<br/><b><a href='http://google.com'>1</a></b>","<b>Weihenstephan</b><br/>Linie:<br/><b><a href='http://google.com'>1</a></b>"))
+  #load bus stop
+  bus<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/busstops_near.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
   
-  #link every store to the nearest bus stop (could change this to a specific distance radius in the future)
-  #when the data are ready this will be set in the store dataframe
-  snap <- apply(spDists(as.matrix(stores[,c("Longitude","Latitude")]), as.matrix(bus[,c("longitude","latitude")])), 1, which.min)
-  stores$BusStopID<-snap
   
   #create the icons for the stores and the conference center
   icon_uni<-makeAwesomeIcon(icon="university",library="fa",markerColor="red",iconColor="white")
@@ -81,7 +81,7 @@ shinyServer(function(input, output) {
     leaflet() %>%
       addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw")%>%
       addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)%>%
-      addCircles(data=bus,lng=~longitude,lat=~latitude,popup=~labels,color="red",radius=10,layerId=~BusStopID)
+      addCircles(data=bus,lng=~Longitude,lat=~Latitude,color="red",radius=10,layerId=~BusStopID,popup=~BusStopName)
     })    
       
   #if the user set a specific group
