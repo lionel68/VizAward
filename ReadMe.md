@@ -25,6 +25,16 @@ Below is a list of the first ideas:
 
 ##TO DO:
 
--> Shiny side: correct bug when selecting only a specfic type of stores, probably conflicts with observe/reactive ...
+### Shiny
+
+-> When hovering on a bus stop: Show nearby stores + in a window: bus stop name and bus lines numbers
+
+-> When clicking on a bus stop: Show nearby stores + plot bus lines
+
+-> Add the option to show all information on the map
+
+-> Make the map bigger
+
+-> Limit the maximum out zoom possible
 
 
