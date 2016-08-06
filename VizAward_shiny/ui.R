@@ -19,13 +19,14 @@ library(leaflet)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("First draft of an interactive map in Shiny"),
+  titlePanel("Second draft of an interactive map in Shiny"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(sidebarPanel(
     #example of keeping only specific groups in the data
-    selectInput("group", "Type of stores:", 
-                choices = c("All", "Restaurant", "Bar","Club"))),
+    selectInput("group", label=h2("Type of stores:"), 
+                choices = list("All"="All","Restaurant"="restaurant","Bar"="bar_pub_bistro","Cafe"="cafe","Fast-Food"="imbiss","Pharmacy"="pharmacy","Supermarket"="supermarket","Taxi"="taxi","Bakery"="bakery","Hotel"="accomodation"),
+                selected="All")),
     
     # Show a plot of the generated distribution
     mainPanel(

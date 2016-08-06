@@ -77,6 +77,33 @@ rm(Hesse_roads) # make space in the environment
 busroutes_shp <- readOGR(dsn = "../VizAward_Data/export.gpx", layer = "tracks")
 busstops_shp <- readOGR(dsn = "../VizAward_Data/export.gpx", layer = "waypoints")
 
+# We can also import only one bus route by indicating the number in k="ref" v="  "
+
+# Information on single bus routes
+# <osm-script output="json" timeout="25">
+#   <union>
+#   <query type="relation">
+#   <has-kv k="ref" v="2"/>
+#   <bbox-query e="8.895492553710938" n="50.85288349328369" s="50.75568091033749" w="8.636970520019531"/>
+#   </query>
+#   <recurse type="relation-way"/>
+#   <recurse type="way-node"/>
+#   </union>
+#   <print mode="body"/>
+#   <print mode="skeleton" order="quadtile"/>
+#   </osm-script>
+
+busroute_1_shp <- readOGR(dsn = "../VizAward_Data/export_Linie1.gpx", layer = "tracks")
+busroute_2_shp <- readOGR(dsn = "../VizAward_Data/export_Linie2.gpx", layer = "tracks")
+busroute_3_shp <- readOGR(dsn = "../VizAward_Data/export_Linie3.gpx", layer = "tracks")
+busroute_4_shp <- readOGR(dsn = "../VizAward_Data/export_Linie4.gpx", layer = "tracks")
+busroute_5_shp <- readOGR(dsn = "../VizAward_Data/export_Linie5.gpx", layer = "tracks")
+busroute_6_shp <- readOGR(dsn = "../VizAward_Data/export_Linie6.gpx", layer = "tracks")
+busroute_7_shp <- readOGR(dsn = "../VizAward_Data/export_Linie7.gpx", layer = "tracks")
+busroute_8_shp <- readOGR(dsn = "../VizAward_Data/export_Linie8.gpx", layer = "tracks")
+busroute_9_shp <- readOGR(dsn = "../VizAward_Data/export_Linie9.gpx", layer = "tracks")
+busroute_10_shp <- readOGR(dsn = "../VizAward_Data/export_Linie10.gpx", layer = "tracks")
+
 # Select only bus routes and bus stops within the area of interest
 busroutes_sel <- crop(busroutes_shp, marburg_area)
 busstops_sel <- crop(busstops_shp, marburg_area)

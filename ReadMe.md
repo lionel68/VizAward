@@ -23,6 +23,18 @@ Below is a list of the first ideas:
 
 * Discuss ideas and set workflow (18.07.2016)
 
+##TO DO:
 
+### Shiny
+
+-> When hovering on a bus stop: Show nearby stores + in a window: bus stop name and bus lines numbers
+
+-> When clicking on a bus stop: Show nearby stores + plot bus lines
+
+-> Add the option to show all information on the map
+
+-> Make the map bigger
+
+-> Limit the maximum out zoom possible
 
 
