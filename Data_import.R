@@ -77,7 +77,14 @@ rm(Hesse_roads) # make space in the environment
 busroutes_shp <- readOGR(dsn = "../VizAward_Data/export.gpx", layer = "tracks")
 busstops_shp <- readOGR(dsn = "../VizAward_Data/export.gpx", layer = "waypoints")
 
-# We can also import only one bus route by indicating the number in k="ref" v="  "
+# Select only bus routes and bus stops within the area of interest
+busroutes_sel <- crop(busroutes_shp, marburg_area)
+busstops_sel <- crop(busstops_shp, marburg_area)
+
+rm(busroutes_shp) # make space in the environment
+rm(busstops_shp) # make space in the environment
+
+# We can also import only one bus route at a time by indicating the number in k="ref" v="  "
 
 # Information on single bus routes
 # <osm-script output="json" timeout="25">
@@ -104,12 +111,10 @@ busroute_8_shp <- readOGR(dsn = "../VizAward_Data/export_Linie8.gpx", layer = "t
 busroute_9_shp <- readOGR(dsn = "../VizAward_Data/export_Linie9.gpx", layer = "tracks")
 busroute_10_shp <- readOGR(dsn = "../VizAward_Data/export_Linie10.gpx", layer = "tracks")
 
-# Select only bus routes and bus stops within the area of interest
-busroutes_sel <- crop(busroutes_shp, marburg_area)
-busstops_sel <- crop(busstops_shp, marburg_area)
+# combine the bus lines into a list
+bus_line_list <- list(busroute_1_shp,busroute_2_shp,busroute_3_shp,busroute_4_shp,busroute_5_shp,
+                      busroute_6_shp,busroute_7_shp,busroute_8_shp,busroute_9_shp,busroute_10_shp)
 
-rm(busroutes_shp) # make space in the environment
-rm(busstops_shp) # make space in the environment
 
 # Create plot to check if all spatial data overlap
 plot(Hesse_roads_sel, lwd = 2, col = "lightgrey")
