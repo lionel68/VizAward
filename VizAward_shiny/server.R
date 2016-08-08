@@ -47,10 +47,6 @@ shinyServer(function(input, output) {
 
   #load the actual store data from GitHub
   stores<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/stores_busstops.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
-  #remove category other essentials
-  stores<-subset(stores,Group!="other_essentials")
-  #remove duplicated points
-  stores<-stores[-which(duplicated(stores[,c("Longitude","Latitude")])),]
   
   #load bus stop
   bus<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/busstops_near.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)

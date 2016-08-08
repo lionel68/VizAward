@@ -32,7 +32,7 @@ str(stores_tmp)
 # $ Labels   : Factor w/ 4 levels "Am Adler","Mensa",..: 2 1 3 4
 # $ BusStopID: int  1 1 1 1
 
-# look at the data we already have
+### I. Prepare the store data
 str(csv_file.df)
 # $ latitude       : num  50.8 50.8 50.8 50.8 50.8 ...
 # $ longitude      : num  8.77 8.77 8.76 8.79 8.77 ...
@@ -53,7 +53,7 @@ csv_file.tbl %>% mutate(StoreID = paste("Store",row.names(csv_file.df),sep = "_"
   mutate(Labels = name) %>%
   dplyr::select(one_of(c("StoreID","Longitude", "Latitude", "Group","Labels"))) -> stores
 
-#rename some category
+#rename some categories
 stores$Group<-as.character(stores$Group)
 stores$Group[stores$Group=="food"]<-"supermarket"
 stores$Labels<-as.character(stores$Labels)
@@ -61,8 +61,22 @@ stores$Labels<-as.character(stores$Labels)
 stores<-stores[validUTF8(stores$Labels),]
 stores<-stores[validEnc(stores$Labels),]
 
+#remove category other essentials
+stores<-subset(stores,Group!="other_essentials")
+#remove duplicated points
+stores<-stores[-which(duplicated(stores[,c("Longitude","Latitude")])),]
+
+# Repeat selection of spatialPointsDataframe
 csv.spdf[validUTF8(as.character(csv.spdf$name)),] -> stores.sp
 stores.sp[validUTF8(as.character(stores.sp$name)),] -> stores.sp
+
+#remove category other essentials
+stores.sp<-subset(stores.sp,stores.sp$category!="other_essentials")
+#remove duplicated points
+stores.sp<-stores.sp[-which(duplicated(stores.sp@coords[,c("longitude","latitude")])),]
+
+###--------------------------------------------------------------------------------------
+### II. Prepare the bus stop data
 
 # Look at the busstop data
 str(busstops_sel)
@@ -86,7 +100,8 @@ busstops_subset.df %>% mutate(BusStopID = paste("Stop",row.names(busstops_subset
 busstops_subset.df$BusStopName <- factor(busstops_subset.df$BusStopName)
 str(busstops_subset.df)
 
-## Find busstops near the stores and subset dataset to those
+###-------------------------------------------------------------------------------------
+### III. Find busstops near the stores and subset dataset to those
 
 # set the projection of the stores to projection of bus-stops
 proj4string(stores.sp) <- proj4string(busstops_subset)
@@ -104,10 +119,52 @@ stores <- cbind(stores,busstops_subset.df[snap,"BusStopID"])
 names(stores) <- c("StoreID", "Longitude", "Latitude", "Group","Labels","BusStopID")
 head(stores)
 
-# TO DO: Find buslines at the selected bus stops
+###-------------------------------------------------------------------------------------
+### IV. Find buslines at the selected bus stops
+
+# Add column to identify the buslines for each stop
+
+busstops_nearest <- cbind(busstops_nearest, NbBusLine = 0, BusLine = "L",stringsAsFactors=FALSE)
+# make sure that BusLine is not a factor but a character
+str(busstops_nearest)
+
+# for each bus line, search for those bus stops in the selection which are part of their route
+for (i in 1:length(bus_line_list)){
+  stops <- which(busstops_nearest.sp$name%in%bus_line_list[[i]]@data$name)
+  busstops_nearest[stops,"NbBusLine"] <- busstops_nearest[stops,"NbBusLine"]+1
+  busstops_nearest[stops,"BusLine"] <- paste(busstops_nearest[stops,"BusLine"],as.character(i),sep = "-")
+}
+
+# Look at the results
+head(busstops_nearest)
+
+busline_colors <- c("#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c",
+                    "#fdbf6f","#ff7f00","#cab2d6","#6a3d9a")
+# those colors were selected from http://colorbrewer2.org/
+  
+plot(Hesse_roads_sel, lwd = 2, col = "lightgrey")
+for (i in 1: 10){
+  plot(bus_line_list[[i]], col = busline_colors[i], add = T)
+}
+
+## Export the data
 
 # Export selected bus-stops
-write.table(x = busstops_nearest, file = "Data/busstops_near.csv",sep = ",", dec = ".")
+write.table(x = busstops_nearest, file = "Data/busstops_near.csv",sep = ",", dec = ".",row.names = F)
 
 # Export store data with BusStopID
-write.table(x = stores, file = "Data/stores_busstops.csv",sep = ",", dec = ".")
+write.table(x = stores, file = "Data/stores_busstops.csv",sep = ",", dec = ".",row.names = F)
+
+# Export the spatial objects of the bus lines
+save(bus_line_list, file ="Data/bus_line_list.RData")
+
+save(busroute_1_shp, file = "Data/busroute_1_shp.RData")
+save(busroute_2_shp, file = "Data/busroute_2_shp.RData")
+save(busroute_3_shp, file = "Data/busroute_3_shp.RData")
+save(busroute_4_shp, file = "Data/busroute_4_shp.RData")
+save(busroute_5_shp, file = "Data/busroute_5_shp.RData")
+save(busroute_6_shp, file = "Data/busroute_6_shp.RData")
+save(busroute_7_shp, file = "Data/busroute_7_shp.RData")
+save(busroute_8_shp, file = "Data/busroute_8_shp.RData")
+save(busroute_9_shp, file = "Data/busroute_9_shp.RData")
+save(busroute_10_shp, file = "Data/busroute_10_shp.RData")
