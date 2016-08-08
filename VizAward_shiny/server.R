@@ -51,6 +51,8 @@ shinyServer(function(input, output) {
   #load bus stop
   bus<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/busstops_near.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
   
+  #load bus line
+  
   
   #create the icons for the stores and the conference center
   icon_uni<-makeAwesomeIcon(icon="university",library="fa",markerColor="red",iconColor="white")
@@ -75,9 +77,10 @@ shinyServer(function(input, output) {
     
     #create the base map
     leaflet() %>%
-      addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw")%>%
+      setView(lng=8.774149, lat=50.810685,zoom = 14)%>%
+      addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw",option=tileOptions(minZoom=13,maxZoom=18))%>%
       addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)%>%
-      addCircles(data=bus,lng=~Longitude,lat=~Latitude,color="red",radius=10,layerId=~BusStopID,popup=~BusStopName)
+      addCircles(data=bus,lng=~Longitude,lat=~Latitude,color="red",radius=5,layerId=~BusStopID,label=~BusStopName,popup=~BusStopName)
     })    
       
   #if the user set a specific group
@@ -89,42 +92,58 @@ shinyServer(function(input, output) {
       stores
     }
   })
-  #observe the users click on specific bus stop on the map
-  #when the user click on the bus stop all stores related to this bus stop appear
-  observe({
-    proxy<-leafletProxy("mymap")
-    if(!is.null(input$mymap_shape_click)){
-      proxy%>%
-        clearMarkers()%>% #to remove previously appearing stores
-        addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)
-      #subset the stores reactive data
-      subStores_p<-subset(subStores(),BusStopID%in%input$mymap_shape_click)
-      #if some stores are associated to this bus stop show them on the map
-      if(dim(subStores_p)[1]!=0){
-        proxy%>%
-          addAwesomeMarkers(data=subStores_p,lng=~Longitude,lat=~Latitude,popup = ~Labels,label=~Labels,icon=~icons[Group])
-         }  
-      }
-  })
-  
-  #if the user click on the map remove all store markers
-  observe({
-    proxy<-leafletProxy("mymap")
-    if(!is.null(input$mymap_click)){
-      proxy%>%
-        clearMarkers()%>%
-        addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)
+  #the function to show the stores
+  showStores<-function(ID){
+    selectStores <- subset(subStores(),BusStopID==ID)
+    if(dim(selectStores)[1]>0){
+      leafletProxy("mymap")%>%
+        addAwesomeMarkers(data=selectStores,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label=~Labels,popup=~Labels)
+    }
+  }
+  #set the different events that may happen based on users click on the map
+  events <- reactiveValues(mouse_marker=NULL,mouse_out=NULL,click_marker=NULL,click_map=NULL)
+  #if the mouse hover a bus stop show the nearby stores
+  observeEvent(input$mymap_shape_mouseover,{
+    mouse_out <- NULL
+    if(is.null(events$click_marker)){
+      events$mouse_marker <- input$mymap_shape_mouseover
+      showStores(events$mouse_marker$id)
     }
   })
-      
-      #addPolylines(data=marb_l)
+  #if the mouse leaves a bus stop clear the markers
+  observeEvent(input$mymap_shape_mouseout,{
+    events$mouse_marker <- NULL
+    leafletProxy("mymap")%>%
+      clearMarkers()%>%
+      addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)
+    if(!is.null(events$click_marker)){
+      showStores(events$click_marker$id)
+    }
+  })
+  #if the user click on a bus stop show the nearby stores
+  observeEvent(input$mymap_shape_click,{
+   events$click_map <- NULL
+   events$click_marker <- input$mymap_shape_click
+   showStores(events$click_marker$id)
+ })
+ #if the user click on the map remove the markers
+ observeEvent(input$mymap_click,{
+   events$click_marker <-NULL
+   leafletProxy("mymap")%>%
+     clearMarkers()%>%
+     addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)
+ })
+
 })
 
 #for testing purposes
 #leaflet() %>%
-#  addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw")%>%
+#  setView(lng=8.774149, lat=50.810685,zoom = 14)%>%
+#  addPolylines(data=bus_line_list[[1]],label="Line 2",stroke=TRUE,color="green",noClip=TRUE)%>%
+#  addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw",option=tileOptions(minZoom=13,maxZoom=18))%>%
 #  addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)%>%
-#  addCircles(data=bus,lng=~longitude,lat=~latitude,popup=~labels,color="red",radius=10)%>%
-#  addAwesomeMarkers(data=stores,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label = ~Labels,labelOptions = list(opacity=5)
+#  addCircles(data=bus,lng=~Longitude,lat=~Latitude,label=~BusStopName,color="red",radius=10)%>%
+#  addAwesomeMarkers(data=stores,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label = ~Labels,labelOptions = list(opacity=5))
+  
   
 

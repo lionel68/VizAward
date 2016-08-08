@@ -35,6 +35,6 @@ Below is a list of the first ideas:
 
 -> Make the map bigger
 
--> Limit the maximum out zoom possible
+-> Limit the maximum out zoom possible (DONE)
 
 
