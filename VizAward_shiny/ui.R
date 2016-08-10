@@ -26,7 +26,8 @@ shinyUI(fluidPage(
     #example of keeping only specific groups in the data
     selectInput("group", label=h2("Type of stores:"), 
                 choices = list("All"="All","Restaurant"="restaurant","Bar"="bar_pub_bistro","Cafe"="cafe","Fast-Food"="imbiss","Pharmacy"="pharmacy","Supermarket"="supermarket","Taxi"="taxi","Bakery"="bakery","Hotel"="accomodation"),
-                selected="All")),
+                selected="All"),
+    radioButtons("lines",label=h2("Select a bus line"),choices=list("Line 1"=1,"Line 2"=2,"Line 3"=3,"Line 4"=4,"Line 5"=5,"Line 6"=6,"Line 7"=7,"Line 8"=8,"Line 9"=9,"Line 10"=10),selected=1)),
     
     # Show a plot of the generated distribution
     mainPanel(
