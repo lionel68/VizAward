@@ -100,6 +100,51 @@ busstops_subset.df %>% mutate(BusStopID = paste("Stop",row.names(busstops_subset
 busstops_subset.df$BusStopName <- factor(busstops_subset.df$BusStopName)
 str(busstops_subset.df)
 
+#correct bus stop name "Marburg"
+busstops_nearest[6,"BusStopName"]<-"Pommernweg"
+busstops_nearest[42,"BusStopName"]<-"Elisabethenhof"
+busstops_nearest[74,"BusStopName"]<-"Ginseldorfer Weg"
+busstops_nearest[33,"BusStopName"]<-"Afföllerstraße"
+busstops_nearest[13,"BusStopName"]<-"Am Kaufmarkt"
+busstops_nearest<-busstops_nearest[-which(busstops_nearest$BusStopName=="Marburg"),]
+
+#find which bus stops intersect with which lines
+bus_sp<-busstops_nearest
+coordinates(bus_sp)<-bus_sp[,c("Longitude","Latitude")]
+proj4string(bus_sp)<-proj4string(bus_line_list[[1]])
+
+busstops_nearest$Lines<-"L"
+for(i in 1:10){
+  tmp<-gIntersection(bus_line_list[[i]],bus_sp)
+  busstops_nearest[busstops_nearest$Longitude%in%coordinates(tmp)[,1],"Lines"]<-paste(busstops_nearest[busstops_nearest$Longitude%in%coordinates(tmp)[,1],"Lines"],i,sep="-")
+}
+
+#average coords for bus stops with multiple lines (Hauptbahnof, A1)
+busstops_nearest$BusStopName<-as.character(busstops_nearest$BusStopName)
+busstops_nearest$Name2<-sapply(strsplit(busstops_nearest$BusStopName,split = ","),function(x) x[1])
+busstops_nearest[busstops_nearest$Name2=="Marburg","Name2"]<-"Marburg, Fernbusstation"
+busstops_nearest%>%
+  group_by(Name2)%>%
+  summarise(Longitude=mean(Longitude),Latitude=mean(Latitude),Lines=toString(Lines))->busstop_new
+busstop_new$BusStopID<-paste("Stop",1:50)
+busstops_subset<-as.data.frame(busstop_new)
+coordinates(busstops_subset)<-busstops_subset[,c("Longitude","Latitude")]
+proj4string(busstops_subset)<-proj4string(bus_line_list[[1]])
+
+#add link to HTML page
+pages<-readLines("~/Desktop/bus_pages.txt")
+busstop_new$Tag<-busstop_new$Name2
+for(i in which(busstop_new$Tag%in%pages)){
+  busstop_new$Tag[i]<-paste0("<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/",busstop_new[i,"Tag"],".pdf'>",busstop_new[i,"Tag"],"</a></b>")
+}
+busstop_new$Tag[5]<-"<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Botanischer_Garten.pdf'>Botanischer Garten</a></b>"
+busstop_new$Tag[24]<-"<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Bahnhofstraße.pdf'>Bahnhofstraße</a></b>"
+busstop_new$Tag[35]<-"<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Rudolphsplatz_Stadthalle.pdf'>Rudolphplatz</a></b>"
+
+bus_sp<-as.data.frame(busstop_new)
+coordinates(bus_sp)<-bus_sp[,c("Longitude","Latitude")]
+proj4string(bus_sp)<-proj4string(bus_line_list[[1]])
+
 ###-------------------------------------------------------------------------------------
 ### III. Find busstops near the stores and subset dataset to those
 
@@ -107,7 +152,7 @@ str(busstops_subset.df)
 proj4string(stores.sp) <- proj4string(busstops_subset)
 
 # get the nearest neighbour for each store among the bus stops
-snap <- apply(spDists(stores.sp, busstops_subset), 1, which.min)
+snap <- apply(spDists(stores.sp, bus_sp), 1, which.min)
 # returns a vector of indices with length = number of stores
 
 # get only those bus-stops which are nearest to any of the stores
@@ -115,9 +160,12 @@ busstops_nearest <- busstops_subset.df[unique(snap),]
 busstops_nearest.sp <-busstops_subset[unique(snap),]
 
 # attach BusStopID of the nearest bus stop to the stores data
-stores <- cbind(stores,busstops_subset.df[snap,"BusStopID"])
+stores <- cbind(stores,busstop_new[snap,"BusStopID"])
 names(stores) <- c("StoreID", "Longitude", "Latitude", "Group","Labels","BusStopID")
 head(stores)
+
+
+
 
 ###-------------------------------------------------------------------------------------
 ### IV. Find buslines at the selected bus stops

@@ -48,11 +48,11 @@ shinyServer(function(input, output) {
   ##################################################
 
   #load the actual store data from GitHub
-  stores<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/stores_busstops.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
-  
+  #stores<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/stores_busstops.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
+  stores<-read.table("/home/lionel/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/store_data.csv",sep=" ",head=TRUE)
   #load bus stop
-  bus<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/busstops_near.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
-  
+  #bus<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/busstops_near.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
+  bus<-read.table("/home/lionel/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/bus_data.csv",sep=" ",head=TRUE)
   #load bus line
   load("~/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/bus_line_list.RData",envir=.GlobalEnv)
   names(bus_line_list)<-as.character(1:10)
@@ -76,7 +76,7 @@ shinyServer(function(input, output) {
   ) 
   
   #color palette for the bus line
-  col_line <- colorFactor(viridis(10),col_line$Lines)
+  col_line <- colorFactor(viridis(10),as.character(1:10))
   
   #the map
   output$mymap <- renderLeaflet({
@@ -85,8 +85,7 @@ shinyServer(function(input, output) {
     leaflet() %>%
       setView(lng=8.774149, lat=50.810685,zoom = 14)%>%
       addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw",option=tileOptions(minZoom=13,maxZoom=18))%>%
-      addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)%>%
-      addAwesomeMarkers(data=bus,lng=~Longitude,lat=~Latitude,icon=icon_bus,layerId=~BusStopID,popup=~BusStopName)
+      addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)
   })
     
   #if the user set a specific group
@@ -105,6 +104,10 @@ shinyServer(function(input, output) {
     bus_line_list[input$lines][[1]]
   })
   
+  subBus<-reactive({
+    bus[grep(input$lines,bus$Lines),]
+  })
+  
   line_popup<-reactive({
     paste0("<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_",input$lines,".pdf'>Linie ",input$lines,"</a></b>")
   })
@@ -113,7 +116,8 @@ shinyServer(function(input, output) {
     leafletProxy("mymap")%>%
       clearGroup("Line")%>%
       addPolylines(data=subLines(),color = ~col_line(input$lines),label = paste("Line",input$lines),group = "Line",popup = line_popup())%>%
-      showGroup("Line")
+      showGroup("Line")%>%
+      addAwesomeMarkers(data=subBus(),lng=~Longitude,lat=~Latitude,icon=icon_bus,layerId=~BusStopID,popup=~Tag,group="Stop")
   })
   
   
@@ -169,13 +173,17 @@ shinyServer(function(input, output) {
 #for testing purposes
 #leaflet() %>%
 #  setView(lng=8.774149, lat=50.810685,zoom = 14)%>%
+#  addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw",option=tileOptions(minZoom=13,maxZoom=18))%>%
+#  addAwesomeMarkers(data=busstop_new,lng=~Longitude,lat=~Latitude,popup=~Tag)
 #  addPolylines(data=bus_line_list[[1]],stroke=TRUE,color="green",noClip = FALSE)%>%
 #  addPolylines(data=bus_line_list[[2]],stroke=TRUE,color="red",noClip = FALSE)%>%
-#  addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw",option=tileOptions(minZoom=13,maxZoom=18))%>%
+#  %>%
 #  addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)%>%
 #  addAwesomeMarkers(data=bus,lng=~Longitude,lat=~Latitude,label=~BusStopName,icon=icon_bus)%>%
 #  addAwesomeMarkers(data=stores,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label = ~Labels,labelOptions = list(opacity=5))
   
+
+
 #busL<-NULL  
 #f#or(i in 1:10){
   
