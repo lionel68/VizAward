@@ -26,6 +26,19 @@ library(plyr)
 library(RCurl) #to load data directly from github
 library(viridis)
 
+#load the data
+#load the actual store data from GitHub
+stores<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/stores_busstops.csv"),head=TRUE,sep=" ",stringsAsFactors = FALSE)
+#stores<-read.table("/home/lionel/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/stores_busstops.csv",sep=" ",head=TRUE,stringsAsFactors = FALSE)
+#load bus stop
+bus<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/busstops_near.csv"),head=TRUE,sep=" ",stringsAsFactors = FALSE)
+#bus<-read.table("/home/lionel/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/busstops_near.csv",sep=" ",head=TRUE,stringsAsFactors = FALSE)
+
+#load bus line
+load("./Data/bus_line_list.RData",envir=.GlobalEnv)
+names(bus_line_list)<-as.character(1:10)
+
+
 #Define the server
 shinyServer(function(input, output) {
   
@@ -47,17 +60,7 @@ shinyServer(function(input, output) {
   #will be replaced by data loading in the future
   ##################################################
 
-  #load the actual store data from GitHub
-  #stores<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/stores_busstops.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
-  stores<-read.table("/home/lionel/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/stores_busstops.csv",sep=" ",head=TRUE,stringsAsFactors = FALSE)
-  #load bus stop
-  #bus<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/busstops_near.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
-  bus<-read.table("/home/lionel/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/bus_stopsnear.csv",sep=" ",head=TRUE,stringsAsFactors = FALSE)
 
-  #load bus line
-  load("~/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/bus_line_list.RData",envir=.GlobalEnv)
-  names(bus_line_list)<-as.character(1:10)
-  
   #create the icons for the stores and the conference center
   icon_uni<-makeAwesomeIcon(icon="university",library="fa",markerColor="red",iconColor="white")
  
