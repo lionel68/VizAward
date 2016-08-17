@@ -3,7 +3,7 @@
 #This file is used to prepare the final data used in the shiny application             #
 #code written by Lionel R. Hertzog and Nadja Simmons
 
-#Updated: 28.07.2016
+#Updated: 17.08.2016
 ########################################################################################
 
 
@@ -108,18 +108,7 @@ busstops_nearest[33,"BusStopName"]<-"Afföllerstraße"
 busstops_nearest[13,"BusStopName"]<-"Am Kaufmarkt"
 busstops_nearest<-busstops_nearest[-which(busstops_nearest$BusStopName=="Marburg"),]
 
-#find which bus stops intersect with which lines
-bus_sp<-busstops_nearest
-coordinates(bus_sp)<-bus_sp[,c("Longitude","Latitude")]
-proj4string(bus_sp)<-proj4string(bus_line_list[[1]])
-
-busstops_nearest$Lines<-"L"
-for(i in 1:10){
-  tmp<-gIntersection(bus_line_list[[i]],bus_sp)
-  busstops_nearest[busstops_nearest$Longitude%in%coordinates(tmp)[,1],"Lines"]<-paste(busstops_nearest[busstops_nearest$Longitude%in%coordinates(tmp)[,1],"Lines"],i,sep="-")
-}
-
-#average coords for bus stops with multiple lines (Hauptbahnof, A1)
+#average coords for bus stops with multiple lines (like Hauptbahnof, A1)
 busstops_nearest$BusStopName<-as.character(busstops_nearest$BusStopName)
 busstops_nearest$Name2<-sapply(strsplit(busstops_nearest$BusStopName,split = ","),function(x) x[1])
 busstops_nearest[busstops_nearest$Name2=="Marburg","Name2"]<-"Marburg, Fernbusstation"
@@ -132,7 +121,7 @@ coordinates(busstops_subset)<-busstops_subset[,c("Longitude","Latitude")]
 proj4string(busstops_subset)<-proj4string(bus_line_list[[1]])
 
 #add link to HTML page
-pages<-readLines("~/Desktop/bus_pages.txt")
+pages<-readLines("~/Desktop/bus_pages.txt") #this is just a file with the bus stops where extra infos is available
 busstop_new$Tag<-busstop_new$Name2
 for(i in which(busstop_new$Tag%in%pages)){
   busstop_new$Tag[i]<-paste0("<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/",busstop_new[i,"Tag"],".pdf'>",busstop_new[i,"Tag"],"</a></b>")
@@ -181,6 +170,21 @@ for (i in 1:length(bus_line_list)){
   stops <- which(busstops_nearest.sp$name%in%bus_line_list[[i]]@data$name)
   busstops_nearest[stops,"NbBusLine"] <- busstops_nearest[stops,"NbBusLine"]+1
   busstops_nearest[stops,"BusLine"] <- paste(busstops_nearest[stops,"BusLine"],as.character(i),sep = "-")
+}
+
+###################
+#Alternative way
+#########
+#using gIntersection
+#find which bus stops intersect with which lines
+bus_sp<-busstops_nearest
+coordinates(bus_sp)<-bus_sp[,c("Longitude","Latitude")]
+proj4string(bus_sp)<-proj4string(bus_line_list[[1]])
+
+busstops_nearest$Lines<-"L"
+for(i in 1:10){
+  tmp<-gIntersection(bus_line_list[[i]],bus_sp)
+  busstops_nearest[busstops_nearest$Longitude%in%coordinates(tmp)[,1],"Lines"]<-paste(busstops_nearest[busstops_nearest$Longitude%in%coordinates(tmp)[,1],"Lines"],i,sep="-")
 }
 
 # Look at the results

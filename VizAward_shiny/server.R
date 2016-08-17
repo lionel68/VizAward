@@ -3,7 +3,7 @@
 #This is the server part of the Shiny App for the Visualization awards GfOe 2016
 #code written by Lionel R. Hertzog and Nadja Simmons
 
-#Updated: 10.08.2016
+#Updated: 17.08.2016
 ########################################################################################
 
 #Next steps:
@@ -13,8 +13,8 @@
 #Add lines for bus connection (DONE)
 #Allow the user to select only specific bus line (DONE)
 #Add store informations (ie website) in popup window (TODO)
-#Issue with name encoding ... (TODO)
-#Correct bug when clicking stores l156
+#Issue with name encoding ... (DONE)
+#Correct bug when clicking stores l156 (DONE)
 
 #to load the App use: shinyAppDir("~/Documents/PhD/Presentation/GfÖ_2016/Visualization/VizAward_shiny/")
 
@@ -49,10 +49,11 @@ shinyServer(function(input, output) {
 
   #load the actual store data from GitHub
   #stores<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/stores_busstops.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
-  stores<-read.table("/home/lionel/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/store_data.csv",sep=" ",head=TRUE)
+  stores<-read.table("/home/lionel/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/stores_busstops.csv",sep=" ",head=TRUE,stringsAsFactors = FALSE)
   #load bus stop
   #bus<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/busstops_near.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
-  bus<-read.table("/home/lionel/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/bus_data.csv",sep=" ",head=TRUE)
+  bus<-read.table("/home/lionel/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/bus_stopsnear.csv",sep=" ",head=TRUE,stringsAsFactors = FALSE)
+
   #load bus line
   load("~/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/bus_line_list.RData",envir=.GlobalEnv)
   names(bus_line_list)<-as.character(1:10)
@@ -78,16 +79,18 @@ shinyServer(function(input, output) {
   #color palette for the bus line
   col_line <- colorFactor(viridis(10),as.character(1:10))
   
-  #the map
-  output$mymap <- renderLeaflet({
-    
-    #create the base map
-    leaflet() %>%
-      setView(lng=8.774149, lat=50.810685,zoom = 14)%>%
-      addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw",option=tileOptions(minZoom=13,maxZoom=18))%>%
-      addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)
+  #reactive element to only select the bus stop along the selected bus line
+  subBus<-reactive({
+    if(input$lines==1){
+      tmp<-bus[grep(input$lines,bus$Lines),]
+      #remove the 10 that are also matched by 1
+      tmp[-grep("10",tmp$Lines),]
+    }
+    else{
+      bus[grep(input$lines,bus$Lines),]
+    }
   })
-    
+  
   #if the user set a specific group
   subStores<-reactive({
     if(input$group!="All"){
@@ -104,23 +107,37 @@ shinyServer(function(input, output) {
     bus_line_list[input$lines][[1]]
   })
   
-  subBus<-reactive({
-    bus[grep(input$lines,bus$Lines),]
-  })
-  
+  #dynamically set the popup window for the timetable of the bus line
   line_popup<-reactive({
     paste0("<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_",input$lines,".pdf'>Linie ",input$lines,"</a></b>")
   })
+
   
+  #the base map
+  output$mymap <- renderLeaflet({
+    
+    leaflet() %>%
+      setView(lng=8.774149, lat=50.810685,zoom = 14)%>%
+      addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw",option=tileOptions(minZoom=13,maxZoom=18))%>%
+      addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)
+  })
+    
+ 
+  #add the bus line
   observe({
     leafletProxy("mymap")%>%
       clearGroup("Line")%>%
       addPolylines(data=subLines(),color = ~col_line(input$lines),label = paste("Line",input$lines),group = "Line",popup = line_popup())%>%
-      showGroup("Line")%>%
-      addAwesomeMarkers(data=subBus(),lng=~Longitude,lat=~Latitude,icon=icon_bus,layerId=~BusStopID,popup=~Tag,group="Stop")
+      showGroup("Line")
+    })
+  #add the bus stop
+  observe({
+    leafletProxy("mymap",data=subBus())%>%
+      clearGroup("Stop")%>%
+      addAwesomeMarkers(lng=~Longitude,lat=~Latitude,icon=icon_bus,group="Stop",layerId=~BusStopID,label=~BusStopName,popup=~Tag)%>%
+      showGroup("Stop")
   })
-  
-  
+
   #the function to show the stores
   showStores<-function(ID){
     if(!is.null(ID)){
@@ -157,7 +174,7 @@ shinyServer(function(input, output) {
    events$click_map <- NULL
    events$click_marker <- input$mymap_marker_click
    if(!is.null(events$click_marker$id)){
-     if(grep("Stop",events$click_marker$id))
+     if(length(grep("Stop",events$click_marker$id)!=0))
        showStores(events$click_marker$id)
    }
  })
@@ -181,15 +198,3 @@ shinyServer(function(input, output) {
 #  addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)%>%
 #  addAwesomeMarkers(data=bus,lng=~Longitude,lat=~Latitude,label=~BusStopName,icon=icon_bus)%>%
 #  addAwesomeMarkers(data=stores,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label = ~Labels,labelOptions = list(opacity=5))
-  
-
-
-#busL<-NULL  
-#f#or(i in 1:10){
-  
-#}
-#coords<-ldply(tmp@lines,function(x) x@Lines[[1]]@coords)
-#coords<-coords[-duplicated(coords),]
-#bus1<-SpatialLinesDataFrame(SpatialLines(list(Lines(list(Line()),ID="1"))),data.frame(LineNb="Line 1"))#
-
-#pts<-SpatialPoints(ldply(tmp@lines,function(x) x@Lines[[1]]@coords))#
