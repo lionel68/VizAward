@@ -5,6 +5,12 @@
 
 #Updated: 17.08.2016
 ########################################################################################
+
+# Installing the development version of the leaflet package from github
+library(devtools)
+install_github("rstudio/leaflet")
+####
+
 library(leaflet)
 library(plyr)
 library(dplyr)
@@ -19,6 +25,7 @@ leaflet() %>%
   setView(lng=8.774149, lat=50.810685,zoom = 14)%>%
   addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw",
           option=tileOptions(minZoom=13,maxZoom=18)) %>%
+  addAwesomeMarkers(data=busstop_new,lng=~Longitude,lat=~Latitude,popup=~Tag)%>%
     addPolylines(data=bus_line_list[[1]],stroke=TRUE,color=col_line(1),noClip=FALSE,opacity = opacity_bus_lines)%>%
   addPolylines(data=bus_line_list[[2]],stroke=TRUE,color=col_line(2),noClip=FALSE,opacity = opacity_bus_lines)%>%
   addPolylines(data=bus_line_list[[3]],stroke=TRUE,color=col_line(3),noClip=FALSE,opacity = opacity_bus_lines)%>%
