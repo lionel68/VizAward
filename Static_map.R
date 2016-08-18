@@ -37,16 +37,30 @@ icons<-awesomeIconList(
   taxi=makeAwesomeIcon(icon="taxi",library="fa",markerColor = "darkblue")
 )
 
-# create a static map
+circle_color <- colorFactor(c("#8dd3c7","#ffffb3","#bebada","#fb8072","#80b1d3","#fdb462","#b3de69","#fccde5","#d9d9d9"), 
+                            domain = c("bar_pub_bistro", "restaurant","supermarket","pharmacy","accomodation","bakery",
+                                       "cafe","imbiss","taxi"))
+
+# create a dataframe for the lines connecting store markers and bus stops
+stores_lines <- stores
+
+for (i in 1: nrow(stores)) {
+stores_lines$Longitude[i] <- busstop_new[busstop_new$Name2 == as.character(stores_lines$Name2)[i],"Longitude"]
+stores_lines$Latitude[i] <- busstop_new[busstop_new$Name2 == as.character(stores_lines$Name2)[i],"Latitude"]
+}
+
+stores_lines <- rbind(stores_lines,stores)
+
+# create the static map
 
 leaflet() %>%
   setView(lng=8.774149, lat=50.810685,zoom = 14)%>%
   addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw",
           option=tileOptions(minZoom=13,maxZoom=18)) %>%
-  addAwesomeMarkers(data=busstop_new,lng=~Longitude,lat=~Latitude,popup=~Tag)%>%
+  # addAwesomeMarkers(data=busstop_new,lng=~Longitude,lat=~Latitude,popup=~Tag)%>%
   addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)%>%
-  addAwesomeMarkers(data=busstops_nearest,lng=~Longitude,lat=~Latitude,label=~BusStopName,icon=icon_bus)%>%
-  addAwesomeMarkers(data=stores,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label = ~Labels,labelOptions = list(opacity=5)) %>% 
+  addAwesomeMarkers(data=busstop_new,lng=~Longitude,lat=~Latitude,label=~Name2,icon=icon_bus)%>%
+  # addAwesomeMarkers(data=stores,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label = ~Labels,labelOptions = list(opacity=5)) %>% 
   
   addPolylines(data=bus_line_list[[1]],stroke=TRUE,color=col_line(1),noClip=FALSE,opacity = opacity_bus_lines)%>%
   addPolylines(data=bus_line_list[[2]],stroke=TRUE,color=col_line(2),noClip=FALSE,opacity = opacity_bus_lines)%>%
@@ -57,7 +71,21 @@ leaflet() %>%
   addPolylines(data=bus_line_list[[7]],stroke=TRUE,color=col_line(7),noClip=FALSE,opacity = opacity_bus_lines)%>%
   addPolylines(data=bus_line_list[[8]],stroke=TRUE,color=col_line(8),noClip=FALSE,opacity = opacity_bus_lines)%>%
   addPolylines(data=bus_line_list[[9]],stroke=TRUE,color=col_line(9),noClip=FALSE,opacity = opacity_bus_lines)%>%
-  addPolylines(data=bus_line_list[[10]],stroke=TRUE,color=col_line(10),noClip=FALSE,opacity = opacity_bus_lines)
+  addPolylines(data=bus_line_list[[10]],stroke=TRUE,color=col_line(10),noClip=FALSE,opacity = opacity_bus_lines) %>%
+  addCircleMarkers(data=stores,radius =10,color = ~circle_color(Group),stroke = FALSE, fillOpacity = 0.9) -> static_map
+
+# Add lines between points and stops
+  for(i in 1:length(unique(stores_lines$StoreID))){
+    store_name <- unique(stores_lines$StoreID)[i]
+    static_map <- addPolylines(static_map, 
+                          lat = c(as.numeric(stores_lines[stores_lines$StoreID==store_name, "Latitude"])), 
+                          lng = c(as.numeric(stores_lines[stores_lines$StoreID==store_name, "Longitude"])),
+                          color = "grey", fillColor = "grey", fillOpacity = 0.9, weight = 2)
+  }
+static_map
+  
+
+# addPolylines(data = stores_lines, lng = ~Longitude, lat = ~Latitude, group = ~StoreID,color = "#03F", weight = 5, opacity = 0.5)
   
 
 # neither a loop nor l_ply worked as a more elegant solution to plotting the bus lines
@@ -70,8 +98,5 @@ leaflet() %>%
 # Check if there are also round markers, or use color-coded points for stores
 # Alternative: make the markers much smaller
 
-# Does not know the function "addAwesomeMarkers"  
- # addAwesomeMarkers(data=busstop_new,lng=~Longitude,lat=~Latitude,popup=~Tag) %>%
- # addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)%>%
- # addAwesomeMarkers(data=bus,lng=~Longitude,lat=~Latitude,label=~BusStopName,icon=icon_bus)%>%
- # addAwesomeMarkers(data=stores,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label = ~Labels,labelOptions = list(opacity=5))
+## Idea for upgrade:
+# Use clusterOptions = markerClusterOptions() for the stores in the interactive map and when option is "show all"
