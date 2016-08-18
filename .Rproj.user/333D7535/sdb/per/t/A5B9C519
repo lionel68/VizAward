@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#\n# This is the user-interface definition of a Shiny web application. You can\n# run the application by clicking 'Run App' above.\n#\n# Find out more about building applications with Shiny here:\n# \n#    http://shiny.rstudio.com/\n#\n\n\n#Make Layout nicer (TODO)\n#Add more user controls (TODO)\n\n\nlibrary(shiny)\nlibrary(leaflet)\n\n# Define UI for application that draws a histogram\nshinyUI(fluidPage(\n  \n  # Application title\n  titlePanel(\"Second draft of an interactive map in Shiny\"),\n  \n  # Sidebar with a slider input for number of bins \n  sidebarLayout(sidebarPanel(\n    #example of keeping only specific groups in the data\n    selectInput(\"group\", label=h2(\"Type of stores:\"), \n                choices = list(\"All\"=\"All\",\"Restaurant\"=\"restaurant\",\"Bar\"=\"bar_pub_bistro\",\"Cafe\"=\"cafe\",\"Fast-Food\"=\"imbiss\",\"Pharmacy\"=\"pharmacy\",\"Supermarket\"=\"supermarket\",\"Taxi\"=\"taxi\",\"Bakery\"=\"bakery\",\"Hotel\"=\"accomodation\"),\n                selected=\"All\"),\n    radioButtons(\"lines\",label=h2(\"Select a bus line\"),choices=list(\"Line 1\"=1,\"Line 2\"=2,\"Line 3\"=3,\"Line 4\"=4,\"Line 5\"=5,\"Line 6\"=6,\"Line 7\"=7,\"Line 8\"=8,\"Line 9\"=9,\"Line 10\"=10),selected=1)),\n    \n    # Show a plot of the generated distribution\n    mainPanel(\n       leafletOutput(\"mymap\")\n    )\n  )\n))\n",
+    "created" : 1471449062580.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2452377416",
+    "id" : "A5B9C519",
+    "lastKnownWriteTime" : 1471446463,
+    "last_content_update" : 1471446463,
+    "path" : "C:/Users/Nadja/8-Freising/05_Tagungen_Workshops/GfÖ-Tagung 2016/Vizualization_Award/VizAward_shiny/ui.R",
+    "project_path" : "VizAward_shiny/ui.R",
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

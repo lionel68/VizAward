@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# apply function in plyr package  (ASEDA_2a p.90)\n\n# Split-Apply-Combine strategy for data analysis: split the input, apply\n# function to each piece, then combine the results.\nlibrary(plyr)\n\ndata(ozone) # gridded ozone measurements\ndim(ozone)\n\ngrid_p1 <- ozone[1, 1, ]\nmonth <- ordered(rep(1:12, length = 72))\nplot(grid_p1 ~ month)\n\nlibrary(MASS)\n\nmodel1 <- rlm(grid_p1 ~ month - 1)\ndeseas <- resid(model1) # deseasonalization\nplot(deseas ~ month)\n\n# applying same strategy to all grid cells\n# 1) function to apply\ndeseasf <- function(x) rlm(x ~ month - 1)\n\n# 2) mapping array to list of models\ndeseas_models <- alply(ozone, 1:2, deseasf)\n\n# 3) mapping list to array of residuals\nozone_deseas <- laply(deseas_models, resid)\n\n# plot the deseasonalization\npar(mfrow = c(24, 24), mai = rep(0, 4),\n    oma = rep(0, 4))\na_ply(ozone_deseas, 1:2, function(x) plot(x ~ month))\n\n# Function usage:\n#  a*ply(.data, .margins, .fun, ..., .progress = none)\n#  d*ply(.data, .variables, .fun, ..., .progress =\n#           none)\n#  l*ply(.data, .fun, ..., .progress = none)\n\n# Working with data frame\n\n# get means for all groups\ndata(iris)\nddply(iris, \"Species\" , function(x) mean(x$Sepal.Length))\n\n# fit linear model for all groups\nmodels <- dlply(iris, .(Species),\n                function(x) lm(Sepal.Length ~ Sepal.Width, data = x))\n\n# extract information from the models\nr_squares <- laply(models, function(x) summary(x)$r.squared)\nr_squares\n\nmodel_coefs <- ldply(models, coef)\nmodel_coefs\n\n# Useful helpers\n# splat(): converts a function f (x1; x2; x3; ...) -> y to a function\n# g (list()) -> y.\n\nmean_length_ratio <-\n  function(Sepal.Length, Petal.Length, ...)\n    mean(Sepal.Length / Petal.Length)\n\ndaply(iris, .(Species), splat(mean_length_ratio))\n\n# without splat:\ndaply(iris, .(Species), function(x)\n  mean(x$Sepal.Length / x$Petal.Length))\n\n\n# each(): takes several functions and produces a new function\n# that runs all these functions on the input and returns a named\n# vector of outputs.\n\nm <- matrix(rnorm(260), ncol = 26)\ncolnames(m) <- letters\n\naaply(m, 2, each(mean, sd, median))\n\naaply(m, 2, each(mean, sd, median,\n                 q = function(x) quantile(x, 0.1)))\n\n# plyr makes two things very easy: avoiding loops for standard\n# slices (by dimension, by variables, by list elements) and\n# taking care of the naming.\n",
+    "created" : 1471449934737.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4113302745",
+    "id" : "C6F06CFB",
+    "lastKnownWriteTime" : 1435757003,
+    "last_content_update" : 1435757003,
+    "path" : "C:/Users/Nadja/8-Freising/04_Unterlagen Uni/03_Vorträge Gruppentreffen/RSessions/apply_in_plyr_Nadja.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
