@@ -189,22 +189,24 @@ head(stores)
 busstop_new$BusStopID<-paste("Stop",1:nrow(busstop_new))
 
 #add link to HTML page
-pages<-readLines("~/Desktop/bus_pages.txt") #this is just a file with the bus stops where extra infos is available
+pages<-readLines("Data/bus_pages.txt") #this is just a file with the bus stops where extra infos is available
 busstop_new$Tag<-busstop_new$Name2
 
 for(i in which(busstop_new$Tag%in%pages)){
   busstop_new$Tag[i]<-paste0("<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/",busstop_new[i,"Tag"],".pdf'>",busstop_new[i,"Tag"],"</a></b>")
 }
-busstop_new$Tag[5]<-"<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Botanischer_Garten.pdf'>Botanischer Garten</a></b>"
-busstop_new$Tag[24]<-"<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Bahnhofstraße.pdf'>Bahnhofstraße</a></b>"
-busstop_new$Tag[35]<-"<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Rudolphsplatz_Stadthalle.pdf'>Rudolphplatz</a></b>"
+
+busstop_new$Tag[busstop_new$Name2=="Botanischer Garten"]<-"<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Botanischer_Garten.pdf'>Botanischer Garten</a></b>"
+busstop_new$Tag[busstop_new$Name2=="Marburg-BahnhofstraÃŸe"]<-"<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Bahnhofstraße.pdf'>Bahnhofstraße</a></b>"
+busstop_new$Tag[busstop_new$Name2=="Rudolphsplatz"]<-"<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Rudolphsplatz_Stadthalle.pdf'>Rudolphplatz</a></b>"
 
 bus_sp<-as.data.frame(busstop_new)
 coordinates(bus_sp)<-bus_sp[,c("Longitude","Latitude")]
 proj4string(bus_sp)<-proj4string(bus_line_list[[1]])
 
-# Look at the results
-head(busstops_nearest)
+
+###-------------------------------------------------------------------------------------
+### VI. First look at the results
 
 busline_colors <- c("#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c",
                     "#fdbf6f","#ff7f00","#cab2d6","#6a3d9a")
@@ -215,7 +217,8 @@ for (i in 1: 10){
   plot(bus_line_list[[i]], col = busline_colors[i], add = T)
 }
 
-## Export the data
+###-------------------------------------------------------------------------------------
+### VI. Export the data
 
 # Export selected bus-stops
 write.table(x = busstops_nearest, file = "Data/busstops_near.csv",sep = ",", dec = ".",row.names = F)
