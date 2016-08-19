@@ -17,6 +17,7 @@
 #Correct bug when clicking stores l156 (DONE)
 
 #to load the App use: shinyAppDir("~/Documents/PhD/Presentation/GfÖ_2016/Visualization/VizAward_shiny/")
+#to debug deployment: rsconnect::showLogs("~/Documents/PhD/Presentation/GfÖ_2016/Visualization/VizAward_shiny/")
 
 #load the libraries
 library(shiny)
@@ -28,11 +29,11 @@ library(viridis)
 
 #load the data
 #load the actual store data from GitHub
-stores<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/stores_busstops.csv"),head=TRUE,sep=" ",stringsAsFactors = FALSE)
-#stores<-read.table("/home/lionel/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/stores_busstops.csv",sep=" ",head=TRUE,stringsAsFactors = FALSE)
+#stores<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/stores_busstops.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
+stores<-read.table("./Data/stores_busstops.csv",sep=" ",head=TRUE,stringsAsFactors = FALSE)
 #load bus stop
-bus<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/busstops_near.csv"),head=TRUE,sep=" ",stringsAsFactors = FALSE)
-#bus<-read.table("/home/lionel/Documents/PhD/Presentation/GfÖ_2016/Visualization/Data/busstops_near.csv",sep=" ",head=TRUE,stringsAsFactors = FALSE)
+#bus<-read.table(text=getURL("https://raw.githubusercontent.com/Lionel68/VizAward/master/Data/busstops_near.csv"),head=TRUE,sep=",",stringsAsFactors = FALSE)
+bus<-read.table("./Data/busstops_near.csv",sep=" ",head=TRUE,stringsAsFactors = FALSE)
 
 #load bus line
 load("./Data/bus_line_list.RData",envir=.GlobalEnv)
@@ -82,111 +83,202 @@ shinyServer(function(input, output) {
   #color palette for the bus line
   col_line <- colorFactor(viridis(10),as.character(1:10))
   
+
   #reactive element to only select the bus stop along the selected bus line
   subBus<-reactive({
-    if(input$lines==1){
-      tmp<-bus[grep(input$lines,bus$Lines),]
-      #remove the 10 that are also matched by 1
-      tmp[-grep("10",tmp$Lines),]
+    if(input$tabs=="English"){
+      if(input$lines_en==1){
+        tmp<-bus[grep(input$lines_en,bus$Lines),]
+        #remove the 10 that are also matched by 1
+        tmp[-grep("10",tmp$Lines),]
+      }
+      else{
+        bus[grep(input$lines_en,bus$Lines),]
+      }
     }
     else{
-      bus[grep(input$lines,bus$Lines),]
+      if(input$lines_de==1){
+        tmp<-bus[grep(input$lines_de,bus$Lines),]
+        #remove the 10 that are also matched by 1
+        tmp[-grep("10",tmp$Lines),]
+      }
+      else{
+        bus[grep(input$lines_de,bus$Lines),]
+      }
     }
+    
   })
   
   #if the user set a specific group
   subStores<-reactive({
-    if(input$group!="All"){
-      subset(stores,Group==input$group)
+    if(input$tabs=="English"){
+      subset(stores,Group%in%input$stores_en)
     }
     else{
-      stores
+      subset(stores,Group%in%input$stores_de)
     }
   })
   
   
   #if the user select certain bus line
   subLines<-reactive({
-    bus_line_list[input$lines][[1]]
+    if(input$tabs=="English"){
+      bus_line_list[input$lines_en][[1]]
+    }
+    else{
+      bus_line_list[input$lines_de][[1]]
+    }
   })
   
   #dynamically set the popup window for the timetable of the bus line
   line_popup<-reactive({
-    paste0("<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_",input$lines,".pdf'>Linie ",input$lines,"</a></b>")
-  })
+    if(input$tabs=="English"){
+      paste0("<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_",input$lines_en,".pdf'>Linie ",input$lines_en,"</a></b>")
+    }
+    else{
+      paste0("<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_",input$lines_de,".pdf'>Linie ",input$lines_de,"</a></b>")
+      
+    }
+ })
 
-  
-  #the base map
-  output$mymap <- renderLeaflet({
-    
-    leaflet() %>%
-      setView(lng=8.774149, lat=50.810685,zoom = 14)%>%
-      addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw",option=tileOptions(minZoom=13,maxZoom=18))%>%
-      addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)
-  })
-    
- 
-  #add the bus line
-  observe({
-    leafletProxy("mymap")%>%
-      clearGroup("Line")%>%
-      addPolylines(data=subLines(),color = ~col_line(input$lines),label = paste("Line",input$lines),group = "Line",popup = line_popup())%>%
-      showGroup("Line")
-    })
-  #add the bus stop
-  observe({
-    leafletProxy("mymap",data=subBus())%>%
-      clearGroup("Stop")%>%
-      addAwesomeMarkers(lng=~Longitude,lat=~Latitude,icon=icon_bus,group="Stop",layerId=~BusStopID,label=~BusStopName,popup=~Tag)%>%
-      showGroup("Stop")
-  })
 
   #the function to show the stores
-  showStores<-function(ID){
+  showStores<-function(ID,lg){
     if(!is.null(ID)){
       selectStores <- subset(subStores(),BusStopID==ID)
       if(dim(selectStores)[1]>0){
-        leafletProxy("mymap")%>%
+        leafletProxy(paste0("mymap_",lg))%>%
           showGroup("Stores")%>%
           addAwesomeMarkers(data=selectStores,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label=~Labels,popup=~Labels,layerId=~StoreID,group="Stores")
       }
     }
   }
   
+  #the base map for the english part
+  output$mymap_en <- renderLeaflet({
+    
+    leaflet() %>%
+      setView(lng=8.774149, lat=50.810685,zoom = 14)%>%
+      addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw",option=tileOptions(minZoom=13,maxZoom=18))%>%
+      addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)
+  })
+  
+  #add the bus line
+  observe({
+    leafletProxy("mymap_en")%>%
+      clearGroup("Line")%>%
+      addPolylines(data=subLines(),color = ~col_line(input$lines_en),label = paste("Line",input$lines_en),group = "Line",popup = line_popup())%>%
+      showGroup("Line")
+  })
+  #add the bus stop
+  observe({
+    leafletProxy("mymap_en",data=subBus())%>%
+      clearGroup("Stop")%>%
+      addAwesomeMarkers(lng=~Longitude,lat=~Latitude,icon=icon_bus,group="Stop",layerId=~BusStopID,label=~BusStopName,popup=~Tag)%>%
+      showGroup("Stop")
+  })
+  
+
+  
   #set the different events that may happen based on users click on the map
   events <- reactiveValues(mouse_marker=NULL,mouse_out=NULL,click_marker=NULL,click_map=NULL)
   #if the mouse hover a bus stop show the nearby stores
-  observeEvent(input$mymap_marker_mouseover,{
+  observeEvent(input$mymap_en_marker_mouseover,{
     events$mouse_out <- NULL
     if(is.null(events$click_marker)){
-      events$mouse_marker <- input$mymap_marker_mouseover
-      showStores(events$mouse_marker$id)
+      events$mouse_marker <- input$mymap_en_marker_mouseover
+      showStores(events$mouse_marker$id,"en")
     }
   })
   #if the mouse leaves a bus stop clear the markers
-  observeEvent(input$mymap_marker_mouseout,{
+  observeEvent(input$mymap_en_marker_mouseout,{
     events$mouse_marker <- NULL
-    leafletProxy("mymap")%>%
+    leafletProxy("mymap_en")%>%
       clearGroup("Stores")
     if(!is.null(events$click_marker)){
-      showStores(events$click_marker$id)
+      showStores(events$click_marker$id,"en")
     }
   })
   #if the user click on a bus stop show the nearby stores
-  observeEvent(input$mymap_marker_click,{
-   events$click_map <- NULL
-   events$click_marker <- input$mymap_marker_click
-   if(!is.null(events$click_marker$id)){
-     if(length(grep("Stop",events$click_marker$id)!=0))
-       showStores(events$click_marker$id)
-   }
- })
- #if the user click on the map remove the markers
- observeEvent(input$mymap_click,{
-   events$click_marker <-NULL
-   leafletProxy("mymap")%>%
-     clearGroup("Stores")
+  observeEvent(input$mymap_en_marker_click,{
+    events$click_map <- NULL
+    events$click_marker <- input$mymap_en_marker_click
+    if(!is.null(events$click_marker$id)){
+      if(length(grep("Stop",events$click_marker$id)!=0))
+        showStores(events$click_marker$id,"en")
+    }
   })
+  #if the user click on the map remove the markers
+  observeEvent(input$mymap_en_click,{
+    events$click_marker <-NULL
+    leafletProxy("mymap_en")%>%
+      clearGroup("Stores")
+  })
+  
+  
+  #german version
+  output$mymap_de <- renderLeaflet({
+    
+    leaflet() %>%
+      setView(lng=8.774149, lat=50.810685,zoom = 14)%>%
+      addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw",option=tileOptions(minZoom=13,maxZoom=18))%>%
+      addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="Konferenzzentrum",icon=icon_uni)
+  })
+  
+  #add the bus line
+  observe({
+    leafletProxy("mymap_de")%>%
+      clearGroup("Line")%>%
+      addPolylines(data=subLines(),color = ~col_line(input$lines_de),label = paste("Line",input$lines_de),group = "Line",popup = line_popup())%>%
+      showGroup("Line")
+  })
+  #add the bus stop
+  observe({
+    leafletProxy("mymap_de",data=subBus())%>%
+      clearGroup("Stop")%>%
+      addAwesomeMarkers(lng=~Longitude,lat=~Latitude,icon=icon_bus,group="Stop",layerId=~BusStopID,label=~BusStopName,popup=~Tag)%>%
+      showGroup("Stop")
+  })
+  
+  
+  
+  #set the different events that may happen based on users click on the map
+  events <- reactiveValues(mouse_marker=NULL,mouse_out=NULL,click_marker=NULL,click_map=NULL)
+  #if the mouse hover a bus stop show the nearby stores
+  observeEvent(input$mymap_de_marker_mouseover,{
+    events$mouse_out <- NULL
+    if(is.null(events$click_marker)){
+      events$mouse_marker <- input$mymap_de_marker_mouseover
+      showStores(events$mouse_marker$id,"de")
+    }
+  })
+  #if the mouse leaves a bus stop clear the markers
+  observeEvent(input$mymap_de_marker_mouseout,{
+    events$mouse_marker <- NULL
+    leafletProxy("mymap_de")%>%
+      clearGroup("Stores")
+    if(!is.null(events$click_marker)){
+      showStores(events$click_marker$id,"de")
+    }
+  })
+  #if the user click on a bus stop show the nearby stores
+  observeEvent(input$mymap_de_marker_click,{
+    events$click_map <- NULL
+    events$click_marker <- input$mymap_de_marker_click
+    if(!is.null(events$click_marker$id)){
+      if(length(grep("Stop",events$click_marker$id)!=0))
+        showStores(events$click_marker$id,"de")
+    }
+  })
+  #if the user click on the map remove the markers
+  observeEvent(input$mymap_de_click,{
+    events$click_marker <-NULL
+    leafletProxy("mymap_de")%>%
+      clearGroup("Stores")
+  })
+    
+ 
+ 
 
 })
 

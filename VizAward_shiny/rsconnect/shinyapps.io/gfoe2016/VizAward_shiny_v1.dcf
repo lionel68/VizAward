@@ -2,8 +2,8 @@ name: VizAward_shiny_v1
 account: gfoe2016
 server: shinyapps.io
 appId: 118585
-bundleId: 524706
+bundleId: 535922
 url: https://gfoe2016.shinyapps.io/VizAward_shiny_v1/
-when: 1470401250.2594
+when: 1471602323.83737
 asMultiple: FALSE
 asStatic: FALSE
