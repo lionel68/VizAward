@@ -161,6 +161,9 @@ for(i in 1:10){
   busstops_nearest[busstops_nearest$Longitude%in%coordinates(tmp)[,1],"Lines"]<-paste(busstops_nearest[busstops_nearest$Longitude%in%coordinates(tmp)[,1],"Lines"],i,sep="-")
 }
 
+# Remove bus stops which do not belong to a bus line
+busstops_nearest %>% filter(Lines !="L") -> busstops_nearest
+
 str(busstops_nearest)
 
 ###-------------------------------------------------------------------------------------

@@ -84,7 +84,6 @@ leaflet() %>%
   }
 static_map
   
-
 # addPolylines(data = stores_lines, lng = ~Longitude, lat = ~Latitude, group = ~StoreID,color = "#03F", weight = 5, opacity = 0.5)
   
 
