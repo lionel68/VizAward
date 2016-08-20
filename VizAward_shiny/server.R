@@ -69,15 +69,15 @@ shinyServer(function(input, output) {
   #have a look here for icons: http://fontawesome.io/icons/, http://getbootstrap.com/components/
   #and for making colors for the icons: http://www.hexcolortool.com/
   icons<-awesomeIconList(
-    bar_pub_bistro=makeAwesomeIcon(icon = "beer",library = "fa",markerColor = "orange",iconColor = "green"),
-    restaurant=makeAwesomeIcon(icon = "cutlery",library = "fa",markerColor = "white",iconColor = "darkred"),
-    supermarket=makeAwesomeIcon(icon="shopping-cart",library = "glyphicon",markerColor = "cadetblue",iconColor = "#c3f971"),
-    pharmacy=makeAwesomeIcon(icon="medkit",library="fa",markerColor = "white",iconColor="red"),
-    accomodation=makeAwesomeIcon(icon="building-o",library="fa",markerColor = "white",iconColor = "yellow"),
-    bakery=makeAwesomeIcon(icon="grain",library="glyphicon",markerColor = "white",iconColor="orange"),
-    cafe=makeAwesomeIcon(icon="coffee",library="fa",markerColor = "cadetblue",iconColor="orange"),
-    imbiss=makeAwesomeIcon(icon="pizza",library="ion",markerColor = "white",iconColor="pink"),
-    taxi=makeAwesomeIcon(icon="taxi",library="fa",markerColor = "darkblue")
+    bar_pub_bistro=makeAwesomeIcon(icon = "beer",library = "fa",markerColor = "white",iconColor = "#8dd3c7"),
+    restaurant=makeAwesomeIcon(icon = "cutlery",library = "fa",markerColor = "white",iconColor = "#e6e600"),
+    supermarket=makeAwesomeIcon(icon="shopping-cart",library = "glyphicon",markerColor = "white",iconColor = "#bebada"),
+    pharmacy=makeAwesomeIcon(icon="medkit",library="fa",markerColor = "white",iconColor="#fb8072"),
+    accomodation=makeAwesomeIcon(icon="building-o",library="fa",markerColor = "white",iconColor = "#80b1d3"),
+    bakery=makeAwesomeIcon(icon="grain",library="glyphicon",markerColor = "white",iconColor="#fdb462"),
+    cafe=makeAwesomeIcon(icon="coffee",library="fa",markerColor = "white",iconColor="#b3de69"),
+    imbiss=makeAwesomeIcon(icon="pizza",library="ion",markerColor = "white",iconColor="#d90d76"),
+    taxi=makeAwesomeIcon(icon="taxi",library="fa",markerColor = "white",iconColor = "#737373")
   ) 
   
   #color palette for the bus line
@@ -133,10 +133,10 @@ shinyServer(function(input, output) {
   #dynamically set the popup window for the timetable of the bus line
   line_popup<-reactive({
     if(input$tabs=="English"){
-      paste0("<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_",input$lines_en,".pdf'>Linie ",input$lines_en,"</a></b>")
+      paste0("<b><a target='_blank' href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_",input$lines_en,".pdf'>Linie ",input$lines_en,"</a></b>")
     }
     else{
-      paste0("<b><a href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_",input$lines_de,".pdf'>Linie ",input$lines_de,"</a></b>")
+      paste0("<b><a target= '_blank' href='http://stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_",input$lines_de,".pdf'>Linie ",input$lines_de,"</a></b>")
       
     }
  })
@@ -286,6 +286,7 @@ shinyServer(function(input, output) {
 #leaflet() %>%
 #  setView(lng=8.774149, lat=50.810685,zoom = 14)%>%
 #  addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw",option=tileOptions(minZoom=13,maxZoom=18))%>%
+#  addAwesomeMarkers(data=stores,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label = ~Labels,labelOptions = list(opacity=5))
 #  addAwesomeMarkers(data=busstop_new,lng=~Longitude,lat=~Latitude,popup=~Tag)
 #  addPolylines(data=bus_line_list[[1]],stroke=TRUE,color="green",noClip = FALSE)%>%
 #  addPolylines(data=bus_line_list[[2]],stroke=TRUE,color="red",noClip = FALSE)%>%
