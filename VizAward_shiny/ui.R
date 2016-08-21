@@ -23,9 +23,9 @@ shinyUI(navbarPage("GfÖ 2016",id="tabs",
                                      leafletOutput('mymap_en',height="450px")),
                               
                               column(4,
-                                     h3("Some help on the App"),
-                                     p("Welcome to our App helping you moving around and finding the best bars in Marburg, here are the functionalities of this interactive map:"),
-                                     HTML("<ul><li>When you hover your mouse on the bus stop nearby stores will appear</li><li>Clicking on a bus stop will fix the stores, in addition some bus stop have a link to a detailed map like:<b><a target='_blank' href='http://www.stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Erlenring.pdf'>Erlenrnig</a></b></li><li>Clicking on the bus line will make a link to the timetable appear like: <b><a target='_blank' href='http://www.stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_1.pdf'>Linie 1</a></b></li><li>You can also restrict the type of stores shown by checking the specific boxes</li></ul>"),
+                                     h3("How to use this App"),
+                                     p("Welcome to our App which helps you with moving around and finding the best bars in Marburg. These are the functionalities of this interactive map:"),
+                                     HTML("<ul><li>When you hover your mouse on the bus stop, nearby stores will appear</li><li>Clicking on a bus stop will fix the stores. Some bus stop have a link to a detailed map like: <b><a target='_blank' href='http://www.stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Erlenring.pdf'>Erlenring</a></b></li><li>Clicking on the bus line will make a link to the timetable appear like: <b><a target='_blank' href='http://www.stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_1.pdf'>Linie 1</a></b></li><li>You can also restrict the type of stores shown by checking the specific boxes</li></ul>"),
                                      p("Enjoy and have a nice time in Marburg!")
                                      
                               ),
@@ -51,23 +51,23 @@ shinyUI(navbarPage("GfÖ 2016",id="tabs",
                                      leafletOutput('mymap_de',height="450px")),
                               
                               column(4,
-                                     h3("Kleine Hilfe für den App"),
-                                     p("Wilkommen bei unsere App, die soll Ihren Aufenthalt und Ihren Versuch von den besten Bars in Marburg leichter machen. Hier sind ein paar möglichkeiten:"),
-                                     HTML("<ul><li>When you hover your mouse on the bus stop nearby stores will appear</li><li>Clicking on a bus stop will fix the stores, in addition some bus stop have a link to a detailed map like:<b><a target='_blank' href='http://www.stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Erlenring.pdf'>Erlenrnig</a></b></li><li>Clicking on the bus line will make a link to the timetable appear like: <b><a target='_blank' href='http://www.stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_1.pdf'>Linie 1</a></b></li><li>You can also restrict the type of stores shown by checking the specific boxes</li></ul>"),
-                                     p("Enjoy and have a nice time in Marburg!")
+                                     h3("Eine kleine Hilfe für diese App"),
+                                     p("Wilkommen in unserer App, die Dir dabei hilft dich in Marburg zurechtzufinden und die besten Bars in Marburg zu entdecken. Und so funktioniert's:"),
+                                     HTML("<ul><li>Sobald Du die Maus über eine Bushaltestelle bewegst, werden die wichtigen Orte in der Nähe angezeigt</li><li>Beim Klicke auf die Bushaltestelle werden die Icons fixiert und mit einem Mausklick wird deren Beschreibung angezeigt. Einige Bushaltestellen enthalten einen Link zu einer detailierten Karte: <b><a target='_blank' href='http://www.stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Erlenring.pdf'>Erlenring</a></b></li><li>Beim Klicken auf die Buslinie erscheint ein Link zu den Abfahrtszeiten: <b><a target='_blank' href='http://www.stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_1.pdf'>Linie 1</a></b></li><li>Mit Hilfe der Auswahlboxen können spezielle Orte ausgewählt werden</li></ul>"),
+                                     p("Viel Spaß und eine gute Zeit in Marburg!")
                             )),
                             fluidRow(
                               column(5, offset = 1,
-                                     checkboxGroupInput("stores_de", label = h3("Geschäftsauswahl:"), 
+                                     checkboxGroupInput("stores_de", label = h3("Wähle eine oder mehrere Geschäfte:"), 
                                                         choices = list("Bar" = "bar_pub_bistro", "Restaurant" = "restaurant", "Bakerei" = "bakery","Hotel"="accomodation","Imbiss"="imbiss","Cafe"="cafe","Apotheke"="pharmacy","Supermarkt"="supermarket","Taxi"="taxi"),
                                                         selected = "bar_pub_bistro",inline=TRUE)
                               ),
                               column(5,
-                                     radioButtons("lines_de",label=h3("Buslinie Auswahlen:"),choices=list("Linie 1"=1,"Linie 2"=2,"Linie 3"=3,"Linie 4"=4,"Linie 5"=5,"Linie 6"=6,"Linie 7"=7,"Linie 8"=8,"Linie 9"=9,"Linie 10"=10),selected=1,inline=TRUE)
+                                     radioButtons("lines_de",label=h3("Wähle eine oder mehrere Buslinien:"),choices=list("Linie 1"=1,"Linie 2"=2,"Linie 3"=3,"Linie 4"=4,"Linie 5"=5,"Linie 6"=6,"Linie 7"=7,"Linie 8"=8,"Linie 9"=9,"Linie 10"=10),selected=1,inline=TRUE)
                               ),
                             hr(),
                             column(8,offset=3,
-                                   HTML("Diese App würde von <b><a target='_blank' href=http://toek.wzw.tum.de/index.php?id=147>Lionel Hertzog</a></b> und <b><a target='_blank' href='http://toek.wzw.tum.de/index.php?id=106'>Nadja Simons</a></b> entwickeln")
+                                   HTML("Diese App wurde von <b><a target='_blank' href=http://toek.wzw.tum.de/index.php?id=147>Lionel Hertzog</a></b> und <b><a target='_blank' href='http://toek.wzw.tum.de/index.php?id=106'>Nadja Simons</a></b> entwickelt")
                             )
                             ))
 ))

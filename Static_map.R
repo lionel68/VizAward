@@ -41,25 +41,30 @@ icon_uni<-makeAwesomeIcon(icon="university",library="fa",markerColor="red",iconC
 icon_bus<-makeAwesomeIcon(icon="bus",library = "fa",markerColor="darkblue",iconColor="white")
 
 icons<-awesomeIconList(
-  bar_pub_bistro=makeAwesomeIcon(icon = "beer",library = "fa",markerColor = "orange",iconColor = "green"),
-  restaurant=makeAwesomeIcon(icon = "cutlery",library = "fa",markerColor = "white",iconColor = "darkred"),
-  supermarket=makeAwesomeIcon(icon="shopping-cart",library = "glyphicon",markerColor = "cadetblue",iconColor = "#c3f971"),
-  pharmacy=makeAwesomeIcon(icon="medkit",library="fa",markerColor = "white",iconColor="red"),
-  accomodation=makeAwesomeIcon(icon="building-o",library="fa",markerColor = "white",iconColor = "yellow"),
-  bakery=makeAwesomeIcon(icon="grain",library="glyphicon",markerColor = "white",iconColor="orange"),
-  cafe=makeAwesomeIcon(icon="coffee",library="fa",markerColor = "cadetblue",iconColor="orange"),
-  imbiss=makeAwesomeIcon(icon="pizza",library="ion",markerColor = "white",iconColor="pink"),
-  taxi=makeAwesomeIcon(icon="taxi",library="fa",markerColor = "darkblue")
-)
+  bar_pub_bistro=makeAwesomeIcon(icon = "beer",library = "fa",markerColor = "white",iconColor = "#8dd3c7"),
+  restaurant=makeAwesomeIcon(icon = "cutlery",library = "fa",markerColor = "white",iconColor = "#e6e600"),
+  supermarket=makeAwesomeIcon(icon="shopping-cart",library = "glyphicon",markerColor = "white",iconColor = "#bebada"),
+  pharmacy=makeAwesomeIcon(icon="medkit",library="fa",markerColor = "white",iconColor="#fb8072"),
+  accomodation=makeAwesomeIcon(icon="building-o",library="fa",markerColor = "white",iconColor = "#80b1d3"),
+  bakery=makeAwesomeIcon(icon="grain",library="glyphicon",markerColor = "white",iconColor="#fdb462"),
+  cafe=makeAwesomeIcon(icon="coffee",library="fa",markerColor = "white",iconColor="#b3de69"),
+  imbiss=makeAwesomeIcon(icon="pizza",library="ion",markerColor = "white",iconColor="#d90d76"),
+  taxi=makeAwesomeIcon(icon="taxi",library="fa",markerColor = "white",iconColor = "#737373")
+) 
 
-circle_color <- colorFactor(palette = "Set3", domain = stores$Group,n = length(unique(stores$Group)))
+circle_color <- colorFactor(palette = c("#80b1d3","#fdb462","#8dd3c7","#b3de69","#d90d76","#fb8072","#e6e600","#bebada","#737373"), 
+                            domain = c("accomodation","bakery","bar_pub_bistro","cafe","imbiss",
+                                       "pharmacy","restaurant","supermarket","taxi"))
 
 # Create labels and colors for legend
 stores %>% mutate(legend_labels = Group) %>% 
   mutate(legend_labels = ifelse(legend_labels %in% "bar_pub_bistro","bar/pub/bistro",legend_labels)) -> stores
 
-legend_color <- colorFactor(palette = "Set3",domain = stores$legend_labels,
-                            n = length(unique(stores$legend_labels)))
+legend_color <- colorFactor(palette = c("#80b1d3","#fdb462","#8dd3c7","#b3de69","#d90d76","#fb8072","#e6e600","#bebada","#737373"), 
+                            domain = c("accomodation","bakery","bar/pub/bistro","cafe","imbiss",
+                                       "pharmacy","restaurant","supermarket","taxi"))
+
+# Important: Define the palette alphabetically!
 
 # create a dataframe for the lines connecting store markers and bus stops
 stores_lines <- stores
@@ -88,7 +93,7 @@ leaflet() %>%
   addPolylines(data=bus_line_list[[8]],stroke=TRUE,color=col_line(8),noClip=FALSE,opacity = opacity_bus_lines)%>%
   addPolylines(data=bus_line_list[[9]],stroke=TRUE,color=col_line(9),noClip=FALSE,opacity = opacity_bus_lines)%>%
   addPolylines(data=bus_line_list[[10]],stroke=TRUE,color=col_line(10),noClip=FALSE,opacity = opacity_bus_lines) %>%
-  addCircleMarkers(data=stores,radius =10,color = ~circle_color(Group),stroke = FALSE, fillOpacity = 0.9) -> static_map
+  addCircleMarkers(data=stores,radius =10,stroke = TRUE, color = "white", fillColor = ~circle_color(Group),fillOpacity = 0.9) -> static_map
 
 # Add lines between points and stops
   for(i in 1:length(unique(stores_lines$StoreID))){
