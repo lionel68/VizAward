@@ -16,6 +16,20 @@ library(plyr)
 library(dplyr)
 library(viridis) # to make color palette
 
+## We want to save the map as png
+ # Solution from StackOverflow: http://stackoverflow.com/questions/31336898/how-to-save-leaflet-in-rstudio-map-as-png-or-jpg-file
+ # Note: PhantomJS needs to be downloaded from http://phantomjs.org/ to c:/Users/AppData/Roaming/PhantomJS
+
+## install 'webshot' package
+install_github("wch/webshot")
+
+## load packages
+library(htmlwidgets)
+library(webshot)
+# install the downloaded PhantomJS
+webshot::install_phantomjs()
+
+## Making the map
 #color palette for the bus line or use busline_colors
 col_line <- colorFactor(viridis(length(bus_line_list)),as.character(1:length(bus_line_list)))
 opacity_bus_lines <- 0.3
@@ -25,6 +39,7 @@ names(bus_line_list) <- c(1:length(bus_line_list))
 # create icons with the leaflet package
 icon_uni<-makeAwesomeIcon(icon="university",library="fa",markerColor="red",iconColor="white")
 icon_bus<-makeAwesomeIcon(icon="bus",library = "fa",markerColor="darkblue",iconColor="white")
+
 icons<-awesomeIconList(
   bar_pub_bistro=makeAwesomeIcon(icon = "beer",library = "fa",markerColor = "orange",iconColor = "green"),
   restaurant=makeAwesomeIcon(icon = "cutlery",library = "fa",markerColor = "white",iconColor = "darkred"),
@@ -37,9 +52,14 @@ icons<-awesomeIconList(
   taxi=makeAwesomeIcon(icon="taxi",library="fa",markerColor = "darkblue")
 )
 
-circle_color <- colorFactor(c("#8dd3c7","#ffffb3","#bebada","#fb8072","#80b1d3","#fdb462","#b3de69","#fccde5","#d9d9d9"), 
-                            domain = c("bar_pub_bistro", "restaurant","supermarket","pharmacy","accomodation","bakery",
-                                       "cafe","imbiss","taxi"))
+circle_color <- colorFactor(palette = "Set3", domain = stores$Group,n = length(unique(stores$Group)))
+
+# Create labels and colors for legend
+stores %>% mutate(legend_labels = Group) %>% 
+  mutate(legend_labels = ifelse(legend_labels %in% "bar_pub_bistro","bar/pub/bistro",legend_labels)) -> stores
+
+legend_color <- colorFactor(palette = "Set3",domain = stores$legend_labels,
+                            n = length(unique(stores$legend_labels)))
 
 # create a dataframe for the lines connecting store markers and bus stops
 stores_lines <- stores
@@ -54,13 +74,9 @@ stores_lines <- rbind(stores_lines,stores)
 # create the static map
 
 leaflet() %>%
-  setView(lng=8.774149, lat=50.810685,zoom = 14)%>%
-  addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw",
-          option=tileOptions(minZoom=13,maxZoom=18)) %>%
-  # addAwesomeMarkers(data=busstop_new,lng=~Longitude,lat=~Latitude,popup=~Tag)%>%
-  addAwesomeMarkers(lng=8.774149, lat=50.810685, popup="The conference venue",icon=icon_uni)%>%
+  addTiles("https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlvbmVsNjgiLCJhIjoiY2lyOHVtY2ZqMDAycmlsbHd3cXF4azhzdiJ9.FHJtGBW1bhjCr-JLnC4brw") %>%
+  setView(lng=8.773500, lat=50.810600,zoom = 15) %>%
   addAwesomeMarkers(data=busstop_new,lng=~Longitude,lat=~Latitude,label=~Name2,icon=icon_bus)%>%
-  # addAwesomeMarkers(data=stores,lng=~Longitude,lat=~Latitude,icon=~icons[Group],label = ~Labels,labelOptions = list(opacity=5)) %>% 
   
   addPolylines(data=bus_line_list[[1]],stroke=TRUE,color=col_line(1),noClip=FALSE,opacity = opacity_bus_lines)%>%
   addPolylines(data=bus_line_list[[2]],stroke=TRUE,color=col_line(2),noClip=FALSE,opacity = opacity_bus_lines)%>%
@@ -82,20 +98,21 @@ leaflet() %>%
                           lng = c(as.numeric(stores_lines[stores_lines$StoreID==store_name, "Longitude"])),
                           color = "grey", fillColor = "grey", fillOpacity = 0.9, weight = 2)
   }
-static_map
-  
-# addPolylines(data = stores_lines, lng = ~Longitude, lat = ~Latitude, group = ~StoreID,color = "#03F", weight = 5, opacity = 0.5)
-  
 
-# neither a loop nor l_ply worked as a more elegant solution to plotting the bus lines
-  # l_ply(bus_line_list,function(x) addPolylines(data=x,stroke=TRUE,color=col_line(as.numeric(names(x))),noClip=FALSE))
-  
-# TO DO:
+# Adding a legend
+static_map <- static_map %>% addLegend("bottomright", pal = legend_color, values = stores$legend_labels,
+                                   title = "Stores and other amenities",
+                                   opacity = 1)
+# Adding a legend for the bus icon
+html_legend <- "<span>
+  <i class='fa fa-bus icon-white'></i>
+</span></i>nearest bus stop" 
 
-# Select a part of the map as an example area
-# Show connecting lines between bus stops and stores
-# Check if there are also round markers, or use color-coded points for stores
-# Alternative: make the markers much smaller
 
-## Idea for upgrade:
-# Use clusterOptions = markerClusterOptions() for the stores in the interactive map and when option is "show all"
+static_map <- static_map %>% addControl(html = html_legend, position = "topright")
+
+# Saving the static map as png
+
+saveWidget(static_map, "static_map_temp.html", selfcontained = FALSE)
+webshot("static_map_temp.html", file = "static_map.png",
+        cliprect = "viewport")

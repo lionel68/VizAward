@@ -10,6 +10,8 @@
 library(plyr)
 library(dplyr)
 library(tidyr) # more data management
+library(sp)
+library(rgeos)
 
 # Import the templates
 
