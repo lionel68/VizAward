@@ -26,6 +26,7 @@ shinyUI(navbarPage("GfÖ 2016",id="tabs",
                                      h3("How to use this App"),
                                      p("Welcome to our App which helps you with moving around and finding the best bars in Marburg. These are the functionalities of this interactive map:"),
                                      HTML("<ul><li>When you hover your mouse on the bus stop, nearby stores will appear</li><li>Clicking on a bus stop will fix the stores. Some bus stop have a link to a detailed map like: <b><a target='_blank' href='http://www.stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Erlenring.pdf'>Erlenring</a></b></li><li>Clicking on the bus line will make a link to the timetable appear like: <b><a target='_blank' href='http://www.stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_1.pdf'>Linie 1</a></b></li><li>You can also restrict the type of stores shown by checking the specific boxes</li></ul>"),
+                                     p("For example: To find the venue for the GfÖ Club Night/BBQ, select 'Restaurant' and bus line 10. Then search for the bus stop 'Ortenbergcenter' and a click on the bus icon will show you the restaurant."),
                                      p("Enjoy and have a nice time in Marburg!")
                                      
                               ),
@@ -54,6 +55,7 @@ shinyUI(navbarPage("GfÖ 2016",id="tabs",
                                      h3("Eine kleine Hilfe für diese App"),
                                      p("Wilkommen in unserer App, die Dir dabei hilft dich in Marburg zurechtzufinden und die besten Bars in Marburg zu entdecken. Und so funktioniert's:"),
                                      HTML("<ul><li>Sobald Du die Maus über eine Bushaltestelle bewegst, werden die wichtigen Orte in der Nähe angezeigt</li><li>Beim Klicke auf die Bushaltestelle werden die Icons fixiert und mit einem Mausklick wird deren Beschreibung angezeigt. Einige Bushaltestellen enthalten einen Link zu einer detailierten Karte: <b><a target='_blank' href='http://www.stadtwerke-marburg.de/fileadmin/media/stadtverkehr/haltest/Erlenring.pdf'>Erlenring</a></b></li><li>Beim Klicken auf die Buslinie erscheint ein Link zu den Abfahrtszeiten: <b><a target='_blank' href='http://www.stadtwerke-marburg.de/fileadmin/media/stadtverkehr/Fahrplan_2016/ab_11.04.16/Linie_1.pdf'>Linie 1</a></b></li><li>Mit Hilfe der Auswahlboxen können spezielle Orte ausgewählt werden</li></ul>"),
+                                     p("Um zum Beispiel das Restaurant für die Club Night zu finden, wähle 'Restaurant' und die Buslinie 10 aus. Suche die Haltestelle Ortenbergcenter und ein Klick auf das Bus-Icon zeigt dir das Restaurant."),
                                      p("Viel Spaß und eine gute Zeit in Marburg!")
                             )),
                             fluidRow(
