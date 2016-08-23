@@ -1,40 +1,25 @@
 # Visualization Award GfO 2016
 
-This repository is for sharing and updating the code for the visualization awards at the GfO conference in Marburg in 2016.
+This repository is for sharing the code for the contribution of Lionel Hertzog and Nadja Simons to the visualization award of the GfÖ meeting in Marburg 2016.
 
-## The data
+Below is a short description of the repository
 
-Description of the dataset
+## Data
 
-## Objectives
+This folder contain all the data used to make the map. Two R-scripts are provided to import the transport data (Data_ import.R) and to format the data (Data_preparation.R).
 
-Win, of course!
+## Static_map
 
-## Ideas
+This folder contain the R code to create the static map.
 
-Below is a list of the first ideas:
+## VizAwars_shiny
 
-1. Classify the entries based on the type of store (restaurant, pharmacy ...), use this as color coding or drop-down menu in a shiny app
-2. Compute the distance between the conference center and the entries 
-3. Compute commuting time from the conference center to the entries (walking, bus ...)
-4. Look for clusters, ie some areas in town where many stores are ...
+This folder contain the code to run the ShinyApp, if you want to run the App locally download this folder then run shinyAppDir("path-to-folder/VizAward_shiny") from R.
 
-##Next steps
+## Other objects
 
-* Discuss ideas and set workflow (18.07.2016)
+The repository also contain a pdf of the bus network of Marburg and an Rproject file for the data preparation.
 
-##TO DO:
 
-### Shiny
-
--> When hovering on a bus stop: Show nearby stores + in a window: bus stop name and bus lines numbers
-
--> When clicking on a bus stop: Show nearby stores + plot bus lines
-
--> Add the option to show all information on the map
-
--> Make the map bigger
-
--> Limit the maximum out zoom possible (DONE)
 
 
