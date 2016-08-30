@@ -3,7 +3,7 @@
 #This file is used to import the raw data on localities and the geographic information #
 #code written by Lionel R. Hertzog and Nadja Simmons
 
-#Updated: 28.07.2016
+#Updated: 30.08.2016
 ########################################################################################
 
 ## Loading vector data
@@ -31,8 +31,7 @@ head(csv_file.df)
 summary(csv_file.df) 
 
 # Create a spatial object from the csv data
-csv.spdf <- SpatialPointsDataFrame(csv_file.df[,c("longitude","latitude")], 
-                                        data = csv_file.df)
+csv.spdf <- SpatialPointsDataFrame(csv_file.df[,c("longitude","latitude")],data = csv_file.df)
 
 # What is the extend of the data points?
 bbox(csv.spdf)
@@ -47,7 +46,7 @@ marburg_area = extent(raster(xmn = 8.6893, xmx = 8.8145, ymn = 50.7700, ymx = 50
 
 # manually download a map of Hesse from http://download.geofabrik.de/europe/germany/hessen.html
 # hessen-latest-shp.zip -> unzip to:
-# folder "VizAward_Data" which is on the same level as the current directory
+# folder "VizAward_Data" which has to be on the same level as the current directory
 
 Hesse_roads <- readOGR("../VizAward_Data/hessen-latest.shp","roads") # this takes some time
 
@@ -56,7 +55,7 @@ Hesse_roads_sel = crop(Hesse_roads, marburg_area)
 
 rm(Hesse_roads) # make space in the environment
 
-# Export of bus route information from OpenStreetMap at http://overpass-turbo.eu/
+# Download bus route information from OpenStreetMap at http://overpass-turbo.eu/
 # Go to the above url -> copy-paste the code below into the white box on the left (show via Wizard)
 # -> run the query -> export in GPX format into the "VizAward_Data" folder
 

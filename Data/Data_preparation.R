@@ -3,17 +3,13 @@
 #This file is used to prepare the final data used in the shiny application             #
 #code written by Lionel R. Hertzog and Nadja Simmons
 
-#Updated: 17.08.2016
+#Updated: 30.08.2016
 ########################################################################################
 
 
-library(plyr)
-library(dplyr)
 library(tidyr) # more data management
-library(sp)
-library(rgeos)
 
-# Import the templates
+# Import templates for the final bus stop and stores data
 
 busstop_tmp <- read.csv("Data/template_busstop.csv", sep = ",")
 stores_tmp <- read.csv("Data/template_stores.csv", sep = ",")
@@ -34,6 +30,7 @@ str(stores_tmp)
 # $ Labels   : Factor w/ 4 levels "Am Adler","Mensa",..: 2 1 3 4
 # $ BusStopID: int  1 1 1 1
 
+###----------------------------------------------------------------------------------------------
 ### I. Prepare the store data
 str(csv_file.df)
 # $ latitude       : num  50.8 50.8 50.8 50.8 50.8 ...
@@ -68,13 +65,10 @@ stores<-subset(stores,Group!="other_essentials")
 #remove duplicated points
 stores<-stores[-which(duplicated(stores[,c("Longitude","Latitude")])),]
 
-# Repeat selection of spatialPointsDataframe
+# Repeat selection for the spatialPointsDataframe
 csv.spdf[validUTF8(as.character(csv.spdf$name)),] -> stores.sp
 stores.sp[validUTF8(as.character(stores.sp$name)),] -> stores.sp
-
-#remove category other essentials
 stores.sp<-subset(stores.sp,stores.sp$category!="other_essentials")
-#remove duplicated points
 stores.sp<-stores.sp[-which(duplicated(stores.sp@coords[,c("longitude","latitude")])),]
 
 ###--------------------------------------------------------------------------------------
@@ -140,19 +134,9 @@ busstops_nearest <- cbind(busstops_nearest, NbBusLine = 0, BusLine = "L",strings
 # make sure that BusLine is not a factor but a character
 str(busstops_nearest)
 
-# # for each bus line, search for those bus stops in the selection which are part of their route
-# for (i in 1:length(bus_line_list)){
-#   stops <- which(busstops_nearest.sp$name%in%bus_line_list[[i]]@data$name)
-#   busstops_nearest[stops,"NbBusLine"] <- busstops_nearest[stops,"NbBusLine"]+1
-#   busstops_nearest[stops,"BusLine"] <- paste(busstops_nearest[stops,"BusLine"],as.character(i),sep = "-")
-# }
-### This does not work once the names of bus stops are corrected!
-
-###################
-#Alternative way
-#########
-#using gIntersection
-#find which bus stops intersect with which lines
+## for each bus line, search for those bus stops in the selection which are part of their route
+# using gIntersection
+# find which bus stops intersects with which lines
 bus_sp<-busstops_nearest
 coordinates(bus_sp)<-bus_sp[,c("Longitude","Latitude")]
 proj4string(bus_sp)<-proj4string(bus_line_list[[1]])
@@ -180,8 +164,7 @@ head(busstop_new)
 
 # Recalculate the nearest neighbour for each store among the new bus stops
 class(busstop_new) <- "data.frame"
-busstop_new.sp <- SpatialPointsDataFrame(busstop_new[,c("Longitude","Latitude")], 
-                                   data = busstop_new)
+busstop_new.sp <- SpatialPointsDataFrame(busstop_new[,c("Longitude","Latitude")],data = busstop_new)
 proj4string(busstop_new.sp) <- proj4string(stores.sp)
 
 snap_new <- apply(spDists(stores.sp, busstop_new.sp), 1, which.min)
@@ -193,8 +176,8 @@ head(stores)
 
 busstop_new$BusStopID<-paste("Stop",1:nrow(busstop_new))
 
-#add link to HTML page
-pages<-readLines("Data/bus_pages.txt") #this is just a file with the bus stops where extra infos is available
+# add links to HTML page with further information on some of the bus stops
+pages<-readLines("Data/bus_pages.txt") #this is a file with the bus stops where extra infos is available
 busstop_new$Tag<-busstop_new$Name2
 
 for(i in which(busstop_new$Tag%in%pages)){

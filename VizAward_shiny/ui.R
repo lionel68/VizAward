@@ -6,16 +6,12 @@
 # 
 #    http://shiny.rstudio.com/
 #
-
-
-#Make Layout nicer (TODO)
-#Add more user controls (TODO)
-
+#############################################################################
 
 library(shiny)
 library(leaflet)
 
-# Define UI for application that draws a histogram
+# Define UI for application
 shinyUI(navbarPage("GfÖ 2016",id="tabs",
                    tabPanel("English",
                             fluidRow(
